@@ -1,2 +1,1 @@
-# Advanced-Go-Programming
-Advanced Go Programming, published by Packt
+# The code for this repository is under development :construction_worker:
