@@ -25,16 +25,8 @@ func dataUser(ctx context.Context, wg *sync.WaitGroup, updateCh <-chan *update) 
 	defer wg.Done()
 
 	data := map[int64]string{
-		0: "",
-		1: "",
-		2: "",
-		3: "",
-		4: "",
-		5: "",
-		6: "",
-		7: "",
-		8: "",
-		9: "",
+		0: "", 1: "", 2: "", 3: "", 4: "",
+		5: "", 6: "", 7: "", 8: "", 9: "",
 	}
 
 	// simulate a high number of data reads/uses
@@ -44,7 +36,6 @@ func dataUser(ctx context.Context, wg *sync.WaitGroup, updateCh <-chan *update) 
 	for {
 		select {
 		case <-readUsage.C:
-			// lock the data
 			runs++
 			useTheData(data)
 
@@ -58,12 +49,6 @@ func dataUser(ctx context.Context, wg *sync.WaitGroup, updateCh <-chan *update) 
 			fmt.Printf("runs: %d\n", runs)
 			return
 		}
-	}
-}
-
-func useTheData(in map[int64]string) {
-	for key, value := range in {
-		fmt.Printf("%d -> %s\n", key, value)
 	}
 }
 
@@ -85,6 +70,12 @@ func dataUpdater(ctx context.Context, wg *sync.WaitGroup, updateCh chan<- *updat
 		case <-ctx.Done():
 			return
 		}
+	}
+}
+
+func useTheData(in map[int64]string) {
+	for key, value := range in {
+		fmt.Printf("%d -> %s\n", key, value)
 	}
 }
 

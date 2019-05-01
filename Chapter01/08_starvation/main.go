@@ -29,7 +29,7 @@ func main() {
 	go selfishChecker(ctx, wg, "https://www.sage42.org")
 
 	wg.Add(1)
-	go minimalistChecker(ctx, wg, "https://www.packtpub.com")
+	go ooliteChecker(ctx, wg, "https://www.packtpub.com")
 
 	// wait until all goroutines have shutdown
 	wg.Wait()
@@ -47,7 +47,7 @@ func selfishChecker(ctx context.Context, wg *sync.WaitGroup, url string) {
 		select {
 		case <-ctx.Done():
 			// time to shut down
-			fmt.Printf("long lock: total updates %d\n", totalAttempts)
+			fmt.Printf("selish: total updates %d\n", totalAttempts)
 			return
 
 		default:
@@ -73,7 +73,7 @@ func selfishChecker(ctx context.Context, wg *sync.WaitGroup, url string) {
 	}
 }
 
-func minimalistChecker(ctx context.Context, wg *sync.WaitGroup, url string) {
+func ooliteChecker(ctx context.Context, wg *sync.WaitGroup, url string) {
 	defer wg.Done()
 
 	// track how many updates we perform
@@ -85,7 +85,7 @@ func minimalistChecker(ctx context.Context, wg *sync.WaitGroup, url string) {
 		select {
 		case <-ctx.Done():
 			// time to shut down
-			fmt.Printf("short lock: total updates %d\n", totalAttempts)
+			fmt.Printf("polite: total updates %d\n", totalAttempts)
 			return
 
 		default:

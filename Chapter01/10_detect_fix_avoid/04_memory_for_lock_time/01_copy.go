@@ -37,7 +37,7 @@ func reader(ctx context.Context) {
 		copy(cacheCopy, cache)
 		cacheMutex.Unlock()
 
-		// use the local copy of the cache without any locks
+		useTheData(cacheCopy)
 	}
 }
 
@@ -58,6 +58,10 @@ func updater(ctx context.Context) {
 			return
 		}
 	}
+}
+
+func useTheData(cacheCopy []string) {
+	// not implemented
 }
 
 func loadUpdates() []string {

@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCacheWithM(t *testing.T) {
+func TestCacheWithMutex(t *testing.T) {
 	cache := newCacheUsingMutex()
 
 	// store a value in the cache

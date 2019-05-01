@@ -5,7 +5,6 @@ func UpdateDestinationV2() {
 	results := doCalculation(sourceMap)
 	sourceMutex.Unlock()
 
-	// release locks
 	destinationMutex.Lock()
 	destinationMap = results
 	destinationMutex.Unlock()

@@ -8,13 +8,10 @@ import (
 )
 
 type PoliteChild struct {
-	name string
-
-	sibling *PoliteChild
-
+	name           string
+	sibling        *PoliteChild
 	chopsticksHeld int
-
-	full bool
+	full           bool
 }
 
 func (p *PoliteChild) Eat(ctx context.Context, wg *sync.WaitGroup, chopstick1, chopstick2 *chopstick) {

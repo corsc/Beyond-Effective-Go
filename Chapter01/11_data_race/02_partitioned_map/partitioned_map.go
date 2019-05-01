@@ -20,13 +20,13 @@ func NewPartitionedMap(partitions int) *PartitionedMap {
 	return out
 }
 
+type PartitionedMap struct {
+	partitions []*partition
+}
+
 type partition struct {
 	data  map[string]interface{}
 	mutex sync.RWMutex
-}
-
-type PartitionedMap struct {
-	partitions []*partition
 }
 
 func (p *PartitionedMap) Get(key string) (interface{}, bool) {

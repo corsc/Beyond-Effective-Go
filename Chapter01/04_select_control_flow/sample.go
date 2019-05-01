@@ -1,6 +1,6 @@
 package _4_select_control_flow
 
-func Sample() {
+func Example() {
 	dataCh := make(chan Data)
 	stopCh := make(chan struct{})
 

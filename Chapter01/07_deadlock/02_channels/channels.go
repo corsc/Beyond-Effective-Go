@@ -10,8 +10,10 @@ func main() {
 	go newPlayer("paul: ping", table)
 	go newPlayer("sally: pong", table)
 
-	// throw a ball at paul
+	// throw a ball onto the table
 	table <- &ball{}
+
+	// throw a ball second ball.  Causes deadlock
 	table <- &ball{}
 
 	<-time.After(3 * time.Second)

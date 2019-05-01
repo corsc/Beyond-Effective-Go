@@ -47,7 +47,6 @@ func dataUser(ctx context.Context, wg *sync.WaitGroup) {
 	for {
 		select {
 		case <-readUsage.C:
-			// lock the data
 			runs++
 
 			sharedDataMutex.RLock()
@@ -64,12 +63,6 @@ func dataUser(ctx context.Context, wg *sync.WaitGroup) {
 	}
 }
 
-func useTheData(in map[int64]string) {
-	for key, value := range in {
-		fmt.Printf("%d -> %s\n", key, value)
-	}
-}
-
 func dataUpdater(ctx context.Context, wg *sync.WaitGroup) {
 	defer wg.Done()
 
@@ -79,9 +72,7 @@ func dataUpdater(ctx context.Context, wg *sync.WaitGroup) {
 		select {
 		case <-update.C:
 			sharedDataMutex.Lock()
-
 			updateTheData(sharedData)
-
 			sharedDataMutex.Unlock()
 
 		case <-ctx.Done():
@@ -89,6 +80,12 @@ func dataUpdater(ctx context.Context, wg *sync.WaitGroup) {
 			update.Stop()
 			return
 		}
+	}
+}
+
+func useTheData(in map[int64]string) {
+	for key, value := range in {
+		fmt.Printf("%d -> %s\n", key, value)
 	}
 }
 
