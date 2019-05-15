@@ -1,4 +1,4 @@
-package _1_deadlock
+package _2_reentrant
 
 import (
 	"errors"

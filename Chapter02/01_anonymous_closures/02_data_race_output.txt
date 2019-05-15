@@ -1,0 +1,36 @@
+==================
+WARNING: DATA RACE
+Read at 0x00c000016098 by goroutine 8:
+  github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures.ExampleV2.func1()
+      [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures/02_data_race.go:22 +0x8f
+
+Previous write at 0x00c000016098 by goroutine 7:
+  github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures.ExampleV2()
+      [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures/02_data_race.go:17 +0x1b6
+  github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures.TestExampleV2()
+      [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures/02_data_race_test.go:8 +0x2f
+  testing.tRunner()
+      /usr/local/opt/go/libexec/src/testing/testing.go:827 +0x162
+
+Goroutine 8 (running) created at:
+  github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures.ExampleV2()
+      [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures/02_data_race.go:18 +0x24c
+  github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures.TestExampleV2()
+      [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/01_anonymous_closures/02_data_race_test.go:8 +0x2f
+  testing.tRunner()
+      /usr/local/opt/go/libexec/src/testing/testing.go:827 +0x162
+
+Goroutine 7 (running) created at:
+  testing.(*T).Run()
+      /usr/local/opt/go/libexec/src/testing/testing.go:878 +0x650
+  testing.runTests.func1()
+      /usr/local/opt/go/libexec/src/testing/testing.go:1119 +0xa8
+  testing.tRunner()
+      /usr/local/opt/go/libexec/src/testing/testing.go:827 +0x162
+  testing.runTests()
+      /usr/local/opt/go/libexec/src/testing/testing.go:1117 +0x4ee
+  testing.(*M).Run()
+      /usr/local/opt/go/libexec/src/testing/testing.go:1034 +0x2ee
+  main.main()
+      _testmain.go:46 +0x221
+==================

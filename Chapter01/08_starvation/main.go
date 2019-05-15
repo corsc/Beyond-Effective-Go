@@ -29,7 +29,7 @@ func main() {
 	go selfishChecker(ctx, wg, "https://www.sage42.org")
 
 	wg.Add(1)
-	go ooliteChecker(ctx, wg, "https://www.packtpub.com")
+	go politeChecker(ctx, wg, "https://www.packtpub.com")
 
 	// wait until all goroutines have shutdown
 	wg.Wait()
@@ -73,7 +73,7 @@ func selfishChecker(ctx context.Context, wg *sync.WaitGroup, url string) {
 	}
 }
 
-func ooliteChecker(ctx context.Context, wg *sync.WaitGroup, url string) {
+func politeChecker(ctx context.Context, wg *sync.WaitGroup, url string) {
 	defer wg.Done()
 
 	// track how many updates we perform

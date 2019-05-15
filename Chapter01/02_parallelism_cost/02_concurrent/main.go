@@ -1,4 +1,4 @@
-package sequential
+package _2_concurrent
 
 import (
 	"sync"

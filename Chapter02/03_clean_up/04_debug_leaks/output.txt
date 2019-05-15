@@ -1,0 +1,10 @@
+goroutine profile: total 2
+1 @ 0x102a84b 0x102a8f3 0x1004fee 0x1004d1b 0x10b4921 0x10534d1
+#	0x10b4920	main.main.func1+0x40	[removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/04_clean_up/04_debug_leaks/main.go:11
+
+1 @ 0x10add28 0x10adb30 0x10aa594 0x10b48bd 0x102a467 0x10534d1
+#	0x10add27	runtime/pprof.writeRuntimeProfile+0x97	/usr/local/opt/go/libexec/src/runtime/pprof/pprof.go:707
+#	0x10adb2f	runtime/pprof.writeGoroutine+0x9f	/usr/local/opt/go/libexec/src/runtime/pprof/pprof.go:669
+#	0x10aa593	runtime/pprof.(*Profile).WriteTo+0x3e3	/usr/local/opt/go/libexec/src/runtime/pprof/pprof.go:328
+#	0x10b48bc	main.main+0x7c				[removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter02/04_clean_up/04_debug_leaks/main.go:15
+#	0x102a466	runtime.main+0x206			/usr/local/opt/go/libexec/src/runtime/proc.go:201
