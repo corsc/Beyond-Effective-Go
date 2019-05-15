@@ -8,7 +8,7 @@ import (
 
 var db *sql.DB
 
-func Example03() {
+func Example3() {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 

@@ -1,14 +1,11 @@
 package _7_slow_consumers
 
-func Example() {
-	signalCh := make(chan struct{}, 1)
-
+func Example(signalCh chan struct{}) {
 	select {
 	case signalCh <- struct{}{}:
-	// send signal
+		// send signal
 
 	default:
 		// drop signal as one is already pending
 	}
-
 }

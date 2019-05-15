@@ -1,6 +1,6 @@
 package _3_clean_up
 
-func Example01() {
+func Example1() {
 	go func() {
 		for {
 			doSomething()

@@ -61,5 +61,4 @@ func (l *Loader) initializeDBPool() {
 	if err != nil {
 		panic(err)
 	}
-
 }

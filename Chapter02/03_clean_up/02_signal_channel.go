@@ -1,6 +1,6 @@
 package _3_clean_up
 
-func Example02() {
+func Example2() {
 	stopCh := make(chan struct{})
 	defer close(stopCh)
 

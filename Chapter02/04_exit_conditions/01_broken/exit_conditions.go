@@ -11,26 +11,6 @@ var db *sql.DB
 var cache = map[string]Person{}
 var cacheMutex = &sync.Mutex{}
 
-func RefreshPeopleCache(ctx context.Context, names []string) error {
-	errorCh := make(chan error)
-
-	wg := &sync.WaitGroup{}
-
-	// limit concurrency to 3
-	semaphoreCh := make(chan struct{}, 3)
-
-	for _, name := range names {
-		wg.Add(1)
-		go loadRecord(ctx, wg, semaphoreCh, errorCh, name)
-	}
-
-	wg.Wait()
-
-	close(errorCh)
-
-	return <-errorCh
-}
-
 func loadRecord(ctx context.Context, wg *sync.WaitGroup, semaphoreCh chan struct{}, errorCh chan error, name string) {
 	defer wg.Done()
 
@@ -54,6 +34,26 @@ func loadRecord(ctx context.Context, wg *sync.WaitGroup, semaphoreCh chan struct
 
 	// release semaphore
 	<-semaphoreCh
+}
+
+func RefreshPeopleCache(ctx context.Context, names []string) error {
+	errorCh := make(chan error)
+
+	wg := &sync.WaitGroup{}
+
+	// limit concurrency to 3
+	semaphoreCh := make(chan struct{}, 3)
+
+	for _, name := range names {
+		wg.Add(1)
+		go loadRecord(ctx, wg, semaphoreCh, errorCh, name)
+	}
+
+	wg.Wait()
+
+	close(errorCh)
+
+	return <-errorCh
 }
 
 type Person struct {

@@ -17,7 +17,6 @@ func Example(stopCh chan struct{}) {
 			return
 		}
 	}
-
 }
 
 func doWork() {
