@@ -1,19 +1,13 @@
 package _5_select_data_flow
 
-func FanInExample() {
-	stopCh := make(chan struct{})
-
-	inputChA := make(chan int)
-	inputChB := make(chan int)
-	outputCh := make(chan int)
-
+func FanInExample(stopCh chan struct{}, inputChA, inputChB chan int, outputCh chan int) {
 	for {
 		var data int
 		var isOpen bool
 
 		// read from whichever channel has data
 		select {
-		case data = <-inputChA:
+		case data, isOpen = <-inputChA:
 			if !isOpen {
 				inputChA = nil
 
@@ -23,7 +17,7 @@ func FanInExample() {
 				}
 			}
 
-		case data = <-inputChB:
+		case data, isOpen = <-inputChB:
 			if !isOpen {
 				// disable this case
 				inputChB = nil
@@ -35,7 +29,7 @@ func FanInExample() {
 			}
 
 		case <-stopCh:
-			// give up
+			// shut down
 			return
 		}
 

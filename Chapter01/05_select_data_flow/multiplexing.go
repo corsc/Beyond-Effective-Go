@@ -1,12 +1,8 @@
 package _5_select_data_flow
 
-func MultiplexingExample() {
-	stopCh := make(chan struct{})
-
-	inputChA := make(chan int)
-	inputChB := make(chan int)
-	outputChA := make(chan int)
-	outputChB := make(chan int)
+func MultiplexingExample(stopCh chan struct{},
+	inputChA, inputChB chan int,
+	outputChC, outputChD chan int) {
 
 	for {
 		var data int
@@ -24,7 +20,7 @@ func MultiplexingExample() {
 				}
 			}
 
-		case data = <-inputChB:
+		case data, isOpen = <-inputChB:
 			if !isOpen {
 				// disable this case
 				inputChB = nil
@@ -42,9 +38,9 @@ func MultiplexingExample() {
 
 		// write to whichever channel is empty
 		select {
-		case outputChA <- data:
+		case outputChC <- data:
 
-		case outputChB <- data:
+		case outputChD <- data:
 
 		case <-stopCh:
 			// give up

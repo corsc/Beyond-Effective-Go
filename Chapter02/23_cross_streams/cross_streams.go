@@ -1,6 +1,8 @@
 package _3_cross_streams
 
-import "sync"
+import (
+	"sync"
+)
 
 func Example() {
 	outputCh := make(chan Data)

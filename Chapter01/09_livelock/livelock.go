@@ -8,10 +8,9 @@ import (
 )
 
 type PoliteChild struct {
-	name           string
-	sibling        *PoliteChild
-	chopsticksHeld int
-	full           bool
+	name    string
+	sibling *PoliteChild
+	full    bool
 }
 
 func (p *PoliteChild) Eat(ctx context.Context, wg *sync.WaitGroup, chopstick1, chopstick2 *chopstick) {
@@ -34,7 +33,6 @@ func (p *PoliteChild) Eat(ctx context.Context, wg *sync.WaitGroup, chopstick1, c
 		if p.sibling.IsHungry() {
 			// attempt to yield and let the other process proceed
 			p.putDown(chopstick1)
-			p.chopsticksHeld--
 
 			<-time.After(100 * time.Millisecond)
 			continue
@@ -62,14 +60,12 @@ func (p *PoliteChild) pickup(chopstick *chopstick) {
 	fmt.Printf("%s: pick up\n", p.name)
 
 	chopstick.Pickup()
-	p.chopsticksHeld++
 }
 
 func (p *PoliteChild) putDown(chopstick *chopstick) {
 	fmt.Printf("%s: put down\n", p.name)
 
 	chopstick.PutDown()
-	p.chopsticksHeld--
 }
 
 func NewChopstick() *chopstick {
