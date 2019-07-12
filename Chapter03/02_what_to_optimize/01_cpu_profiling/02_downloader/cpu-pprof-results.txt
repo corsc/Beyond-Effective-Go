@@ -1,0 +1,16 @@
+(pprof) top20 -cum
+Showing nodes accounting for 2.68s, 100% of 2.68s total
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%      2.51s 93.66%  main.main
+         0     0%     0%      2.51s 93.66%  runtime.main
+     2.19s 81.72% 81.72%      2.19s 81.72%  main.download
+     0.20s  7.46% 89.18%      0.20s  7.46%  main.makeConnection
+         0     0% 89.18%      0.15s  5.60%  runtime.mstart
+         0     0% 89.18%      0.15s  5.60%  runtime.mstart1
+     0.15s  5.60% 94.78%      0.15s  5.60%  runtime.nanotime
+         0     0% 94.78%      0.15s  5.60%  runtime.sysmon
+     0.12s  4.48% 99.25%      0.12s  4.48%  main.closeConnection
+         0     0% 99.25%      0.02s  0.75%  runtime.notetsleep_internal
+         0     0% 99.25%      0.02s  0.75%  runtime.notetsleepg
+         0     0% 99.25%      0.02s  0.75%  runtime.timerproc
+     0.02s  0.75%   100%      0.02s  0.75%  runtime.usleep

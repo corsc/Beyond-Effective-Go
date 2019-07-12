@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/02_what_to_optimize/01_cpu_profiling/shared"
+	"github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/02_what_to_optimize/01_cpu_profiling/game"
 	"log"
 	"net/http"
 	"net/http/pprof"
@@ -21,7 +21,7 @@ func main() {
 	router.HandleFunc("/debug/pprof/trace", pprof.Trace)
 
 	// add our handler
-	router.HandleFunc("/", shared.CardShuffler)
+	router.HandleFunc("/", CardShuffler)
 
 	// start the default mux to host the profiling
 	go func() {
@@ -30,7 +30,7 @@ func main() {
 
 	// start a server
 	server := &http.Server{
-		Addr:    ":8080",
+		Addr:    ":8888",
 		Handler: router,
 	}
 
@@ -42,4 +42,23 @@ func main() {
 	signal.Notify(signalCh, os.Interrupt)
 	<-signalCh
 	_ = server.Close()
+}
+
+func CardShuffler(resp http.ResponseWriter, req *http.Request) {
+	// create a deck of cards
+	cards := game.NewDeck()
+
+	// intentionally shuffle a few times (to spend lots of CPU)
+	for x := 0; x < 100; x++ {
+		game.Shuffle(cards)
+	}
+
+	// return the result
+	for index, card := range cards {
+		if index > 0 {
+			_, _ = resp.Write([]byte(", "))
+		}
+		_, _ = resp.Write([]byte(card.Face))
+		_, _ = resp.Write([]byte(card.Suit))
+	}
 }

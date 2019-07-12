@@ -1,37 +1,33 @@
-package shared
+package game
 
 import (
 	"math/rand"
-	"net/http"
 	"time"
 )
 
-func CardShuffler(resp http.ResponseWriter, req *http.Request) {
-	// create a deck of cards
-	cards := newDeck()
-
-	// shuffle the cards
+// Shuffle randomizes the order of the supplied cards
+func Shuffle(cards []Card) {
 	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle(len(cards), func(a, b int) {
 		cards[a], cards[b] = cards[b], cards[a]
 	})
 
-	// return the result
-	for index, card := range cards {
-		if index > 0 {
-			_, _ = resp.Write([]byte(", "))
-		}
-		_, _ = resp.Write([]byte(card.Face))
-		_, _ = resp.Write([]byte(card.Suit))
+	waste := 0
+	for x := 0; x < 1000000; x++ {
+		// waste some CPU
+		waste++
 	}
+	println(waste)
 }
 
+// Card represents a single playing card
 type Card struct {
 	Suit string
 	Face string
 }
 
-func newDeck() []Card {
+// NewDeck creates a deck of cards (NOTE: the cards are in predictable order)
+func NewDeck() []Card {
 	cards := make([]Card, 52)
 
 	index := 0
