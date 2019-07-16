@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/02_what_to_optimize/02_memory_profiling/game"
 	"log"
 	"net/http"
 	"net/http/pprof"
 	"os"
 	"os/signal"
+
+	"github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/02_what_to_optimize/01_cpu_profiling/game"
 )
 
 func main() {
