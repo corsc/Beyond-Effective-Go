@@ -1,0 +1,27 @@
+Type: alloc_space
+Time: Jul 13, 2019 at 3:16pm (AEST)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top20 -cum
+Showing nodes accounting for 26.29MB, 77.64% of 33.86MB total
+Showing top 20 nodes out of 46
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%    31.86MB 94.09%  net/http.(*conn).serve
+         0     0%     0%    19.86MB 58.63%  net/http.(*ServeMux).ServeHTTP
+         0     0%     0%    19.86MB 58.63%  net/http.HandlerFunc.ServeHTTP
+         0     0%     0%    19.86MB 58.63%  net/http.serverHandler.ServeHTTP
+       4MB 11.81% 11.81%    17.52MB 51.75%  main.CardShuffler
+   13.52MB 39.93% 51.75%    13.52MB 39.93%  github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck
+    1.50MB  4.43% 56.18%     8.50MB 25.11%  net/http.(*conn).readRequest
+       3MB  8.86% 65.04%        5MB 14.77%  net/http.readRequest
+       1MB  2.95% 67.99%     2.50MB  7.38%  context.WithCancel
+    1.76MB  5.21% 73.20%     2.33MB  6.89%  compress/flate.NewWriter
+         0     0% 73.20%     2.33MB  6.89%  compress/gzip.(*Writer).Write
+         0     0% 73.20%     2.33MB  6.89%  net/http/pprof.Index
+         0     0% 73.20%     2.33MB  6.89%  net/http/pprof.handler.ServeHTTP
+         0     0% 73.20%     2.33MB  6.89%  runtime/pprof.(*Profile).WriteTo
+         0     0% 73.20%     2.33MB  6.89%  runtime/pprof.(*profileBuilder).build
+         0     0% 73.20%     2.33MB  6.89%  runtime/pprof.writeHeap
+         0     0% 73.20%     2.33MB  6.89%  runtime/pprof.writeHeapInternal
+         0     0% 73.20%     2.33MB  6.89%  runtime/pprof.writeHeapProto
+         0     0% 73.20%     1.51MB  4.45%  bufio.NewReader
+    1.51MB  4.45% 77.64%     1.51MB  4.45%  bufio.NewReaderSize

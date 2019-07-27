@@ -1,0 +1,63 @@
+$ go tool pprof http://0.0.0.0:6060/debug/pprof/block
+Fetching profile over HTTP from http://0.0.0.0:6060/debug/pprof/block
+Saved profile in [removed]/pprof/pprof.contentions.delay.003.pb.gz
+Type: delay
+Time: Jul 17, 2019 at 9:50am (AEST)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top10 -cum
+Showing nodes accounting for 1.04s, 100% of 1.04s total
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%      1.04s   100%  main.main
+         0     0%     0%      1.04s   100%  runtime.main
+     1.04s   100%   100%      1.04s   100%  sync.(*WaitGroup).Wait
+
+
+(pprof) list Wait
+Total: 1.04s
+ROUTINE ======================== sync.(*WaitGroup).Wait in /usr/local/opt/go/libexec/src/sync/waitgroup.go
+     1.04s      1.04s (flat, cum)   100% of Total
+         .          .    125:				// Need to model this is as a write to race with the read in Add.
+         .          .    126:				// As a consequence, can do the write only for the first waiter,
+         .          .    127:				// otherwise concurrent Waits will race with each other.
+         .          .    128:				race.Write(unsafe.Pointer(semap))
+         .          .    129:			}
+     1.04s      1.04s    130:			runtime_Semacquire(semap)
+         .          .    131:			if *statep != 0 {
+         .          .    132:				panic("sync: WaitGroup is reused before previous Wait has returned")
+         .          .    133:			}
+         .          .    134:			if race.Enabled {
+         .          .    135:				race.Enable()
+
+
+(pprof) list runtime.main
+Total: 1.04s
+ROUTINE ======================== runtime.main in /usr/local/opt/go/libexec/src/runtime/proc.go
+         0      1.04s (flat, cum)   100% of Total
+         .          .    195:		// A program compiled with -buildmode=c-archive or c-shared
+         .          .    196:		// has a main, but it is not executed.
+         .          .    197:		return
+         .          .    198:	}
+         .          .    199:	fn = main_main // make an indirect call, as the linker doesn't know the address of the main package when laying down the runtime
+         .      1.04s    200:	fn()
+         .          .    201:	if raceenabled {
+         .          .    202:		racefini()
+         .          .    203:	}
+         .          .    204:
+         .          .    205:	// Make racy client program work: if panicking on
+
+
+(pprof) list main.main
+Total: 1.04s
+ROUTINE ======================== main.main in [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/03_blocking_profiling/01_waitgroup/main.go
+         0      1.04s (flat, cum)   100% of Total
+         .          .     22:
+         .          .     23:		go performTask(wg)
+         .          .     24:	}
+         .          .     25:
+         .          .     26:	// wait until all tasks are complete
+         .      1.04s     27:	wg.Wait()
+         .          .     28:
+         .          .     29:	fmt.Print("All done!")
+         .          .     30:
+         .          .     31:	// start the default mux to host the profiling
+         .          .     32:	log.Println(http.ListenAndServe("0.0.0.0:6060", nil))

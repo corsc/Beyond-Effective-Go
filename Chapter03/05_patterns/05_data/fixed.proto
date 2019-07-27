@@ -1,0 +1,10 @@
+syntax = "proto3";
+package _5_data;
+
+message UserFixed {
+    int64 ID = 1;
+    string Name = 2;
+    string Email = 3;
+    string City = 4;
+    string Country = 5;
+}

@@ -1,0 +1,31 @@
+$ go tool pprof http://0.0.0.0:6060/debug/pprof/block
+Fetching profile over HTTP from http://0.0.0.0:6060/debug/pprof/block
+Saved profile in [removed]/pprof/pprof.contentions.delay.002.pb.gz
+Type: delay
+Time: Jul 17, 2019 at 9:48am (AEST)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top20 -cum
+Showing nodes accounting for 973.39s, 100% of 973.39s total
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%    953.32s 97.94%  main.performTask
+   953.32s 97.94% 97.94%    953.32s 97.94%  runtime.chansend1
+         0     0% 97.94%     20.06s  2.06%  main.main
+         0     0% 97.94%     20.06s  2.06%  runtime.main
+    20.06s  2.06%   100%     20.06s  2.06%  sync.(*WaitGroup).Wait
+
+
+(pprof) list main.performTask
+Total: 16.22mins
+ROUTINE ======================== main.performTask in [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/03_blocking_profiling/02_channel/main.go
+         0  15.89mins (flat, cum) 97.94% of Total
+         .          .     40:
+         .          .     41:		wg.Done()
+         .          .     42:	}()
+         .          .     43:
+         .          .     44:	// wait for semaphore
+         .  15.89mins     45:	semaphore <- struct{}{}
+         .          .     46:
+         .          .     47:	// do some task that takes a long time
+         .          .     48:	done := time.After(1 * time.Second)
+         .          .     49:	x := 0
+         .          .     50:

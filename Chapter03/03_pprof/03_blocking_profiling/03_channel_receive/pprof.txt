@@ -1,0 +1,14 @@
+$ go tool pprof http://0.0.0.0:6060/debug/pprof/block
+Fetching profile over HTTP from http://0.0.0.0:6060/debug/pprof/block
+Saved profile in [removed]/pprof/pprof.contentions.delay.005.pb.gz
+Type: delay
+Time: Jul 17, 2019 at 10:08am (AEST)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top10 -cum
+Showing nodes accounting for 18.92mins, 100% of 18.92mins total
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%  18.73mins 99.01%  main.consumeData
+ 18.73mins 99.01% 99.01%  18.73mins 99.01%  runtime.chanrecv2
+         0     0% 99.01%   0.19mins  0.99%  main.main
+         0     0% 99.01%   0.19mins  0.99%  runtime.main
+  0.19mins  0.99%   100%   0.19mins  0.99%  sync.(*WaitGroup).Wait

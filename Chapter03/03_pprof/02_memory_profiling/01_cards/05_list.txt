@@ -1,0 +1,16 @@
+(pprof) list github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/02_wha
+t_to_optimize/01_cpu_profiling/game.NewDeck
+Total: 33.86MB
+ROUTINE ======================== github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck in [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game/cards.go
+   13.52MB    13.52MB (flat, cum) 39.93% of Total
+         .          .     26:	Face string
+         .          .     27:}
+         .          .     28:
+         .          .     29:// NewDeck creates a deck of cards (NOTE: the cards are in predictable order)
+         .          .     30:func NewDeck() []Card {
+   13.52MB    13.52MB     31:	cards := make([]Card, 52)
+         .          .     32:
+         .          .     33:	index := 0
+         .          .     34:	for _, suit := range []string{"♣", "♡", "♢", "♠"} {
+         .          .     35:		for _, face := range []string{"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"} {
+         .          .     36:			cards[index] = Card{
