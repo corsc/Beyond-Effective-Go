@@ -4,7 +4,7 @@ Saved profile in [removed]/pprof/pprof.contentions.delay.002.pb.gz
 Type: delay
 Time: Jul 17, 2019 at 9:48am (AEST)
 Entering interactive mode (type "help" for commands, "o" for options)
-(pprof) top20 -cum
+(pprof) top10 -cum
 Showing nodes accounting for 973.39s, 100% of 973.39s total
       flat  flat%   sum%        cum   cum%
          0     0%     0%    953.32s 97.94%  main.performTask

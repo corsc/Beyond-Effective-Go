@@ -37,7 +37,7 @@ ROUTINE ======================== runtime.printint in /usr/local/opt/go/libexec/s
 (pprof) list github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/02_wha
 t_to_optimize/01_cpu_profiling/game.Shuffle
 Total: 4.58mins
-ROUTINE ======================== github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.Shuffle in /Users/corey.scott/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game/cards.go
+ROUTINE ======================== github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.Shuffle in [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game/cards.go
     52.55s   4.54mins (flat, cum) 99.28% of Total
          .          .      5:	"time"
          .          .      6:)

@@ -1,7 +1,6 @@
 package _4_optimization
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -25,14 +24,12 @@ func BenchmarkAdd(b *testing.B) {
 	}
 }
 
-func BenchmarkAddFixed(b *testing.B) {
-	var result int
+var result int
 
+func BenchmarkAddFixed(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		result = add(1, 2)
 	}
-
-	fmt.Printf("result: %d", result)
 }
 
 func add(i int, i2 int) int {

@@ -1,6 +1,8 @@
 package _1_preallocate
 
-import "testing"
+import (
+	"testing"
+)
 
 // $ go test -run=Bench. -bench=. -benchtime=10s ./Chapter03/05_patterns/11_preallocate/
 // goos: darwin

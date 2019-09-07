@@ -16,7 +16,12 @@ import (
 // ensure the test has a side effect
 var result string
 
-func benchToString(b *testing.B, people []Person) {
+func benchToString(b *testing.B, total int) {
+	people := make([]Person, total)
+	for x := 0; x < total; x++ {
+		people[x] = Person{ID: x, Name: fmt.Sprintf("test %d", x)}
+	}
+
 	b.ResetTimer()
 
 	for i := 0; i < b.N; i++ {
@@ -25,29 +30,15 @@ func benchToString(b *testing.B, people []Person) {
 }
 
 func BenchmarkPerson1(b *testing.B) {
-	in := []Person{
-		{ID: 1, Name: "John"},
-	}
-
-	benchToString(b, in)
+	benchToString(b, 1)
 }
 
 func BenchmarkPerson10(b *testing.B) {
-	in := make([]Person, 10)
-	for x := 0; x < 10; x++ {
-		in[x] = Person{ID: x, Name: fmt.Sprintf("test %d", x)}
-	}
-
-	benchToString(b, in)
+	benchToString(b, 10)
 }
 
 func BenchmarkPerson1000(b *testing.B) {
-	in := make([]Person, 1000)
-	for x := 0; x < 1000; x++ {
-		in[x] = Person{ID: x, Name: fmt.Sprintf("test %d", x)}
-	}
-
-	benchToString(b, in)
+	benchToString(b, 1000)
 }
 
 func toString(people []Person) string {
