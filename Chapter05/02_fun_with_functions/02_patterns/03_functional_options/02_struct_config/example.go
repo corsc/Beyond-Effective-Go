@@ -6,10 +6,6 @@ func NewStatsDClient(config *Config) *StatsClient {
 	}
 }
 
-type StatsClient struct {
-	// implementation removed
-}
-
 type Config struct {
 	host         string
 	port         int
@@ -17,4 +13,8 @@ type Config struct {
 	sendBuffer   int
 	validateKeys bool
 	tags         []string
+}
+
+type StatsClient struct {
+	// implementation removed
 }
