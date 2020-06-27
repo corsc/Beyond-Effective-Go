@@ -7,7 +7,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=10s ./Chapter03/05_patterns/11_preallocate/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/11_preallocate
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/11_preallocate
 // BenchmarkExample-8   	     100	 120309432 ns/op
 // BenchmarkFixed-8     	     200	  89336293 ns/op
 

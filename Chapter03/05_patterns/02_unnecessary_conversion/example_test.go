@@ -8,7 +8,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=10s ./Chapter03/05_patterns/02_unnecessary_conversion/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/02_unnecessary_conversion
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/02_unnecessary_conversion
 // BenchmarkExample-8   	100000000	       226 ns/op
 // BenchmarkFixed-8     	100000000	       171 ns/op
 

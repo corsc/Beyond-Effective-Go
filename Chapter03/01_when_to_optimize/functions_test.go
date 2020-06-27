@@ -8,7 +8,7 @@ import (
 // $ go test -bench=. -benchtime=15s ./Chapter03/01_when_to_optimize/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/01_when_to_optimize
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/01_when_to_optimize
 // BenchmarkCleanExample-8   	30000000	       767 ns/op
 // BenchmarkFastExample-8    	100000000	       249 ns/op
 

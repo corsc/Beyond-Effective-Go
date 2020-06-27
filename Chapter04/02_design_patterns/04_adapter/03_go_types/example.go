@@ -1,13 +1,13 @@
 package _3_go_types
 
 import (
-	"github.com/PacktPublishing/Advanced-Go-Programming/Chapter04/02_design_patterns/04_adapter/03_go_types/version1"
-	"github.com/PacktPublishing/Advanced-Go-Programming/Chapter04/02_design_patterns/04_adapter/03_go_types/version2"
+	"github.com/corsc/Advanced-Go-Programming/Chapter04/02_design_patterns/04_adapter/03_go_types/version1"
+	"github.com/corsc/Advanced-Go-Programming/Chapter04/02_design_patterns/04_adapter/03_go_types/version2"
 )
 
 func Usage() {
 	// Without the adapter this code throws
-	//	# github.com/PacktPublishing/Advanced-Go-Programming/Chapter04/02_design_patterns/04_adapter/03_go_types
+	//	# github.com/corsc/Advanced-Go-Programming/Chapter04/02_design_patterns/04_adapter/03_go_types
 	//	Chapter04/02_design_patterns/04_adapter/03_go_types/example.go:11:22: cannot use configVersion1 (type *version1.AppConfig) as type version2.AppConfig in argument to version2.UsageConfig:
 	//	*version1.AppConfig does not implement version2.AppConfig (wrong type for GetHostConfig method)
 	//	have GetHostConfig() version1.HostConfig

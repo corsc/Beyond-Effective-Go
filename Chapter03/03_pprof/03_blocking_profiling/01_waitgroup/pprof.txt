@@ -48,7 +48,7 @@ ROUTINE ======================== runtime.main in /usr/local/opt/go/libexec/src/r
 
 (pprof) list main.main
 Total: 1.04s
-ROUTINE ======================== main.main in [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/03_blocking_profiling/01_waitgroup/main.go
+ROUTINE ======================== main.main in [removed]/go/src/github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/03_blocking_profiling/01_waitgroup/main.go
          0      1.04s (flat, cum)   100% of Total
          .          .     22:
          .          .     23:		go performTask(wg)

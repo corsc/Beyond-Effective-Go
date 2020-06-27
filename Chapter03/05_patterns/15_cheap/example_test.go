@@ -8,7 +8,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=10s -benchmem ./Chapter03/05_patterns/15_cheap/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/15_cheap
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/15_cheap
 // BenchmarkExampleRegexOnlyBadInput-8    	200000000	        75.4 ns/op	       0 B/op	       0 allocs/op
 // BenchmarkExampleRegexOnlyGoodInput-8   	30000000	       431 ns/op	       0 B/op	       0 allocs/op
 // BenchmarkExampleFastFailBadInput-8     	10000000000	         2.21 ns/op	       0 B/op	       0 allocs/op

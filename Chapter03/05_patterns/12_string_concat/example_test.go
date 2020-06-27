@@ -8,7 +8,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=10s -benchmem ./Chapter03/05_patterns/12_string_concat/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/12_string_concat
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/12_string_concat
 // BenchmarkExample-8                	    2000	   7335893 ns/op	53164007 B/op	    9999 allocs/op
 // BenchmarkFixed-8                  	  500000	     25875 ns/op	   48504 B/op	      17 allocs/op
 // BenchmarkFixedWithPreallocate-8   	 1000000	     21235 ns/op	   10240 B/op	       1 allocs/op

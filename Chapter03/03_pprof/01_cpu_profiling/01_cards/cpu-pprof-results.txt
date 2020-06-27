@@ -7,7 +7,7 @@ Showing nodes accounting for 272.09s, 99.10% of 274.56s total
 Dropped 162 nodes (cum <= 1.37s)
       flat  flat%   sum%        cum   cum%
      0.01s 0.0036% 0.0036%    272.93s 99.41%  net/http.(*conn).serve
-    52.55s 19.14% 19.14%    272.58s 99.28%  github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.Shuffle
+    52.55s 19.14% 19.14%    272.58s 99.28%  github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.Shuffle
          0     0% 19.14%    272.58s 99.28%  main.CardShuffler
          0     0% 19.14%    272.58s 99.28%  net/http.(*ServeMux).ServeHTTP
          0     0% 19.14%    272.58s 99.28%  net/http.HandlerFunc.ServeHTTP
@@ -34,10 +34,10 @@ ROUTINE ======================== runtime.printint in /usr/local/opt/go/libexec/s
          .          .    219:func printhex(v uint64) {
          .          .    220:	const dig = "0123456789abcdef"
          .          .    221:	var buf [100]byte
-(pprof) list github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/02_wha
+(pprof) list github.com/corsc/Advanced-Go-Programming/Chapter03/02_wha
 t_to_optimize/01_cpu_profiling/game.Shuffle
 Total: 4.58mins
-ROUTINE ======================== github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.Shuffle in [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game/cards.go
+ROUTINE ======================== github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.Shuffle in [removed]/go/src/github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game/cards.go
     52.55s   4.54mins (flat, cum) 99.28% of Total
          .          .      5:	"time"
          .          .      6:)

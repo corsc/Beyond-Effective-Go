@@ -17,7 +17,7 @@ import (
 // took: 26.770876ms
 // --- PASS: TestMapInt (5.39s)
 // PASS
-// ok  	github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/10_maps	5.408s
+// ok  	github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/10_maps	5.408s
 // $ go test -v ./Chapter03/05_patterns/10_maps/ -run=String
 // === RUN   TestMapString
 // took: 32.853891ms
@@ -27,7 +27,7 @@ import (
 // took: 35.818594ms
 // --- PASS: TestMapString (5.73s)
 // PASS
-// ok  	github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/10_maps	5.750s
+// ok  	github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/10_maps	5.750s
 // $ go test -v ./Chapter03/05_patterns/10_maps/ -run=Person
 // === RUN   TestMapPerson
 // took: 22.676387ms
@@ -37,7 +37,7 @@ import (
 // took: 27.39127ms
 // --- PASS: TestMapPerson (5.40s)
 // PASS
-// ok  	github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/10_maps	5.424s
+// ok  	github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/10_maps	5.424s
 // $ go test -v ./Chapter03/05_patterns/10_maps/ -run=Pointer
 // === RUN   TestMapPointer
 // took: 49.99156ms

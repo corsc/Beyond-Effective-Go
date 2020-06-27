@@ -7,7 +7,7 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/02_memory_profiling/game"
+	"github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/02_memory_profiling/game"
 )
 
 func main() {

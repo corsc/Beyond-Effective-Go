@@ -9,7 +9,7 @@ Showing nodes accounting for 5125.53kB, 100% of 5125.53kB total
          0     0%  9.99%  3589.26kB 70.03%  net/http.(*ServeMux).ServeHTTP
          0     0%  9.99%  3589.26kB 70.03%  net/http.HandlerFunc.ServeHTTP
          0     0%  9.99%  3589.26kB 70.03%  net/http.serverHandler.ServeHTTP
- 3077.25kB 60.04% 70.03%  3077.25kB 60.04%  github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck
+ 3077.25kB 60.04% 70.03%  3077.25kB 60.04%  github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck
   512.19kB  9.99% 80.02%   512.19kB  9.99%  runtime.malg
          0     0% 80.02%   512.19kB  9.99%  runtime.mstart
          0     0% 80.02%   512.19kB  9.99%  runtime.newproc.func1

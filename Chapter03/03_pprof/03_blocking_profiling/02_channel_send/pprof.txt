@@ -16,7 +16,7 @@ Showing nodes accounting for 973.39s, 100% of 973.39s total
 
 (pprof) list main.performTask
 Total: 16.22mins
-ROUTINE ======================== main.performTask in [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/03_blocking_profiling/02_channel/main.go
+ROUTINE ======================== main.performTask in [removed]/go/src/github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/03_blocking_profiling/02_channel/main.go
          0  15.89mins (flat, cum) 97.94% of Total
          .          .     40:
          .          .     41:		wg.Done()

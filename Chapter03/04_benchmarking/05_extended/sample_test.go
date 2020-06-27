@@ -8,14 +8,14 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=15s ./Chapter03/04_benchmarking/05_extended/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/04_benchmarking/05_extended
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/04_benchmarking/05_extended
 // BenchmarkToString/v1-8         	     100	 151002675 ns/op
 // BenchmarkToString/v2-8         	   30000	    606889 ns/op
 
 // $ go test -run=Bench. -bench=. -benchmem -benchtime=15s ./Chapter03/04_benchmarking/05_extended/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/04_benchmarking/05_extended
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/04_benchmarking/05_extended
 // BenchmarkToString/v1-8         	     200	 150015657 ns/op	1216181375 B/op	   42848 allocs/op
 // BenchmarkToString/v2-8         	   30000	    598083 ns/op	  284765 B/op	    9901 allocs/op
 

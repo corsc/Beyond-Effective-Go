@@ -9,7 +9,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=10s ./Chapter03/05_patterns/01_unnecesary_construction/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/01_unnecesary_construction
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/01_unnecesary_construction
 // BenchmarkExample-8   	100000000	       191 ns/op
 // BenchmarkFixed-8     	10000000000	         0.28 ns/op
 

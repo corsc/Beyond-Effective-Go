@@ -13,7 +13,7 @@ Showing nodes accounting for 9.27s, 100% of 9.27s total
 
 (pprof) list main.performTask
 Total: 9.27s
-ROUTINE ======================== main.performTask in [removed]/go/src/github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/03_pprof/04_mutex_profiling/01_mutex/main.go
+ROUTINE ======================== main.performTask in [removed]/go/src/github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/04_mutex_profiling/01_mutex/main.go
          0      9.27s (flat, cum)   100% of Total
          .          .     40:	defer wg.Done()
          .          .     41:

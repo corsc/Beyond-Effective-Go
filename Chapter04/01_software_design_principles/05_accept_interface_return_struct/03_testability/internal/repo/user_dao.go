@@ -3,7 +3,7 @@ package repo
 import (
 	"database/sql"
 
-	"github.com/PacktPublishing/Advanced-Go-Programming/Chapter04/01_software_design_principles/05_accept_interface_return_struct/03_testability/internal/user"
+	"github.com/corsc/Advanced-Go-Programming/Chapter04/01_software_design_principles/05_accept_interface_return_struct/03_testability/internal/user"
 )
 
 type UserDAO struct {

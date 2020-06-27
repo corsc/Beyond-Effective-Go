@@ -10,7 +10,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchmem -benchtime=10s ./Chapter03/05_patterns/08_find/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/08_find
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/08_find
 // BenchmarkExample-8        	  500000	     34997 ns/op	       0 B/op	       0 allocs/op
 // BenchmarkExampleFixed-8   	500000000	        41.2 ns/op	       0 B/op	       0 allocs/op
 

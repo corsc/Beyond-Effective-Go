@@ -12,7 +12,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=10s ./Chapter03/05_patterns/05_data/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/05_data
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/05_data
 // BenchmarkExample-8   	     500	  28669912 ns/op
 // BenchmarkFixed-8     	    2000	   6711206 ns/op
 

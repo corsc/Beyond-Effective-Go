@@ -10,7 +10,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=10s ./Chapter03/05_patterns/10_maps/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/PacktPublishing/Advanced-Go-Programming/Chapter03/05_patterns/10_maps
+// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/10_maps
 // BenchmarkMapString-8   	100000000	       198 ns/op
 // BenchmarkMapInt-8      	100000000	       137 ns/op
 
