@@ -9,7 +9,7 @@ Showing nodes accounting for 1658, 100% of 1658 total
          0     0% 82.33%       1365 82.33%  runtime.newproc.func1
          0     0% 82.33%       1365 82.33%  runtime.newproc1
          0     0% 82.33%       1365 82.33%  runtime.systemstack
-       293 17.67%   100%        293 17.67%  github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck
+       293 17.67%   100%        293 17.67%  github.com/corsc/Beyond-Effective-Go/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck
          0     0%   100%        293 17.67%  main.CardShuffler
          0     0%   100%        293 17.67%  net/http.(*ServeMux).ServeHTTP
          0     0%   100%        293 17.67%  net/http.(*conn).serve

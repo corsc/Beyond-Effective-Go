@@ -1,7 +1,7 @@
-(pprof) list github.com/corsc/Advanced-Go-Programming/Chapter03/02_wha
+(pprof) list github.com/corsc/Beyond-Effective-Go/Chapter03/02_wha
 t_to_optimize/01_cpu_profiling/game.NewDeck
 Total: 33.86MB
-ROUTINE ======================== github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck in [removed]/go/src/github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game/cards.go
+ROUTINE ======================== github.com/corsc/Beyond-Effective-Go/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck in [removed]/go/src/github.com/corsc/Beyond-Effective-Go/Chapter03/03_pprof/01_cpu_profiling/game/cards.go
    13.52MB    13.52MB (flat, cum) 39.93% of Total
          .          .     26:	Face string
          .          .     27:}

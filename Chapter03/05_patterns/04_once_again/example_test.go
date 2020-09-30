@@ -9,7 +9,7 @@ import (
 // go test -run=Bench. -bench=. -benchtime=10s ./Chapter03/05_patterns/04_once_again/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/04_once_again
+// pkg: github.com/corsc/Beyond-Effective-Go/Chapter03/05_patterns/04_once_again
 // BenchmarkExample-8   	 2000000	      8922 ns/op
 // BenchmarkFixed-8     	 2000000	      8777 ns/op
 

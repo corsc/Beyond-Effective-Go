@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/corsc/Advanced-Go-Programming/Chapter05/01_clarity/13_panic/02_main/internal/config"
-	"github.com/corsc/Advanced-Go-Programming/Chapter05/01_clarity/13_panic/02_main/internal/server"
+	"github.com/corsc/Beyond-Effective-Go/Chapter05/01_clarity/13_panic/02_main/internal/config"
+	"github.com/corsc/Beyond-Effective-Go/Chapter05/01_clarity/13_panic/02_main/internal/server"
 )
 
 func main() {

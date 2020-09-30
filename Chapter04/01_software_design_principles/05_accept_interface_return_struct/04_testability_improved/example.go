@@ -1,7 +1,7 @@
 package _4_testability_improved
 
 import (
-	"github.com/corsc/Advanced-Go-Programming/Chapter04/01_software_design_principles/05_accept_interface_return_struct/04_testability_improved/internal/user"
+	"github.com/corsc/Beyond-Effective-Go/Chapter04/01_software_design_principles/05_accept_interface_return_struct/04_testability_improved/internal/user"
 )
 
 func CreateUser(repository UserRepository, user *user.User) error {

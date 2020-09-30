@@ -11,7 +11,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchmem -benchtime=10s ./Chapter03/05_patterns/07_allocations2/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/07_allocations2
+// pkg: github.com/corsc/Beyond-Effective-Go/Chapter03/05_patterns/07_allocations2
 // BenchmarkSign-8        	300000000	        71.5 ns/op	      53 B/op	       1 allocs/op
 // BenchmarkSignFixed-8   	500000000	        65.9 ns/op	      48 B/op	       0 allocs/op
 

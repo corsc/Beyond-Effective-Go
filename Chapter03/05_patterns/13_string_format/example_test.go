@@ -11,7 +11,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=10s -benchmem ./Chapter03/05_patterns/13_string_format/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/05_patterns/13_string_format
+// pkg: github.com/corsc/Beyond-Effective-Go/Chapter03/05_patterns/13_string_format
 // BenchmarkExample-8   	100000000	       159 ns/op	      24 B/op	       2 allocs/op
 // BenchmarkStrconv-8   	100000000	       117 ns/op	      31 B/op	       2 allocs/op
 // BenchmarkAppend-8    	100000000	       103 ns/op	      19 B/op	       2 allocs/op

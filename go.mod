@@ -1,4 +1,4 @@
-module github.com/corsc/Advanced-Go-Programming
+module github.com/corsc/Beyond-Effective-Go
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.3.4-0.20190621103928-e98392b8111b

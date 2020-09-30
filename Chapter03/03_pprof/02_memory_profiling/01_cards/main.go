@@ -7,7 +7,7 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game"
+	"github.com/corsc/Beyond-Effective-Go/Chapter03/03_pprof/01_cpu_profiling/game"
 )
 
 func main() {

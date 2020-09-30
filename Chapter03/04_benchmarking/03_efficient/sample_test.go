@@ -8,7 +8,7 @@ import (
 // $ go test -run=Bench. -bench=. -benchtime=15s ./Chapter03/04_benchmarking/03_efficient/
 // goos: darwin
 // goarch: amd64
-// pkg: github.com/corsc/Advanced-Go-Programming/Chapter03/04_benchmarking/03_efficient
+// pkg: github.com/corsc/Beyond-Effective-Go/Chapter03/04_benchmarking/03_efficient
 // BenchmarkToString/1_person-8         	100000000	       177 ns/op
 // BenchmarkToString/10_people-8        	10000000	      2585 ns/op
 // BenchmarkToString/100_people-8       	  500000	     44207 ns/op

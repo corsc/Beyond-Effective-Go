@@ -10,7 +10,7 @@ Showing top 20 nodes out of 46
          0     0%     0%    19.86MB 58.63%  net/http.HandlerFunc.ServeHTTP
          0     0%     0%    19.86MB 58.63%  net/http.serverHandler.ServeHTTP
        4MB 11.81% 11.81%    17.52MB 51.75%  main.CardShuffler
-   13.52MB 39.93% 51.75%    13.52MB 39.93%  github.com/corsc/Advanced-Go-Programming/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck
+   13.52MB 39.93% 51.75%    13.52MB 39.93%  github.com/corsc/Beyond-Effective-Go/Chapter03/03_pprof/01_cpu_profiling/game.NewDeck
     1.50MB  4.43% 56.18%     8.50MB 25.11%  net/http.(*conn).readRequest
        3MB  8.86% 65.04%        5MB 14.77%  net/http.readRequest
        1MB  2.95% 67.99%     2.50MB  7.38%  context.WithCancel
