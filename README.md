@@ -8,7 +8,7 @@ Then *Beyond Effective Go* is for you.
 
 This book, aimed at competent Gophers, doesn’t mess around with the basics.  Instead, it dives right into the problems the professional programmers face every day.  How to write applications and services that are fast, robust, and able to be maintained and extended as requirements change.
 
-Unlike most books, this book focuses on both the programmer and the code by addressing 4 key aspects of Go programming, developer productivity, application performance, code quality, and depth of understanding of the language and tools available.
+This book focuses on both the programmer and the code by addressing 4 key aspects of Go programming, developer productivity, application performance, code quality, and depth of understanding of the language and tools available.
 
 After reading this book, you will know what aspects of your application or code to focus on and when.  You will have a suite of tools, software patterns, and recipes at your disposal to make your life easier and your code better, faster, and easier to maintain.
 
