@@ -1,4 +1,4 @@
-package _1_sequential
+package _2_fixed
 
 func ProcessOrder(order Order) error {
 	err := validateOrder(order)

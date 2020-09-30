@@ -5,17 +5,17 @@ import (
 )
 
 func InternetIsAccessible() bool {
-	googleCh := make(chan bool, 1)
-	go isAlive("https://www.google.com/", googleCh)
+	blogCh := make(chan bool, 1)
+	go isAlive("https://www.coreyscott.dev/", blogCh)
 
-	packtCh := make(chan bool, 1)
-	go isAlive("https://www.packtpub.com/", packtCh)
+	golangCh := make(chan bool, 1)
+	go isAlive("https://golang.org/", golangCh)
 
 	var result bool
 	select {
-	case result = <-googleCh:
+	case result = <-blogCh:
 
-	case result = <-packtCh:
+	case result = <-golangCh:
 	}
 
 	return result

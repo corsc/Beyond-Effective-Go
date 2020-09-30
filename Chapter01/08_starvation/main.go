@@ -11,8 +11,8 @@ import (
 // collection of sites and their currency availability
 var (
 	sites = map[string]int{
-		"https://www.sage42.org":   http.StatusOK,
-		"https://www.packtpub.com": http.StatusOK,
+		"https://www.coreyscott.dev": http.StatusOK,
+		"https://golang.org/":        http.StatusOK,
 	}
 
 	// mutex to protect concurrent access to sites
@@ -26,10 +26,10 @@ func main() {
 	wg := &sync.WaitGroup{}
 
 	wg.Add(1)
-	go selfishChecker(ctx, wg, "https://www.sage42.org")
+	go selfishChecker(ctx, wg, "https://www.coreyscott.dev")
 
 	wg.Add(1)
-	go politeChecker(ctx, wg, "https://www.packtpub.com")
+	go politeChecker(ctx, wg, "https://golang.org")
 
 	// wait until all goroutines have shutdown
 	wg.Wait()

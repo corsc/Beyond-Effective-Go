@@ -1,4 +1,4 @@
-package _2_concurrent
+package _1_bad_example
 
 import (
 	"sync"
