@@ -6,14 +6,14 @@ import (
 )
 
 const (
-	NORTH Direction = "north"
-	EAST  Direction = "east"
-	SOUTH Direction = "south"
-	WEST  Direction = "west"
+	North Direction = "north"
+	East  Direction = "east"
+	South Direction = "south"
+	West  Direction = "west"
 )
 
 var all = map[Direction]struct{}{
-	NORTH: {}, EAST: {}, SOUTH: {}, WEST: {},
+	North: {}, East: {}, South: {}, West: {},
 }
 
 type Direction string
