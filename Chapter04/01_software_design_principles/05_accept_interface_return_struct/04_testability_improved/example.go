@@ -13,7 +13,7 @@ func CreateUser(repository UserRepository, user *user.User) error {
 	return repository.Save(user)
 }
 
-//go:generate mockery -name=UserRepository -case underscore -testonly -inpkg
+//go:generate mockery --name=UserRepository --case underscore --testonly --inpackage
 type UserRepository interface {
 	Save(user *user.User) error
 }

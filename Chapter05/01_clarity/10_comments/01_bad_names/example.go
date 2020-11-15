@@ -1,7 +1,7 @@
 package _1_bad_names
 
 func ProcessOrder(o Order) error {
-	// validator order
+	// validate order
 	err := v(o)
 	if err != nil {
 		return err

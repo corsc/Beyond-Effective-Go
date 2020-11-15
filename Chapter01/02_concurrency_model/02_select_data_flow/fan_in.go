@@ -15,6 +15,9 @@ func FanInExample(stopCh chan struct{}, inputChA, inputChB chan int, outputCh ch
 					// both channels are closed
 					return
 				}
+
+				// skip zero-value cause by closed channel
+				continue
 			}
 
 		case data, isOpen = <-inputChB:
@@ -26,6 +29,9 @@ func FanInExample(stopCh chan struct{}, inputChA, inputChB chan int, outputCh ch
 					// both channels are closed
 					return
 				}
+
+				// skip zero-value cause by closed channel
+				continue
 			}
 
 		case <-stopCh:

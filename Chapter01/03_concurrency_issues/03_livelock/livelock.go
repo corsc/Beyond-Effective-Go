@@ -29,7 +29,8 @@ func (p *PoliteChild) Eat(ctx context.Context, wg *sync.WaitGroup, chopstick1, c
 
 		p.pickup(chopstick1)
 
-		// attempt to avoid deadlock by checking the other process that might hold the mutex
+		// attempt to avoid deadlock by checking the other process
+		// that might hold the mutex
 		if p.sibling.IsHungry() {
 			// attempt to yield and let the other process proceed
 			p.putDown(chopstick1)

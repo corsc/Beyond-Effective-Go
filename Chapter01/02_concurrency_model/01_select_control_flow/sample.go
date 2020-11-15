@@ -1,8 +1,7 @@
 package _1_select_control_flow
 
-func Example() {
-	dataCh := make(chan Data)
-	stopCh := make(chan struct{})
+func SelectExample(dataCh chan Data, stopCh chan struct{}) {
+	defer close(dataCh)
 
 	for {
 		select {

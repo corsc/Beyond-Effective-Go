@@ -19,7 +19,7 @@ func (t *ThreadSafeSlice) Put(value interface{}) {
 	t.data[index] = value
 
 	// wait and "eventually" update the done counter
-	for atomic.CompareAndSwapInt64(&t.done, index, index+1) {
+	for !atomic.CompareAndSwapInt64(&t.done, index, index+1) {
 		// yield and let other goroutines run
 		runtime.Gosched()
 	}
