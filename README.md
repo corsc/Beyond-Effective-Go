@@ -67,7 +67,7 @@ In most applications, the quality of the code determines not only how easy it is
 | --- | --- | --- | --- |
 | 4 | Exploring Software Design Principles and Patterns | 1st Draft | [Here](https://docs.google.com/document/d/12gFU1d-DPx_4ARuvy10pVsK-PdM3JGt6VNPW-lPJcH8/edit?usp=sharing) |
 | 5 | Optimizing for Code UX | 1st Draft | [Here](https://docs.google.com/document/d/1eASV-_ncta_IzuoE7Sitse-g0-MI1_RjHxQtSNsj8Ok/edit?usp=sharing) |
-| 6 | Advanced Unit Testing Techniques | Writing | - |
+| 6 | Advanced Unit Testing Techniques | 1st Draft | [Here](https://docs.google.com/document/d/1oQLmof-PSS864OWTAOqoYZ7MXVhIlD3mCMahX3JXn8Y/edit?usp=sharing) |
 | 7 | Improving your Development Productivity | Planning | - |
 
 ### Section 3: Exploring the deeper parts of Go
