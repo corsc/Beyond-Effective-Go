@@ -1,0 +1,1 @@
+//go:generate mockery --name=$INTERFACE_NAME$ --case underscore --testonly --inpackage

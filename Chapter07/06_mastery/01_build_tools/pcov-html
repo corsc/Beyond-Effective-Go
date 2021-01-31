@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+
+# Ensure we specified a directory
+if [ "$1" == "" ]; then
+  echo "No input file. Usage: pcov-html ./your-package-dir/"
+  exit 1
+fi
+
+# Clean up the input
+DIR=${1%...}
+PKG_DIR=${DIR%/}/
+PKG_DIR=./${DIR#./}
+
+# Calculate test coverage and open the HTML result
+go test $PKG_DIR -coverprofile=$PKG_DIR/coverage.out ${@:1}
+go tool cover -html=$PKG_DIR/coverage.out
+rm $PKG_DIR/coverage.out

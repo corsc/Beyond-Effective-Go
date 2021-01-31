@@ -1,0 +1,58 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+
+clear
+
+# Define some standard exclusions to linting and code coverage checks
+source ~/Applications/go-exclusions
+
+# Build list of modified directories
+dirsToCheck=$(for f in $(git diff --name-only --diff-filter=d); do dirname $f; done | sort | uniq)
+
+# Run standard checks and cleaning
+for d in $dirsToCheck; do
+  # Ignore directories marked as excluded
+  if [ $(echo "/$d/" | grep -E "$LINTER_EXCLUDE" | wc -l) -eq 1 ]; then
+    echo "$d skipped due to LINTER_EXCLUDE"
+    echo
+    continue
+  fi
+
+  # Header to keep track
+  echo -e "\033[1;34mChecking: $d\033[0m"
+  echo
+
+  # Format code and fix imports
+  echo -e "\033[1;34mClean:\033[0m"
+  if [ "$d" != "." ]; then
+    goclean ./$d
+  fi
+
+  # Run tests and race check
+  echo -e "\033[1;34mRace Tests:\033[0m"
+  testResult=$(gotestr ./$d)
+  echo -e "$testResult"
+
+  # Perform lint checks
+  echo -e "\033[1;34mLint checks:\033[0m"
+  if [ $(echo "/$testResult/" | grep "(cached)" | wc -l) -eq 0 ]; then
+    golint ./$d
+  else
+    echo "skipped lint check as code was not changed since last run"
+  fi
+
+  echo
+done
+
+# Ship it!
+read -p "Ship it? (y/n): " -n 1 choice
+echo
+
+if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
+  git add .
+  git commit
+  GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  git push --force-with-lease -u origin ${GIT_BRANCH}
+fi

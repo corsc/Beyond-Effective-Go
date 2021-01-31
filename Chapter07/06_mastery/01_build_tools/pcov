@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+
+# Ensure the formatting of the source directory is consistent
+DIR=${1%...}
+PKG_DIR=${DIR%/}/
+
+# Import a regex with files to ignore
+source ~/Applications/go-exclusions
+
+# Calculate the go import path of the base package
+BASE_PKG=$(go list)
+BASE_PKG=${BASE_PKG%/}/
+
+# Calculate unit test coverage and highlight any packages under 70%
+package-coverage -a -i $COVERAGE_EXCLUDE -m 70 -prefix $BASE_PKG $PKG_DIR ${@:2}

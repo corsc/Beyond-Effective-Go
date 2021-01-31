@@ -15,6 +15,5 @@ type Config struct {
 	tags         []string
 }
 
-type StatsClient struct {
-	// implementation removed
+type StatsClient struct { // implementation removed
 }

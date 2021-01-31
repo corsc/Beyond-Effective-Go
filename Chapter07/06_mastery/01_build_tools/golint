@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Define some standard exclusions to linting and code coverage checks
+source ~/Applications/go-exclusions
+
+# Ensure we specified a directory
+if [ "$1" == "" ]; then
+  echo "No input file. Usage: golint ./your-package-dir/..."
+  exit 1
+fi
+
+golangci-lint --config $GOPATH/src/github.com/corsc/Beyond-Effective-Go/Chapter07/06_mastery/01_build_tools/golangci.yml --exclude "$LINTER_EXCLUDE" run --fix $1

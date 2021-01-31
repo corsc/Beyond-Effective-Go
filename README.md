@@ -68,7 +68,7 @@ In most applications, the quality of the code determines not only how easy it is
 | 4 | Exploring Software Design Principles and Patterns | 1st Draft | [Here](https://docs.google.com/document/d/12gFU1d-DPx_4ARuvy10pVsK-PdM3JGt6VNPW-lPJcH8/edit?usp=sharing) |
 | 5 | Optimizing for Code UX | 1st Draft | [Here](https://docs.google.com/document/d/1eASV-_ncta_IzuoE7Sitse-g0-MI1_RjHxQtSNsj8Ok/edit?usp=sharing) |
 | 6 | Advanced Unit Testing Techniques | 1st Draft | [Here](https://docs.google.com/document/d/1oQLmof-PSS864OWTAOqoYZ7MXVhIlD3mCMahX3JXn8Y/edit?usp=sharing) |
-| 7 | Improving your Development Productivity | Planning | - |
+| 7 | Improving your Development Productivity | Writing | - |
 
 ### Section 3: Exploring the deeper parts of Go
 This section aims to deepen our understand of the language and the tooling. It even explores some of the stranger ways we can structure our code and why we might want to do so.
@@ -77,9 +77,8 @@ This section aims to deepen our understand of the language and the tooling. It e
 | Chapter | Title | Status | Link |
 | --- | --- | --- | --- |
 | 8 | Examining Unusual Patterns for Go | 1st Draft | [Here](https://docs.google.com/document/d/194RwCzrCQ7sGvb8YbhtvPrw-nGTl7EoNUC8QUHv9G7Q/edit?usp=sharing) |
-| 9 | Mastering the Significant Packages of Context and Reflect | Planning | - |
-| 10 | Adopting Useful Go Tools | Planning | - |
-| 11 | Metaprogramming in Go | Planning | - |
+| 9 | Adopting Useful Go Tools | Planning | - |
+| 10 | Code Generation with Go | Planning | - |
 
 ### Section 4: Building Professional Go Services
 This section focuses on topics related to building web services.  As this is a very common use-case for Go, particularly for companies, these chapters intend to help the reader produce high-quality, stable, and scalable services.
@@ -87,10 +86,10 @@ This section focuses on topics related to building web services.  As this is a v
 #### Chapters:
 | Chapter | Title | Status | Link |
 | --- | --- | --- | --- |
-| 12 | Go Service Design and Evolution | Planning | - |
-| 13 | Building Resilient Go Services | Planning | - |
-| 14 | High-Performance Go Services | Planning | - |
-| 15 | Extended Testing for Services | Planning | - |
+| 11 | Go Service Design and Evolution | Planning | - |
+| 12 | Building Resilient Go Services | Planning | - |
+| 13 | High-Performance Go Services | Planning | - |
+| 14 | Extended Testing for Services | Planning | - |
 
 ### Section 5: Building High-Value Shared Libraries
 To build great shared libraries takes a lot more than just copy and paste.
@@ -99,4 +98,4 @@ This section intends to highlight the issues that arise from building shared lib
 #### Chapters:
 | Chapter | Title | Status | Link |
 | --- | --- | --- | --- |
-| 16 | Go Shared Library Design and Evolution | Planning | - |
+| 15 | Go Shared Library Design and Evolution | Planning | - |

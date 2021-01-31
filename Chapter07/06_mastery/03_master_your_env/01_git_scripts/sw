@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+
+if [ -z "$1" ]; then
+	echo "Usage: sw [branch name]"
+	exit 1
+fi
+
+# Check if we need to stash and in progress changes
+IS_CLEAN=$(git status | grep "working tree clean" | wc -l)
+if [ $IS_CLEAN -eq 0 ]; then
+	git stash
+fi
+
+# Grab the latest
+git checkout master
+git pull origin master
+
+# Rebase master into the work branch
+git checkout $1
+git rebase master
+
+# Merge any stashed changes
+if [ $IS_CLEAN -eq 0 ]; then
+	git stash pop
+fi
+

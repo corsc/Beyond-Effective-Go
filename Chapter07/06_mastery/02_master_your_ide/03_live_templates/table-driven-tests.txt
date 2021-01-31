@@ -1,0 +1,32 @@
+scenarios := []struct {
+    desc        string
+    in          $IN_TYPE$
+    configureMocks func(*$MOCK_TYPE$)
+    expected    $EXPECTED_TYPE$
+    expectErr   bool
+}{
+    {
+        desc:       "happy path",
+        in:         $IN$,
+        configureMocks: func(*$MOCK_TYPE$) {
+        },
+        expected:   $EXPECTED$,
+        expectErr:   false,
+    },
+}
+
+for _, s := range scenarios {
+	scenario := s
+    t.Run(scenario.desc, func(t *testing.T) {
+    	// inputs
+    	
+    	// mocks
+    	
+		// call object under test
+        result, resultErr := $METHOD$()
+        
+        // validation
+        require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+        assert.Equal(t, scenario.expected, result, "expected result")
+    })
+}

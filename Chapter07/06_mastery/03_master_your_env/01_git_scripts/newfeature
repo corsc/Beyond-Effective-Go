@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+
+if [ -z "$1" ]; then
+    echo "Usage: newfeature [branch name]"
+    exit 1
+fi
+
+# Refresh the master branch
+git checkout master
+git pull origin master
+
+# Create a new branch
+git checkout -b $1

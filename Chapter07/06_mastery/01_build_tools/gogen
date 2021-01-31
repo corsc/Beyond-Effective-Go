@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+
+clear
+
+if [ -z "$1" ]; then
+  # Specific directory not supplied, use all changed directories
+
+  # Check changed dirs
+  dirsToCheck=$(for f in $(git diff --name-only --diff-filter=d); do dirname $f; done | sort | uniq)
+
+  for d in $dirsToCheck; do
+    # Regenerate the directory
+    go generate ./$d
+
+    # Format generated code (call the formatting script)
+    goclean ./$d
+  done
+
+  exit
+fi
+
+# Regenerate the supplied directory
+go generate $1
+
+# Format generated code (call the formatting script)
+goclean $1

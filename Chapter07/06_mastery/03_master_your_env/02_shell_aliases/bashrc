@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Common Git related actions
+alias gs='git status '
+alias ga='git add '
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gp='git pull '
+alias grm='git rebase master '
+alias gst='git stash '
+alias grc='git rebase --continue '
+alias grs='git rebase --skip '
+
+# Call the sw script and switch to master branch
+alias swm='sw master'
+
+# Aliases to catch accidental mistakes
+alias got='git '
+alias get='git '

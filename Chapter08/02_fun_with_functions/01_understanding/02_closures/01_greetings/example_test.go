@@ -5,7 +5,7 @@ import (
 )
 
 func Example_buildGreeting() {
-	var greetSophia = buildGreeting("Sophia")
+	greetSophia := buildGreeting("Sophia")
 
 	fmt.Println(greetSophia())
 	fmt.Println(greetSophia())

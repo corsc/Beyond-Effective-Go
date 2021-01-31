@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Standard generated code
+STD_EXCLUDE="(^|/)mocks/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)mock_.*\.go"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)lua/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/).*ffjson\.go"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)thrift/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)pb/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/).*\.pb\.go"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)z_.*\.go"
+
+# Other resources
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)(_)?resources/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)vendor/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)static/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)testdata/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)scripts/"
+STD_EXCLUDE="$STD_EXCLUDE|(^|/)dist/"
+
+if [ -z "$LINTER_EXCLUDE" ]; then
+  export LINTER_EXCLUDE=$STD_EXCLUDE
+fi
+
+if [ -z "$COVERAGE_EXCLUDE" ]; then
+  export COVERAGE_EXCLUDE=$STD_EXCLUDE
+fi

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+
+# Ensure we specified a directory
+if [ "$1" == "" ]; then
+  echo "No input file. Usage: gtest ./your-package-dir/"
+  exit 1
+fi
+
+# Run go test but exclude any vendor code
+go test -race $(go list $1 | grep -v /vendor)
