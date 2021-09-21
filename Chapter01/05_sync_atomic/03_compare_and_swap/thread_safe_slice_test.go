@@ -1,4 +1,4 @@
-package _2_thread_safe_slice
+package _3_compare_and_swap
 
 import (
 	"sync"

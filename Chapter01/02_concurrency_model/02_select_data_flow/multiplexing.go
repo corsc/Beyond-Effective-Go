@@ -12,28 +12,28 @@ func MultiplexingExample(stopCh chan struct{},
 		select {
 		case data, isOpen = <-inputChA:
 			if !isOpen {
+				// channel is done, nil the channel to disable to case
 				inputChA = nil
-
-				if inputChB == nil {
-					// both channels are closed
-					return
-				}
 			}
 
 		case data, isOpen = <-inputChB:
 			if !isOpen {
-				// disable this case
+				// channel is done, nil the channel to disable to case
 				inputChB = nil
-
-				if inputChA == nil {
-					// both channels are closed
-					return
-				}
 			}
 
 		case <-stopCh:
 			// give up
 			return
+		}
+
+		if !isOpen {
+			if inputChA == nil && inputChB == nil {
+				// both channels are closed
+				return
+			}
+
+			continue
 		}
 
 		// write to whichever channel is empty

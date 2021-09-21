@@ -1,4 +1,4 @@
-package _2_thread_safe_slice
+package _3_compare_and_swap
 
 import (
 	"runtime"
@@ -26,6 +26,6 @@ func (t *ThreadSafeSlice) Put(value interface{}) {
 }
 
 func (t *ThreadSafeSlice) GetAll() []interface{} {
-	currentDone := atomic.LoadInt64(&t.done)
-	return t.data[:currentDone]
+	currentWritten := atomic.LoadInt64(&t.done)
+	return t.data[:currentWritten]
 }

@@ -1,4 +1,4 @@
-package _1_performance
+package _1_add
 
 import (
 	"fmt"

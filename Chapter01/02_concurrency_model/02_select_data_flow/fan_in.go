@@ -9,34 +9,28 @@ func FanInExample(stopCh chan struct{}, inputChA, inputChB chan int, outputCh ch
 		select {
 		case data, isOpen = <-inputChA:
 			if !isOpen {
+				// channel is done, nil the channel to disable to case
 				inputChA = nil
-
-				if inputChB == nil {
-					// both channels are closed
-					return
-				}
-
-				// skip zero-value cause by closed channel
-				continue
 			}
 
 		case data, isOpen = <-inputChB:
 			if !isOpen {
-				// disable this case
+				// channel is done, nil the channel to disable to case
 				inputChB = nil
-
-				if inputChA == nil {
-					// both channels are closed
-					return
-				}
-
-				// skip zero-value cause by closed channel
-				continue
 			}
 
 		case <-stopCh:
 			// shut down
 			return
+		}
+
+		if !isOpen {
+			if inputChA == nil && inputChB == nil {
+				// both channels are closed
+				return
+			}
+
+			continue
 		}
 
 		// write to output channel

@@ -1,4 +1,4 @@
-package _3_dynamic_config
+package _2_load_and_store
 
 import (
 	"sync/atomic"

@@ -77,8 +77,7 @@ This section aims to deepen our understand of the language and the tooling. It e
 | Chapter | Title | Status | Link |
 | --- | --- | --- | --- |
 | 8 | Examining Unusual Patterns for Go | 1st Draft | [Here](https://docs.google.com/document/d/194RwCzrCQ7sGvb8YbhtvPrw-nGTl7EoNUC8QUHv9G7Q/edit?usp=sharing) |
-| 9 | Adopting Useful Go Tools | Writing | - |
-| 10 | Code Generation with Go | Planning | - |
+| 9 | Code Generation with Go | Writing | - |
 
 ### Section 4: Building Professional Go Services
 This section focuses on topics related to building web services.  As this is a very common use-case for Go, particularly for companies, these chapters intend to help the reader produce high-quality, stable, and scalable services.
@@ -86,10 +85,10 @@ This section focuses on topics related to building web services.  As this is a v
 #### Chapters:
 | Chapter | Title | Status | Link |
 | --- | --- | --- | --- |
-| 11 | Go Service Design and Evolution | Planning | - |
-| 12 | Building Resilient Go Services | Planning | - |
-| 13 | High-Performance Go Services | Planning | - |
-| 14 | Extended Testing for Services | Planning | - |
+| 10 | Go Service Design and Evolution | Planning | - |
+| 11 | Building Resilient Go Services | Planning | - |
+| 12 | High-Performance Go Services | Planning | - |
+| 13 | Extended Testing for Services | Planning | - |
 
 ### Section 5: Building High-Value Shared Libraries
 To build great shared libraries takes a lot more than just copy and paste.
@@ -98,4 +97,4 @@ This section intends to highlight the issues that arise from building shared lib
 #### Chapters:
 | Chapter | Title | Status | Link |
 | --- | --- | --- | --- |
-| 15 | Go Shared Library Design and Evolution | Planning | - |
+| 14 | Go Shared Library Design and Evolution | Planning | - |
