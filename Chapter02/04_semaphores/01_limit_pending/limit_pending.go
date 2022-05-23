@@ -1,4 +1,4 @@
-package _1_limit_running
+package _1_limit_pending
 
 import (
 	"sync"
@@ -14,11 +14,12 @@ func Example(stopCh chan struct{}, workCh chan Data) {
 		select {
 		case data := <-workCh:
 			wg.Add(1)
+
+			// acquire semaphore
+			semaphore <- struct{}{}
+
 			go func() {
 				defer wg.Done()
-
-				// acquire semaphore
-				semaphore <- struct{}{}
 
 				doWork(data)
 

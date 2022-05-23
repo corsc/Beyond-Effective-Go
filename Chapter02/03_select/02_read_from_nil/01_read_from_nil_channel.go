@@ -21,5 +21,12 @@ func readFromNilChannel() []string {
 		}
 	}
 
+	// Output here is:
+	// []string{
+	//	"default",
+	//	"read from channel",
+	//	"default",
+	//	"read from channel",
+	// }
 	return results
 }

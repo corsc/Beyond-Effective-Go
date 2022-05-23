@@ -1,34 +1,39 @@
 package _3_reply_channel
 
-type Workers struct {
-	workCh chan Work
+type WorkerGroup struct {
+	taskCh chan Task
 }
 
-func worker(workCh chan Work) {
-	for work := range workCh {
-		result := sum(work)
+func NewWorkers(totalWorkers int) *WorkerGroup {
+	workerGroup := &WorkerGroup{
+		taskCh: make(chan Task, 10),
+	}
 
-		work.replyCh <- result
+	for x := 0; x < totalWorkers; x++ {
+		go workerGroup.newWorker()
+	}
+
+	return workerGroup
+}
+
+func (w *WorkerGroup) newWorker() {
+	for newTask := range w.taskCh {
+		// this will typically be a heavy operation
+		newTask.Do()
 	}
 }
 
-func (w *Workers) SubmitWork(work Work) {
-	w.workCh <- work
+func (w *WorkerGroup) SubmitTask(in Task) {
+	w.taskCh <- in
 }
 
-func (w *Workers) startWorker(workers int) {
-	for x := 0; x < workers; x++ {
-		go worker(w.workCh)
-	}
-}
-
-func sum(work Work) int {
-	return work.inputA + work.inputB
-}
-
-type Work struct {
+type Task struct {
 	inputA int
 	inputB int
 
 	replyCh chan int
+}
+
+func (w *Task) Do() {
+	w.replyCh <- w.inputA + w.inputB
 }

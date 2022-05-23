@@ -17,11 +17,8 @@ func extendedExampleFixed(ctx context.Context) {
 			return
 
 		case <-updateTicker.C:
-			// create channel to receive result
-			updateCh = make(chan string, 1)
-
 			// asynchronously perform update
-			go performUpdateAsync(updateCh)
+			updateCh = performUpdateAsync()
 
 		case result := <-updateCh:
 			// receive result when available
@@ -33,6 +30,14 @@ func extendedExampleFixed(ctx context.Context) {
 	}
 }
 
-func performUpdateAsync(result chan string) {
-	// not implemented
+func performUpdateAsync() chan string {
+	result := make(chan string, 1)
+
+	go func() {
+		defer close(result)
+
+		// not implemented
+	}()
+
+	return result
 }
