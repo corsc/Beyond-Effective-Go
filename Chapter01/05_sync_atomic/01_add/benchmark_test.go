@@ -27,6 +27,7 @@ func BenchmarkAtomicAdd(b *testing.B) {
 		for x := 0; x < 1000000; x++ {
 			atomic.AddInt64(&atomicTotal, int64(x))
 		}
+
 		fmt.Printf("total: %d\n", atomicTotal)
 	}
 }
@@ -42,6 +43,7 @@ func BenchmarkMutexAdd(b *testing.B) {
 			mutexTotal += int64(x)
 			mutex.Unlock()
 		}
+
 		fmt.Printf("total: %d\n", mutexTotal)
 	}
 }

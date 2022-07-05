@@ -51,10 +51,12 @@ func connection(name string, serverStatus *sync.Cond, wg *sync.WaitGroup) {
 	for x := 0; x < 30; x++ {
 		// check server is alive
 		serverStatus.L.Lock()
+
 		for !inOnline {
 			fmt.Printf("%s: blocked\n", name)
 			serverStatus.Wait()
 		}
+
 		serverStatus.L.Unlock()
 
 		sendToServer(name, x)

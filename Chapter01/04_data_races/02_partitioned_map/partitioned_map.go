@@ -49,7 +49,8 @@ func (p *PartitionedMap) Set(key string, value interface{}) {
 }
 
 func (p *PartitionedMap) getPartition(key string) *partition {
-	// calculate partition index from key using the FNV-1 from the standard library
+	// calculate partition index from key using the FNV-1
+	// from the standard library
 	hashGenerator := fnv.New32()
 	_, _ = hashGenerator.Write([]byte(key))
 
