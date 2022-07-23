@@ -51,11 +51,11 @@ This book is organized into 5 sections:
 This section focuses on writing blazing fast code because sometimes we need to extract every last drop of performance from our system.
 
 #### Chapters:
-| Chapter | Title | Status | Link |
-| --- | --- | --- | --- |
-| 1 | Understanding Concurrency, Parallelism, and the Sync Packages | 1st Draft | [Here](https://docs.google.com/document/d/1yy_6AxSiXyq6Ql76J63BnLFPLjjbViUz1EEfy5dbCGk/edit?usp=sharing) |
-| 2 | Applying Expert-level Go concurrency: Primitives, Patterns, and Tools | 1st Draft | [Here](https://docs.google.com/document/d/1GrWvPrbd0U8uOAPfRJFDaV-m_j0mu0xHAm6rWfAutOo/edit?usp=sharing) |
-| 3 | Achieving High-Performance Code | 1st Draft | [Here](https://docs.google.com/document/d/1H6AcSUeocPjDD_ClbJhzsT1rbq6U2kRIEJ0ziEzjyXE/edit?usp=sharing) |
+| Chapter | Title | Status              | Link |
+| --- | --- |---------------------| --- |
+| 1 | Understanding Concurrency, Parallelism, and the Sync Packages | Read for publishing | [Here](https://docs.google.com/document/d/1yy_6AxSiXyq6Ql76J63BnLFPLjjbViUz1EEfy5dbCGk/edit?usp=sharing) |
+| 2 | Applying Expert-level Go concurrency: Primitives, Patterns, and Tools | Read for publishing           | [Here](https://docs.google.com/document/d/1GrWvPrbd0U8uOAPfRJFDaV-m_j0mu0xHAm6rWfAutOo/edit?usp=sharing) |
+| 3 | Achieving High-Performance Code | Read for publishing           | [Here](https://docs.google.com/document/d/1H6AcSUeocPjDD_ClbJhzsT1rbq6U2kRIEJ0ziEzjyXE/edit?usp=sharing) |
 
 
 ### Section 2: Striving for High-Quality Code

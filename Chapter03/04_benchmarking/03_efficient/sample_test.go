@@ -40,7 +40,10 @@ func BenchmarkToString(b *testing.B) {
 		b.Run(scenario.desc, func(b *testing.B) {
 			people := make([]Person, scenario.totalPeople)
 			for x := 0; x < scenario.totalPeople; x++ {
-				people[x] = Person{ID: x, Name: fmt.Sprintf("test %d", x)}
+				people[x] = Person{
+					ID:   x,
+					Name: fmt.Sprintf("test %d", x),
+				}
 			}
 
 			for i := 0; i < b.N; i++ {
