@@ -2,7 +2,6 @@ $ go tool pprof http://0.0.0.0:6060/debug/pprof/mutex
 Fetching profile over HTTP from http://0.0.0.0:6060/debug/pprof/mutex
 Saved profile in [removed]/pprof/pprof.contentions.delay.011.pb.gz
 Type: delay
-Time: Jul 19, 2019 at 9:17am (AEST)
 Entering interactive mode (type "help" for commands, "o" for options)
 (pprof) top20 -cum
 Showing nodes accounting for 9.27s, 100% of 9.27s total

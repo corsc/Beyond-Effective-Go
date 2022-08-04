@@ -1,5 +1,4 @@
 Type: alloc_space
-Time: Jul 13, 2019 at 3:16pm (AEST)
 Entering interactive mode (type "help" for commands, "o" for options)
 (pprof) top20 -cum
 Showing nodes accounting for 26.29MB, 77.64% of 33.86MB total

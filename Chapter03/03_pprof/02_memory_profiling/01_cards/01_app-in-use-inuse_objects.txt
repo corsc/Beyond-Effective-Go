@@ -1,5 +1,4 @@
 Type: inuse_objects
-Time: Jul 13, 2019 at 3:15pm (AEST)
 Entering interactive mode (type "help" for commands, "o" for options)
 (pprof) top20 -cum
 Showing nodes accounting for 1658, 100% of 1658 total

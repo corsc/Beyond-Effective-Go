@@ -1,5 +1,4 @@
 Type: cpu
-Time: Jul 11, 2019 at 8:24am (AEST)
 Duration: 30.11s, Total samples = 4.58mins (911.90%)
 Entering interactive mode (type "help" for commands, "o" for options)
 (pprof) top20 -cum
