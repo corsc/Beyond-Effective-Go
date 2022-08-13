@@ -47,7 +47,7 @@ func main() {
 func connection(name string, serverStatus *sync.Cond, wg *sync.WaitGroup) {
 	defer wg.Done()
 
-	// read message from caller
+	// read a message from the caller
 	for x := 0; x < 30; x++ {
 		// check server is alive
 		serverStatus.L.Lock()

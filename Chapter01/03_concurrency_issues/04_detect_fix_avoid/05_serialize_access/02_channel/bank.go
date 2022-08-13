@@ -49,7 +49,7 @@ func (a *Account) processActions() {
 func newAction(amount int) *action {
 	return &action{
 		amount: amount,
-		// use buffered channel so we don't block the processor
+		// use a buffered channel, so we don't block the processor
 		resultCh: make(chan int, 1),
 	}
 }

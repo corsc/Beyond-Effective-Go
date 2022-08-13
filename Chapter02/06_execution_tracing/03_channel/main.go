@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	// create file to hold the trace data
+	// create a file to hold the trace data
 	file, err := os.Create("trace.out")
 	if err != nil {
 		panic(err)

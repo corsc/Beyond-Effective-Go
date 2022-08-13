@@ -17,7 +17,7 @@ func TestDataRace(t *testing.T) {
 		go func(val int) {
 			defer wg.Done()
 
-			// generate replace message
+			// generate and replace the messages
 			for i := 0; i < len(message); i++ {
 				message[i] = val
 			}

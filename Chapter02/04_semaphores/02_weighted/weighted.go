@@ -21,7 +21,7 @@ func Example(stopCh chan struct{}, lightWorkCh chan Data, heavyWorkCh chan Data)
 		select {
 		case data := <-lightWorkCh:
 			go func() {
-				// acquire semaphore
+				// acquire a semaphore
 				err := weightedSemaphore.Acquire(context.Background(), lightWorkCost)
 				if err != nil {
 					return
@@ -35,7 +35,7 @@ func Example(stopCh chan struct{}, lightWorkCh chan Data, heavyWorkCh chan Data)
 
 		case data := <-heavyWorkCh:
 			go func() {
-				// acquire semaphore
+				// acquire a semaphore
 				err := weightedSemaphore.Acquire(context.Background(), heavyWorkCost)
 				if err != nil {
 					return

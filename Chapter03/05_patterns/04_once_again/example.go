@@ -28,7 +28,7 @@ func (u *UserDAO) SaveFixed(db *sql.DB, user User) error {
 	return err
 }
 
-// build select query from the struct tags
+// build a select query from the struct tags
 func (u *UserDAO) generateInsertSQL() string {
 	out := "INSERT INTO user ("
 
@@ -55,7 +55,7 @@ func (u *UserDAO) generateInsertSQL() string {
 	return out
 }
 
-// build select query from the struct tags
+// build a select query from the struct tags
 func (u *UserDAO) generateInsertSQLFixed() string {
 	out := "INSERT INTO user ("
 

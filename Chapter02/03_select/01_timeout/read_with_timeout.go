@@ -13,7 +13,7 @@ func readWithTimeout(closure func() string, timeout time.Duration) (string, erro
 
 	select {
 	case result := <-resultCh:
-		// happy path, data read result from channel
+		// happy path, data read from result channel
 		return result, nil
 
 	case <-time.After(timeout):

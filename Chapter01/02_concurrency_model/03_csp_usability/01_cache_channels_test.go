@@ -17,7 +17,7 @@ func TestCacheWithChannelsExample(t *testing.T) {
 	// retrieve a value from the cache
 	resultCh := cache.Get("my-key")
 
-	// wait for result (or timeout)
+	// wait for the result (or timeout)
 	select {
 	case result := <-resultCh:
 		// happy path.  cache returned result

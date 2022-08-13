@@ -33,7 +33,7 @@ func FanInExample(stopCh chan struct{}, inputChA, inputChB chan int, outputCh ch
 			continue
 		}
 
-		// write to output channel
+		// write to the output channel
 		outputCh <- data
 	}
 }

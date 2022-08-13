@@ -13,7 +13,7 @@ type Repository struct {
 func (r *Repository) Dial() error {
 	var err error
 
-	// prevent the accidental creation of multiple db connection pools
+	// prevent the accidental creation of multiple DB connection pools
 	r.dbInit.Do(func() {
 		r.db, err = sql.Open("mysql", "user:password@/dbname")
 	})

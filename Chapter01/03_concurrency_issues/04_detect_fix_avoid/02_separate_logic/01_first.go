@@ -13,7 +13,7 @@ var (
 )
 
 func UpdateDestinationV1() {
-	// ensure we are the only one accessing the data
+	// ensure we are the only ones accessing the data
 	sourceMutex.Lock()
 	destinationMutex.Lock()
 

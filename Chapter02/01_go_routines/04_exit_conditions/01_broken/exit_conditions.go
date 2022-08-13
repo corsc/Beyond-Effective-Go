@@ -14,7 +14,7 @@ var cacheMutex = &sync.Mutex{}
 func loadRecord(ctx context.Context, wg *sync.WaitGroup, semaphoreCh chan struct{}, errorCh chan error, name string) {
 	defer wg.Done()
 
-	// acquire semaphore
+	// acquire a semaphore
 	semaphoreCh <- struct{}{}
 
 	cacheMutex.Lock()

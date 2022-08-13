@@ -15,7 +15,7 @@ func Example(stopCh chan struct{}, workCh chan Data) {
 		case data := <-workCh:
 			wg.Add(1)
 
-			// acquire semaphore
+			// acquire a semaphore
 			semaphore <- struct{}{}
 
 			go func() {

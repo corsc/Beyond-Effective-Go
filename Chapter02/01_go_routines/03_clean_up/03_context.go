@@ -13,7 +13,7 @@ func Example3() {
 	defer cancel()
 
 	go func() {
-		// call to database
+		// call to the database
 		query := "SELECT name, population FROM countries"
 		results, err := db.QueryContext(ctx, query)
 		if err != nil {

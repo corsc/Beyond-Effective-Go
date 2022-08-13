@@ -19,7 +19,7 @@ func loadRecord(ctx context.Context, wg *sync.WaitGroup, semaphoreCh chan struct
 		wg.Done()
 	}()
 
-	// acquire semaphore
+	// acquire a semaphore
 	semaphoreCh <- struct{}{}
 
 	result := db.QueryRowContext(ctx, "SELECT user, host FROM user WHERE user = ?", name)

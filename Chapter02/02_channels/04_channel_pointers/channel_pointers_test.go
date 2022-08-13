@@ -11,7 +11,7 @@ func TestExample(t *testing.T) {
 
 	john := &Person{Name: "John"}
 
-	// send an pointer via the channel
+	// send a pointer via the channel
 	peopleCh := make(chan *Person, 1)
 	peopleCh <- john
 

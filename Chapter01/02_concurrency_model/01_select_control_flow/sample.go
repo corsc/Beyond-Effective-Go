@@ -9,7 +9,7 @@ func SelectExample(dataCh chan Data, stopCh chan struct{}) {
 			processData(data)
 
 		case <-stopCh:
-			// stop processing data
+			// stop processing the data
 			return
 		}
 	}
