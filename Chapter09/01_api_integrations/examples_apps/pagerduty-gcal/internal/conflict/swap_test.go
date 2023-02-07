@@ -1,11 +1,12 @@
 package conflict
 
 import (
+	"testing"
+	"time"
+
 	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-gcal/internal/gcal"
 	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-gcal/internal/pduty"
 	"github.com/stretchr/testify/assert"
-	"testing"
-	"time"
 )
 
 var (

@@ -1,44 +1,44 @@
 {
   "teams": [
-	{
-	  "name": "Test Team A",
-	  "slack": "#test-team-a",
-	  "members": [
-		{
-		  "name": "John",
-		  "email": "john@beatles.com",
-		  "role": "dept-head"
-		},
-		{
-		  "name": "Paul",
-		  "email": "paul@beatles.com",
-		  "role": "lead"
-		},
-		{
-		  "name": "George",
-		  "email": "george@beatles.com",
-		  "role": "member"
-		},
-		{
-		  "name": "Ringo",
-		  "email": "ringo@beatles.com",
-		  "role": "member"
-		},
-		{
-		  "name": "Pete",
-		  "email": "pete@beatles.com",
-		  "role": "observer"
-		}
-	  ],
-	  "services": [
-		{
-		  "name": "Test Service A"
-		},
-		{
-		  "name": "Test Service A"
-		}
-	  ]
-	}
+    {
+      "name": "Test Team A",
+      "slack": "#test-team-a",
+      "members": [
+        {
+          "name": "John",
+          "email": "john@beatles.com",
+          "role": "dept-head"
+        },
+        {
+          "name": "Paul",
+          "email": "paul@beatles.com",
+          "role": "lead"
+        },
+        {
+          "name": "George",
+          "email": "george@beatles.com",
+          "role": "member"
+        },
+        {
+          "name": "Ringo",
+          "email": "ringo@beatles.com",
+          "role": "member"
+        },
+        {
+          "name": "Pete",
+          "email": "pete@beatles.com",
+          "role": "observer"
+        }
+      ],
+      "services": [
+        {
+          "name": "Test Service A"
+        },
+        {
+          "name": "Test Service A"
+        }
+      ]
+    }
   ],
   "default_timezone": "Asia/Jakarta"
 }

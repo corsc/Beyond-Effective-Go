@@ -3,10 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pd-user-check/internal/pduty"
-	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pd-user-check/internal/printer"
 	"log"
 	"os"
+
+	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pd-user-check/internal/pduty"
+	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pd-user-check/internal/printer"
 )
 
 var (

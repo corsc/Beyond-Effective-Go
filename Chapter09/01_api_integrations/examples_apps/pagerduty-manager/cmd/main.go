@@ -7,8 +7,8 @@ import (
 	"os"
 	"time"
 
-	"go.uber.org/zap"
 	pdmanager "github.com/corsc/pagerduty-manager"
+	"go.uber.org/zap"
 )
 
 const (

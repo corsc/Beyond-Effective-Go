@@ -2,8 +2,9 @@ package _3_output
 
 import (
 	"bytes"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestPrinter_outputHeader(t *testing.T) {

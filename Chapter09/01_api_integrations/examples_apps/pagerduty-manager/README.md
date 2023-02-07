@@ -1,17 +1,21 @@
 Note: This code is a copy included with the book for convenience.
-For the latest version of this tool and project support please refer to [this project](https://github.com/corsc/pagerduty-manager).
+For the latest version of this tool and project support please refer
+to [this project](https://github.com/corsc/pagerduty-manager).
 
 This app is an example of a tedious task that are likely to repeat over time.
 It is also a task where a level of consistency is valuable.
 
 # PagerDuty Manager
 
-This app aims to provide a simple and efficient way to define and set up your PagerDuty users, teams, services, and schedules.
+This app aims to provide a simple and efficient way to define and set up your PagerDuty users, teams, services, and
+schedules.
 
-It takes a simple JSON file as an input and uses the [PagerDuty API](https://developer.pagerduty.com/) to synchronize the JSON with the PD
+It takes a simple JSON file as an input and uses the [PagerDuty API](https://developer.pagerduty.com/) to synchronize
+the JSON with the PD
 configuration.
 
-This application requires an API token with sufficient permissions and for this token to be stored in an environment variable
+This application requires an API token with sufficient permissions and for this token to be stored in an environment
+variable
 named `PD_TOKEN`.
 
 Sample Input JSON:
@@ -56,6 +60,8 @@ Ideally every `members` list should include at least 1x lead, and 1 x dept-head.
 `$ pd-manager members.json`
 
 ### Other Options:
+
 * `-v` - Verbose listing of actions and results (useful for debugging).
-* `-d` - Perform a "dry run". The tool will parse the config file and interact with PagerDuty (to check existing state) but will only make no 
-changes.
+* `-d` - Perform a "dry run". The tool will parse the config file and interact with PagerDuty (to check existing state)
+  but will only make no
+  changes.

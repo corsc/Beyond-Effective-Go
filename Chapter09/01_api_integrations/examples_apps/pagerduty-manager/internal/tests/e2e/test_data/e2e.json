@@ -1,32 +1,32 @@
 {
   "teams": [
-	{
-	  "name": "Sage42",
-	  "description": "",
-	  "slack": "#sage42",
-	  "members": [
-		{
-		  "name": "Member",
-		  "email": "member@example.com",
-		  "role": "member"
-		},
-		{
-		  "name": "Lead",
-		  "email": "lead@example.com",
-		  "role": "lead"
-		},
-		{
-		  "name": "Dept Head",
-		  "email": "corey.scott@gmail.com",
-		  "role": "dept-head"
-		}
-	  ],
-	  "services": [
-		{
-		  "name": "Avengers"
-		}
-	  ]
-	}
+    {
+      "name": "Sage42",
+      "description": "",
+      "slack": "#sage42",
+      "members": [
+        {
+          "name": "Member",
+          "email": "member@example.com",
+          "role": "member"
+        },
+        {
+          "name": "Lead",
+          "email": "lead@example.com",
+          "role": "lead"
+        },
+        {
+          "name": "Dept Head",
+          "email": "corey.scott@gmail.com",
+          "role": "dept-head"
+        }
+      ],
+      "services": [
+        {
+          "name": "Avengers"
+        }
+      ]
+    }
   ],
   "default_timezone": "Australia/Melbourne"
 }

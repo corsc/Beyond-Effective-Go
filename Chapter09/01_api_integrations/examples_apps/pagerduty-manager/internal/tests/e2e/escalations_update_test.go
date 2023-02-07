@@ -2,12 +2,13 @@ package e2e
 
 import (
 	"context"
+	"testing"
+	"time"
+
 	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-manager/internal/escalations"
 	"github.com/corsc/go-commons/testing/skip"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
-	"testing"
-	"time"
 )
 
 func TestE2EEscalations_Update(t *testing.T) {

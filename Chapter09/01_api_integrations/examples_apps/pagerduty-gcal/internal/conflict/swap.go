@@ -1,9 +1,10 @@
 package conflict
 
 import (
+	"time"
+
 	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-gcal/internal/gcal"
 	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-gcal/internal/pduty"
-	"time"
 )
 
 // SwapAPI will attempt to find a swap in the schedule

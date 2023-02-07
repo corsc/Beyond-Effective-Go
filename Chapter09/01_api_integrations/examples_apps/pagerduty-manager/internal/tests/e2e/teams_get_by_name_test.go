@@ -2,9 +2,10 @@ package e2e
 
 import (
 	"context"
-	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-manager/internal/teams"
 	"testing"
 	"time"
+
+	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-manager/internal/teams"
 
 	"github.com/corsc/go-commons/testing/skip"
 	"github.com/stretchr/testify/require"
