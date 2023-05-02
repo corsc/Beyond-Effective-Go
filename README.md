@@ -78,7 +78,7 @@ These don't necessarily directly lead to quality, but they can lead to productiv
 | 6       | Advanced Unit Testing Techniques                  | 1st Draft | [Here](https://docs.google.com/document/d/1oQLmof-PSS864OWTAOqoYZ7MXVhIlD3mCMahX3JXn8Y/edit?usp=sharing) |
 | 7       | Improving your Development Productivity           | 1st Draft | [Here](https://docs.google.com/document/d/1U8K-gskeIeOACPkJNFzfhUVxvMksK-NFbdjEmemquQU/edit?usp=sharing) |
 | 8       | Examining Unusual Patterns for Go                 | 1st Draft | [Here](https://docs.google.com/document/d/194RwCzrCQ7sGvb8YbhtvPrw-nGTl7EoNUC8QUHv9G7Q/edit?usp=sharing) |
-| 9       | Metaprogramming                                   | Writing   | -                                                                                                        |
+| 9       | Metaprogramming                                   | 1st Draft | [Here](https://docs.google.com/document/d/1HRqwYg2CoUVwemQDTZ-r9leIVnli-MM3Ot6VCevogyY/edit?usp=sharing) |
 
 ### Part 3: Creating Professional Services & Libraries
 
