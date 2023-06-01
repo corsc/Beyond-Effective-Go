@@ -30,6 +30,8 @@ func (o *oldLoggerAdapter) Error(message string, args ...interface{}) {
 	o.newLogger.Error(fmt.Sprintf(message, args...))
 }
 
+// Confirm the relationship between the adapter and the new interface.
+
 func Usage() {
 	var newLogger NewLogger = &newLoggerImpl{}
 	adaptedNewLogger := &oldLoggerAdapter{newLogger: newLogger}

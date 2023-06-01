@@ -3,10 +3,10 @@ package _2_example
 func NewDocumentFormat(format string) DocumentFormat {
 	switch format {
 	case "md":
-		return Markdown{}
+		return &Markdown{}
 
 	default:
-		return HTML{}
+		return &HTML{}
 	}
 }
 
@@ -17,20 +17,20 @@ type DocumentFormat interface {
 
 type Markdown struct{}
 
-func (m Markdown) Header(text string) string {
+func (m *Markdown) Header(text string) string {
 	return "# " + text
 }
 
-func (m Markdown) Bold(text string) string {
+func (m *Markdown) Bold(text string) string {
 	return "**" + text + "**"
 }
 
 type HTML struct{}
 
-func (h HTML) Header(text string) string {
+func (h *HTML) Header(text string) string {
 	return "<h1>" + text + "</h1>"
 }
 
-func (h HTML) Bold(text string) string {
+func (h *HTML) Bold(text string) string {
 	return "<strong>" + text + "</strong>"
 }

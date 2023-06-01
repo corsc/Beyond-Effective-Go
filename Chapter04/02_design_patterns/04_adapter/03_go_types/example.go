@@ -20,6 +20,7 @@ func Usage() {
 	adaptedConfig := &configAdapter{
 		configVersion1: configVersion1,
 	}
+
 	version2.UsageConfig(adaptedConfig)
 }
 

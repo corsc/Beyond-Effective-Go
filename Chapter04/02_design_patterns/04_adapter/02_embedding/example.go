@@ -28,4 +28,5 @@ func (u *UserLoginAdapter) Token() string {
 	return ""
 }
 
+// Enforce the relationship between the adapter and the new interface.
 var _ UserForLogin = &UserLoginAdapter{User: User{}}

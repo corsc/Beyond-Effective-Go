@@ -12,7 +12,7 @@ type Post struct {
 // This is the Subject
 type Celebrity struct {
 	fans  []chan Post
-	mutex *sync.RWMutex
+	mutex sync.RWMutex
 }
 
 // Subscribe/Add to list of Observers
@@ -31,6 +31,10 @@ func (o *Celebrity) Unfollow(in chan Post) {
 	for index, observer := range o.fans {
 		if observer == in {
 			o.fans = append(o.fans[:index], o.fans[index+1:]...)
+
+			// close the channel and stop watch loop
+			close(in)
+
 			return
 		}
 	}
@@ -56,7 +60,7 @@ type SuperFan struct {
 
 func (s *SuperFan) Watch() {
 	for post := range s.eventCh {
-		fmt.Printf("Celebrity has posted %s", post.Content)
+		fmt.Printf("Celebrity has posted: %s", post.Content)
 	}
 }
 
