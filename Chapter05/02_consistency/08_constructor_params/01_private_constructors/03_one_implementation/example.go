@@ -1,4 +1,4 @@
-package _3_one_implementation
+package example
 
 import (
 	"time"

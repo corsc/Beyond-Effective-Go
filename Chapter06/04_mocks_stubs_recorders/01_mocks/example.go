@@ -75,3 +75,12 @@ type Bank interface {
 type ReceiptSender interface {
 	SendReceipt(ctx context.Context, customerEmail string, amount int64, receiptNo string) error
 }
+
+//go:generate mockery --name=ReceiptDecorator --case underscore --testonly --inpackage
+type ReceiptDecorator interface {
+	Decorate(receipt *Receipt) error
+}
+
+type Receipt struct {
+	ID string
+}

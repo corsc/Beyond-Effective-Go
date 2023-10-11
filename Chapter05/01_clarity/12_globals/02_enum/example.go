@@ -30,7 +30,7 @@ func (d *Direction) UnmarshalJSON(bytes []byte) error {
 
 	_, found := all[val]
 	if !found {
-		return fmt.Errorf("failed to convert '%s'", bytes)
+		return fmt.Errorf("expected value '%s'", val)
 	}
 
 	*d = val

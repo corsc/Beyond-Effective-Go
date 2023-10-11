@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"os"
 
 	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-manager/internal/escalations"
 	"github.com/corsc/Beyond-Effective-Go/Chapter09/01_api_integrations/examples_apps/pagerduty-manager/internal/schedules"
@@ -64,7 +64,7 @@ type Manager struct {
 func (m *Manager) Parse(_ context.Context) error {
 	m.logger.Debug("loading data from file", zap.String("file", m.cfg.Filename()))
 
-	fileContents, err := ioutil.ReadFile(m.cfg.Filename())
+	fileContents, err := os.ReadFile(m.cfg.Filename())
 	if err != nil {
 		return fmt.Errorf("failed to read input file with err: %w", err)
 	}

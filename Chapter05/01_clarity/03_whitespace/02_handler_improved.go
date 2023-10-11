@@ -2,12 +2,12 @@ package _3_whitespace
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
 func handlerWhitespace(resp http.ResponseWriter, req *http.Request) {
-	payload, err := ioutil.ReadAll(req.Body)
+	payload, err := io.ReadAll(req.Body)
 	if err != nil {
 		resp.WriteHeader(http.StatusBadRequest)
 		return

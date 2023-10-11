@@ -1,6 +1,7 @@
-package _3_one_implementation
+package example
 
 import (
+	"database/sql"
 	"time"
 )
 
@@ -27,8 +28,10 @@ type UserManager struct {
 }
 
 type Config interface {
-	MinPwdLen() int
-	MaxPwdLen() int
+	GetDBPool() *sql.DB
+
+	GetMinPwdLen() int
+	GetMaxPwdLen() int
 }
 
 type PasswordEncoder interface {

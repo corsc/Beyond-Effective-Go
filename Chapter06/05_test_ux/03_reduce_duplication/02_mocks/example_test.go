@@ -21,7 +21,7 @@ func TestOrderManager_Process(t *testing.T) {
 		expectErr           bool
 	}{
 		{
-			desc: "happy path (long version)",
+			desc: "Happy Path (long version)",
 			in: Order{
 				CustomerName:  "Oscar",
 				CustomerEmail: "me@home.com",
@@ -39,7 +39,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "happy path (concise mocks)",
+			desc: "Happy Path (concise mocks)",
 			in: Order{
 				CustomerName:  "Oscar",
 				CustomerEmail: "me@home.com",
@@ -51,7 +51,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr:           false,
 		},
 		{
-			desc:                "happy path (concise)",
+			desc:                "Happy Path (concise)",
 			in:                  validTestOrder,
 			configureMockBank:   happyPathBankCharge,
 			configureMockSender: happyPathReceiptSend,

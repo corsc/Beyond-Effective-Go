@@ -21,7 +21,7 @@ func TestManager_Get(t *testing.T) {
 		expectErr             bool
 	}{
 		{
-			desc: "happy path",
+			desc: "Happy Path",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(getHappyPathResponse))
 			}),
@@ -89,7 +89,7 @@ func TestManager_GetByName(t *testing.T) {
 		expectErr             bool
 	}{
 		{
-			desc: "happy path",
+			desc: "Happy Path",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(listHappyPathResponse))
 			}),
@@ -148,7 +148,7 @@ func TestManager_Add(t *testing.T) {
 		expectErr             bool
 	}{
 		{
-			desc: "happy path",
+			desc: "Happy Path",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusCreated)
 				_, _ = resp.Write([]byte(addHappyPathResponse))
@@ -210,7 +210,7 @@ func TestManager_Update(t *testing.T) {
 		expectErr             bool
 	}{
 		{
-			desc: "happy path",
+			desc: "Happy Path",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				if req.Method == http.MethodGet {
 					resp.WriteHeader(http.StatusOK)

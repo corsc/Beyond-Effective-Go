@@ -6,7 +6,7 @@ scenarios := []struct {
     expectErr   bool
 }{
     {
-        desc:       "happy path",
+        desc:       "Happy Path",
         in:         $IN$,
         configureMocks: func(*$MOCK_TYPE$) {
         },

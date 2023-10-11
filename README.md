@@ -2,9 +2,7 @@
 
 Are you a Go programmer with 6+ months of experience?
 
-Have you learned everything you can from [Effective Go](https://golang.org/doc/effective_go.html) and wondered what to
-learn
-next?
+Have you learned everything you can from [Effective Go](https://golang.org/doc/effective_go.html) and wondered what to learn next?
 
 Then *Beyond Effective Go* is for you.
 
@@ -74,8 +72,8 @@ These don't necessarily directly lead to quality, but they can lead to productiv
 | Chapter | Title                                             | Status    | Link                                                                                                     |
 |---------|---------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------|
 | 4       | Exploring Software Design Principles and Patterns | 2nd Draft | [Here](https://docs.google.com/document/d/12gFU1d-DPx_4ARuvy10pVsK-PdM3JGt6VNPW-lPJcH8/edit?usp=sharing) |
-| 5       | Optimizing for Code UX                            | 1st Draft | [Here](https://docs.google.com/document/d/1eASV-_ncta_IzuoE7Sitse-g0-MI1_RjHxQtSNsj8Ok/edit?usp=sharing) |
-| 6       | Advanced Unit Testing Techniques                  | 1st Draft | [Here](https://docs.google.com/document/d/1oQLmof-PSS864OWTAOqoYZ7MXVhIlD3mCMahX3JXn8Y/edit?usp=sharing) |
+| 5       | Optimizing for Code UX                            | 2nd Draft | [Here](https://docs.google.com/document/d/1eASV-_ncta_IzuoE7Sitse-g0-MI1_RjHxQtSNsj8Ok/edit?usp=sharing) |
+| 6       | Advanced Unit Testing Techniques                  | 2nd Draft | [Here](https://docs.google.com/document/d/1oQLmof-PSS864OWTAOqoYZ7MXVhIlD3mCMahX3JXn8Y/edit?usp=sharing) |
 | 7       | Improving your Development Productivity           | 1st Draft | [Here](https://docs.google.com/document/d/1U8K-gskeIeOACPkJNFzfhUVxvMksK-NFbdjEmemquQU/edit?usp=sharing) |
 | 8       | Examining Unusual Patterns for Go                 | 1st Draft | [Here](https://docs.google.com/document/d/194RwCzrCQ7sGvb8YbhtvPrw-nGTl7EoNUC8QUHv9G7Q/edit?usp=sharing) |
 | 9       | Metaprogramming                                   | 1st Draft | [Here](https://docs.google.com/document/d/1HRqwYg2CoUVwemQDTZ-r9leIVnli-MM3Ot6VCevogyY/edit?usp=sharing) |
@@ -84,6 +82,9 @@ These don't necessarily directly lead to quality, but they can lead to productiv
 
 This book focuses on topics related to building web services and building great shared libraries. These chapters intend
 to help readers produce high-quality, stable, and scalable services and shared libraries that are a joy to use.
+
+Warning: given a change in my circumstances this part may not get written (or will be a while), if you are interested in
+this content please reach out and let me know.
 
 #### Chapters:
 

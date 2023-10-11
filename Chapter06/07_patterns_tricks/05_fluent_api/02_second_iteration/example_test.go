@@ -25,7 +25,7 @@ func TestSearch_Do(t *testing.T) {
 		expectErr         bool
 	}{
 		{
-			desc: "happy path",
+			desc: "Happy Path",
 			historySearchStub: func(ctx context.Context, esClient *elastic.Client, termQuery *elastic.TermQuery) (*elastic.SearchResult, error) {
 				order := &Order{
 					OrderID:  "ABC123",

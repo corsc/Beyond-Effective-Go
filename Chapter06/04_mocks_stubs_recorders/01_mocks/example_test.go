@@ -3,7 +3,6 @@ package _1_mocks
 import (
 	"context"
 	"errors"
-	"fmt"
 	"testing"
 	"time"
 
@@ -81,31 +80,6 @@ func TestOrderManager_Process(t *testing.T) {
 			expected:  "",
 			expectErr: true,
 		},
-		{
-			desc: "RunFunc",
-			in: Order{
-				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
-				Amount:        123,
-			},
-			configureMockBank: func(bank *MockBank) {
-				bank.On("Charge", mock.Anything, mock.Anything, mock.Anything).
-					Run(func(args mock.Arguments) {
-						customerName := args.String(1)
-						fmt.Printf("supplied customer name was: %s", customerName)
-					}).
-					Return("", errors.New("timeout")).Once()
-
-				bank.On("Charge", mock.Anything, mock.Anything, mock.Anything).
-					Return("ABC-123", nil)
-			},
-			configureMockSender: func(sender *MockReceiptSender) {
-				sender.On("SendReceipt", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
-					Return(nil)
-			},
-			expected:  "",
-			expectErr: true,
-		},
 	}
 
 	for _, s := range scenarios {
@@ -131,4 +105,51 @@ func TestOrderManager_Process(t *testing.T) {
 			assert.Equal(t, scenario.expected, result, "expected result")
 		})
 	}
+}
+
+func TestDecorate(t *testing.T) {
+	scenarios := []struct {
+		desc            string
+		in              *Receipt
+		configDecorator func(decorator *MockReceiptDecorator)
+		expectedResult  *Receipt
+		expectErr       bool
+	}{
+		{
+			desc: "RunFunc example",
+			in:   &Receipt{},
+			configDecorator: func(decorator *MockReceiptDecorator) {
+				decorator.On("Decorate", mock.Anything).
+					Run(func(args mock.Arguments) {
+						receipt, ok := args.Get(0).(*Receipt)
+						assert.True(t, ok)
+
+						receipt.ID = "ABC-123"
+					}).
+					Return(nil)
+			},
+			expectedResult: &Receipt{
+				ID: "ABC-123",
+			},
+			expectErr: false,
+		},
+	}
+
+	for _, s := range scenarios {
+		scenario := s
+		t.Run(scenario.desc, func(t *testing.T) {
+			// inputs
+
+			// mocks
+			thisMock := &MockReceiptDecorator{}
+			scenario.configDecorator(thisMock)
+
+			resultErr := thisMock.Decorate(scenario.in)
+
+			// validation
+			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectErr, resultErr)
+			assert.Equal(t, scenario.expectedResult, scenario.in)
+		})
+	}
+
 }

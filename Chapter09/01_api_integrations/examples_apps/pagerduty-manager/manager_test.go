@@ -17,7 +17,7 @@ func TestManager_Parse(t *testing.T) {
 		expectErr bool
 	}{
 		{
-			desc:      "happy path",
+			desc:      "Happy Path",
 			in:        "./test_data/simple.json",
 			expectErr: false,
 		},

@@ -21,7 +21,7 @@ func TestManager_GetByEmail(t *testing.T) {
 		expectErr             bool
 	}{
 		{
-			desc: "happy path",
+			desc: "Happy Path",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(getHappyPathResponse))
 			}),
@@ -83,7 +83,7 @@ func TestManager_Add(t *testing.T) {
 		expectErr             bool
 	}{
 		{
-			desc: "happy path",
+			desc: "Happy Path",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusCreated)
 				_, _ = resp.Write([]byte(addHappyPathResponse))

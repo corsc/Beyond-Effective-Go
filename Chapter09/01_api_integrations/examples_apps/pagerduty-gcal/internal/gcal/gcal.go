@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -128,7 +127,7 @@ func (x *CalendarAPI) getTime(dateTime string, date string, location *time.Locat
 }
 
 func (c *CalendarAPI) getAPI(credsFile, tokFile string) (*calendar.Service, error) {
-	b, err := ioutil.ReadFile(credsFile)
+	b, err := os.ReadFile(credsFile)
 	if err != nil {
 		return nil, err
 	}

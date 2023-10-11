@@ -24,7 +24,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 		expectErr         bool
 	}{
 		{
-			desc:              "happy path - no inputs",
+			desc:              "Happy Path - no inputs",
 			inSchedule:        &pduty.Schedule{},
 			inCalendars:       map[string]*gcal.Calendar{},
 			expectedConflicts: 0,

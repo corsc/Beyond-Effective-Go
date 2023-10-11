@@ -5,7 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 
@@ -51,7 +51,7 @@ func (u *API) Get(ctx context.Context, uri string, params url.Values, respDTO in
 	defer iocloser.Close(resp.Body)
 
 	if resp.StatusCode != http.StatusOK {
-		payload, _ := ioutil.ReadAll(resp.Body)
+		payload, _ := io.ReadAll(resp.Body)
 		u.logger.Debug("response", zap.ByteString("payload", payload))
 
 		return fmt.Errorf("unexpected HTTP GET response code: %d", resp.StatusCode)
@@ -87,7 +87,7 @@ func (u *API) Put(ctx context.Context, uri string, reqDTO interface{}) error {
 	defer iocloser.Close(resp.Body)
 
 	if resp.StatusCode != http.StatusNoContent && resp.StatusCode != http.StatusOK {
-		payload, _ := ioutil.ReadAll(resp.Body)
+		payload, _ := io.ReadAll(resp.Body)
 		u.logger.Debug("response", zap.ByteString("payload", payload))
 
 		return fmt.Errorf("unexpected HTTP PUT response code: %d", resp.StatusCode)
@@ -123,7 +123,7 @@ func (u *API) Post(ctx context.Context, uri string, reqDTO, respDTO interface{})
 	defer iocloser.Close(resp.Body)
 
 	if resp.StatusCode != http.StatusCreated {
-		payload, _ := ioutil.ReadAll(resp.Body)
+		payload, _ := io.ReadAll(resp.Body)
 		u.logger.Debug("response", zap.ByteString("payload", payload))
 
 		return fmt.Errorf("unexpected HTTP PUT response code: %d", resp.StatusCode)
@@ -143,7 +143,7 @@ func (u *API) buildURI(uri string, params url.Values) string {
 }
 
 func (u *API) parseResponse(resp *http.Response, respDTO interface{}) error {
-	payload, err := ioutil.ReadAll(resp.Body)
+	payload, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return fmt.Errorf("failed to read response body with err: %w", err)
 	}

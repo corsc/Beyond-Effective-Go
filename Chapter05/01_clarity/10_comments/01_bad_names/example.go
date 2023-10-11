@@ -19,6 +19,7 @@ func ProcessOrder(o Order) error {
 		return err
 	}
 
+	// inform the warehouse
 	return i(o)
 }
 

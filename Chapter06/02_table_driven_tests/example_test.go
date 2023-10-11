@@ -21,7 +21,7 @@ func TestOrderManager_Process(t *testing.T) {
 		expectErr           bool
 	}{
 		{
-			desc: "happy path",
+			desc: "Happy Path",
 			in: Order{
 				CustomerName:  "Oscar",
 				CustomerEmail: "me@home.com",

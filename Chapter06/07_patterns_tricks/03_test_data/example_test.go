@@ -11,7 +11,7 @@ import (
 )
 
 func TestLoadConfig(t *testing.T) {
-	config, err := ioutil.ReadFile("testdata/test-config.json")
+	config, err := os.ReadFile("testdata/test-config.json")
 	require.NoError(t, err)
 
 	expected := `{"address": "0.0.0.0:8080"}`
@@ -30,10 +30,10 @@ func TestGenerateJSON(t *testing.T) {
 	defer os.Remove(destination)
 
 	// compare the generated file with the expected file
-	resultContents, err := ioutil.ReadFile(destination)
+	resultContents, err := os.ReadFile(destination)
 	require.NoError(t, err)
 
-	expectedContents, err := ioutil.ReadFile(testFixture)
+	expectedContents, err := os.ReadFile(testFixture)
 	require.NoError(t, err)
 
 	assert.Equal(t, string(expectedContents), string(resultContents))
@@ -56,10 +56,10 @@ func TestGenerateJSONWithGenerator(t *testing.T) {
 	defer os.Remove(destination)
 
 	// compare the generated file with the expected file
-	resultContents, err := ioutil.ReadFile(destination)
+	resultContents, err := os.ReadFile(destination)
 	require.NoError(t, err)
 
-	expectedContents, err := ioutil.ReadFile(testFixture)
+	expectedContents, err := os.ReadFile(testFixture)
 	require.NoError(t, err)
 
 	assert.Equal(t, string(expectedContents), string(resultContents))
