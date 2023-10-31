@@ -1,5 +1,11 @@
 #!/bin/bash
 
+set +x
+
+if [ -n "${DBG_SCRIPTS}" ]; then
+  set -x
+fi
+
 set -o errexit
 set -o pipefail
 
@@ -9,7 +15,7 @@ clear
 source ~/Applications/go-exclusions
 
 # Build list of modified directories
-dirsToCheck=$(for f in $(git diff --name-only --diff-filter=d); do dirname $f; done | sort | uniq)
+dirsToCheck=$(for f in $(git diff --name-only --diff-filter=d --merge-base HEAD); do dirname $f; done | sort | uniq)
 
 # Run standard checks and cleaning
 for d in $dirsToCheck; do
@@ -22,25 +28,46 @@ for d in $dirsToCheck; do
 
   # Header to keep track
   echo -e "\033[1;34mChecking: $d\033[0m"
-  echo
 
   # Format code and fix imports
   echo -e "\033[1;34mClean:\033[0m"
   if [ "$d" != "." ]; then
     goclean ./$d
+
+    if [[ $? != 0 ]]; then
+      exit -1
+    fi
   fi
 
   # Run tests and race check
   echo -e "\033[1;34mRace Tests:\033[0m"
   testResult=$(gotestr ./$d)
-  echo -e "$testResult"
+  if [[ $? != 0 ]]; then
+    if [ $(echo "/$testResult/" | grep "no Go files" | wc -l) -eq 1 ]; then
+      echo -e "$testResult"
+      exit -1
+    fi
+  fi
 
-  # Perform lint checks
-  echo -e "\033[1;34mLint checks:\033[0m"
+  # Skip further checks when no changes were made
   if [ $(echo "/$testResult/" | grep "(cached)" | wc -l) -eq 0 ]; then
-    golint ./$d
+    # Perform lint checks
+    echo -e "\033[1;34mLint:\033[0m"
+    lintResult=$(golint ./$d)
+    lintResultInt=$?
+
+    if [ $(echo "/$lintResult/" | grep "no go files to analyze" | wc -l) -eq 0 ]; then
+      if [[ $lintResultInt != 0 ]]; then
+	      echo -e "$lintResult"
+        exit -1
+      fi
+    fi
+
+    # Enforce minimum coverage
+    echo -e "\033[1;34mCode Coverage Check:\033[0m"
+    pcov ./$d -s
   else
-    echo "skipped lint check as code was not changed since last run"
+    echo "skipped further checks as code was not changed since last run"
   fi
 
   echo

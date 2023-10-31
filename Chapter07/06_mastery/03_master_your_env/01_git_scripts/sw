@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
 	exit 1
 fi
 
-# Check if we need to stash and in progress changes
+# Check if we need to stash and in-progress changes
 IS_CLEAN=$(git status | grep "working tree clean" | wc -l)
 if [ $IS_CLEAN -eq 0 ]; then
 	git stash
@@ -26,4 +26,3 @@ git rebase master
 if [ $IS_CLEAN -eq 0 ]; then
 	git stash pop
 fi
-

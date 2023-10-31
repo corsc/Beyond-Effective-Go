@@ -1,16 +1,19 @@
 #!/bin/bash
 
-set -o errexit
-set -o pipefail
-
 if [ -z "$1" ]; then
     echo "Usage: newfeature [branch name]"
     exit 1
 fi
 
-# Refresh the master branch
+IS_CLEAN=$(git status --short | wc -l)
+if [ ${IS_CLEAN} -ne 0 ]; then
+  git stash
+fi
+
 git checkout master
 git pull origin master
-
-# Create a new branch
 git checkout -b $1
+
+if [ ${IS_CLEAN} -ne 0 ]; then
+  git stash pop
+fi
