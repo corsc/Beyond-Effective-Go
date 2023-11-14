@@ -8,7 +8,7 @@ func forEach(in []string, operation func(string) string) []string {
 	out := make([]string, len(in))
 
 	for index, thisString := range in {
-		// apply transformation using supplied operation
+		// apply transformation using the supplied operation
 		result := operation(thisString)
 
 		out[index] = result

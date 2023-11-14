@@ -13,7 +13,7 @@ func forE(in []string, index int, operation func(string) string) []string {
 		return nil
 	}
 
-	// apply transformation using supplied operation
+	// apply transformation using the supplied operation
 	result := operation(in[index])
 
 	return append([]string{result}, forE(in, index+1, operation)...)
