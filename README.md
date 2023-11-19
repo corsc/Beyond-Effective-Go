@@ -45,7 +45,6 @@ This book series is (currently) organized into 3 books:
 
 1. Achieving High-Performance Code
 2. Striving for High-Quality Code
-3. Building Professional Go Services & High-Value Shared Libraries
 
 ### Part 1: Achieving High-Performance Code
 
@@ -77,21 +76,3 @@ These don't necessarily directly lead to quality, but they can lead to productiv
 | 7       | Improving your Development Productivity           | 1st Draft | [Here](https://docs.google.com/document/d/1U8K-gskeIeOACPkJNFzfhUVxvMksK-NFbdjEmemquQU/edit?usp=sharing) |
 | 8       | Examining Unusual Patterns for Go                 | 1st Draft | [Here](https://docs.google.com/document/d/194RwCzrCQ7sGvb8YbhtvPrw-nGTl7EoNUC8QUHv9G7Q/edit?usp=sharing) |
 | 9       | Metaprogramming                                   | 1st Draft | [Here](https://docs.google.com/document/d/1HRqwYg2CoUVwemQDTZ-r9leIVnli-MM3Ot6VCevogyY/edit?usp=sharing) |
-
-### Part 3: Creating Professional Services & Libraries
-
-This book focuses on topics related to building web services and building great shared libraries. These chapters intend
-to help readers produce high-quality, stable, and scalable services and shared libraries that are a joy to use.
-
-Warning: given a change in my circumstances this part may not get written (or will be a while), if you are interested in
-this content please reach out and let me know.
-
-#### Chapters:
-
-| Chapter | Title                                  | Status   | Link |
-|---------|----------------------------------------|----------|------|
-| 10      | Go Service Design and Evolution        | Planning | -    |
-| 11      | Building Resilient Go Services         | Planning | -    |
-| 12      | High-Performance Go Services           | Planning | -    |
-| 13      | Extended Testing for Services          | Planning | -    |
-| 14      | Go Shared Library Design and Evolution | Planning | -    |
