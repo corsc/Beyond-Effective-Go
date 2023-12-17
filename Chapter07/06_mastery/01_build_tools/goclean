@@ -1,20 +1,30 @@
 #!/bin/bash
 
+set +x
+
+if [ -n "${DBG_SCRIPTS}" ]; then
+  set -x
+fi
+
 set -o errexit
 set -o pipefail
 
-# Ensure we specified a directory
+# Ensure we specify a directory
 if [ -z "$1" ]; then
-  echo "Please supply a destination directory"
-  exit 1
+    echo "Please supply a destination directory"
+	exit 1
 fi
 
 # Ensure the formatting of the source directory is consistent
 DIR=${1%...}
 PKG_DIR=${DIR%/}/
 
-# Build a list of all Go file (except vendor and completely generated code)
-DIRS=$(find $PKG_DIR -type f -name '*.go' -not -path "*/vendor/*" -not -path "*/z_*.go" -not -path "*/*.pb.go")
+# Build a list of all Go files
+DIRS=$(find $PKG_DIR -type f -name '*.go')
+
+if [ -z "$DIRS" ]; then
+    exit 0
+fi
 
 # Clean and simplify the code
 gofmt -w -s -l $DIRS
