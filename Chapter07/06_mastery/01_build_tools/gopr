@@ -6,9 +6,6 @@ if [ -n "${DBG_SCRIPTS}" ]; then
   set -x
 fi
 
-set -o errexit
-set -o pipefail
-
 clear
 
 # Define some standard exclusions to linting and code coverage checks
