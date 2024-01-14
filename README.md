@@ -77,3 +77,9 @@ These don't necessarily directly lead to quality, but they can lead to productiv
 | 7       | Improving your Development Productivity           | Editing | Pre-order link coming soon! |
 | 8       | Examining Unusual Patterns for Go                 | Editing | Pre-order link coming soon! |
 | 9       | Metaprogramming                                   | Editing | Pre-order link coming soon! |
+
+If this content is your kind of thing, consider joining
+my [Google Group](https://groups.google.com/g/coreys-writing-early-access-team) (very low traffic and no spam). Book
+updates
+will be posted there.
+
