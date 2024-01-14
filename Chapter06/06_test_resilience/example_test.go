@@ -14,7 +14,8 @@ func TestTypicalImplementation(t *testing.T) {
 	mockB := &MockDepB{}
 	mockB.On("Do").Return(errors.New("failed"))
 
-	mockC := &MockDepA{}
+	// not configured because we expect it not to be called
+	mockC := &MockDepC{}
 
 	unit := &Unit{
 		a: mockA,
