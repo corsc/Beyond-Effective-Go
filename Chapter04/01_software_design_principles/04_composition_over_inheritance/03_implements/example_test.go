@@ -1,6 +1,6 @@
 package _3_implements
 
-// Use the compiler to ensure Dock is a talker
+// Use the compiler to ensure Duck is a talker
 var duckTalker talker = Duck{}
 
 type talker interface {
