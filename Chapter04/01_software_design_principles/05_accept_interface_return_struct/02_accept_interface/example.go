@@ -1,6 +1,6 @@
 package _1_accept_interface
 
-func SendEmail(recipient Recipient, title, message string) error {
+func SendEmail(recipient Recipient, subject, message string) error {
 	// implementation removed
 	return nil
 }

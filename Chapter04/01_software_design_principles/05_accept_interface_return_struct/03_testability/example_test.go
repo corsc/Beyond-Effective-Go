@@ -15,8 +15,7 @@ func TestCreateUser_happyPath(t *testing.T) {
 	db, mockDB, err := sqlmock.New()
 	require.NoError(t, err)
 
-	mockDB.ExpectExec("INSERT INTO user (id,name,email) VALUES (?,?,?)").
-		WillReturnResult(sqlmock.NewResult(1, 1))
+	mockDB.ExpectExec("INSERT INTO user").WillReturnResult(sqlmock.NewResult(1, 1))
 
 	// build the repository
 	repository := &repo.UserDAO{Database: db}
@@ -26,4 +25,6 @@ func TestCreateUser_happyPath(t *testing.T) {
 
 	resultErr := repository.Save(testUser)
 	assert.NoError(t, resultErr)
+
+	assert.NoError(t, mockDB.ExpectationsWereMet())
 }

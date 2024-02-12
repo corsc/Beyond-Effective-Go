@@ -5,12 +5,12 @@ import (
 	"strconv"
 )
 
-type CreateUserEndpoint struct {
-	validator *Validator
+type CreateUserHandler struct {
+	validator *UserValidator
 	dao       *UserDAO
 }
 
-func (s *CreateUserEndpoint) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
+func (s *CreateUserHandler) Handler(resp http.ResponseWriter, req *http.Request) {
 	user, err := s.extractUser(req)
 	if err != nil {
 		resp.WriteHeader(http.StatusBadRequest)
@@ -34,7 +34,7 @@ func (s *CreateUserEndpoint) ServeHTTP(resp http.ResponseWriter, req *http.Reque
 }
 
 // extract user from HTTP request
-func (s *CreateUserEndpoint) extractUser(request *http.Request) (*User, error) {
+func (s *CreateUserHandler) extractUser(request *http.Request) (*User, error) {
 	// implementation removed
 	return &User{}, nil
 }

@@ -6,11 +6,11 @@ import (
 	"strconv"
 )
 
-type CreateUserEndpoint struct {
+type CreateUserHandler struct {
 	db *sql.DB
 }
 
-func (s *CreateUserEndpoint) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
+func (s *CreateUserHandler) Handler(resp http.ResponseWriter, req *http.Request) {
 	user, err := s.extractUser(req)
 	if err != nil {
 		resp.WriteHeader(http.StatusBadRequest)
@@ -34,19 +34,19 @@ func (s *CreateUserEndpoint) ServeHTTP(resp http.ResponseWriter, req *http.Reque
 }
 
 // extract user from HTTP request
-func (s *CreateUserEndpoint) extractUser(request *http.Request) (*User, error) {
+func (s *CreateUserHandler) extractUser(request *http.Request) (*User, error) {
 	// implementation removed
 	return &User{}, nil
 }
 
 // validate the supplied user is complete and correct
-func (s *CreateUserEndpoint) validate(user *User) error {
+func (s *CreateUserHandler) validate(user *User) error {
 	// implementation removed
 	return nil
 }
 
 // save the supplied user to the database
-func (s *CreateUserEndpoint) saveToDB(user *User) (int, error) {
+func (s *CreateUserHandler) saveToDB(user *User) (int, error) {
 	// implementation removed
 	return 0, nil
 }
