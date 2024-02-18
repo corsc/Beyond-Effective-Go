@@ -6,5 +6,5 @@ func SendEmail(user *User, subject, message string) error {
 }
 
 type User struct {
-	Email string
+	EmailAddress string
 }

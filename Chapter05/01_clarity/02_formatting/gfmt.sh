@@ -5,7 +5,7 @@ if [ -z "$1" ]; then
 	exit -1
 fi
 
-# Ensure the inputted director is in a predictable format
+# Ensure the inputted directory is in a predictable format
 DIR=${1%...}
 PKG_DIR=${DIR%/}/
 

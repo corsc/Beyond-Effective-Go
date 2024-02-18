@@ -1,6 +1,6 @@
 package _3_whitespace
 
-func doCreateUser(req *createUser) error {
+func doCreateUser(req *createUserRequest) error {
 	err := validate(req)
 
 	if err != nil {
@@ -16,12 +16,12 @@ func doCreateUser(req *createUser) error {
 	return nil
 }
 
-func validate(req *createUser) error {
+func validate(req *createUserRequest) error {
 	// implementation removed
 	return nil
 }
 
-func saveToDB(req *createUser) error {
+func saveToDB(req *createUserRequest) error {
 	// implementation removed
 	return nil
 }

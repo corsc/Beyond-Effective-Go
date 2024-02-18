@@ -106,7 +106,8 @@ func (s *CatAliasesService) MasterTimeout(masterTimeout string) *CatAliasesServi
 // in your terminal:
 //
 // Example:
-//   curl 'http://localhost:9200/_cat/aliases?help'
+//
+//	curl 'http://localhost:9200/_cat/aliases?help'
 //
 // You can use Columns("*") to return all possible columns. That might take
 // a little longer than the default set of columns.

@@ -357,7 +357,8 @@ func (mc *mysqlConn) writeAuthPacket(cipher []byte) error {
 	return mc.writePacket(data)
 }
 
-//  Client old authentication packet
+//	Client old authentication packet
+//
 // http://dev.mysql.com/doc/internals/en/connection-phase-packets.html#packet-Protocol::AuthSwitchResponse
 func (mc *mysqlConn) writeOldAuthPacket(cipher []byte) error {
 	// User password
@@ -381,7 +382,8 @@ func (mc *mysqlConn) writeOldAuthPacket(cipher []byte) error {
 	return mc.writePacket(data)
 }
 
-//  Client clear text authentication packet
+//	Client clear text authentication packet
+//
 // http://dev.mysql.com/doc/internals/en/connection-phase-packets.html#packet-Protocol::AuthSwitchResponse
 func (mc *mysqlConn) writeClearAuthPacket() error {
 	// Calculate the packet length and add a tailing 0
@@ -400,7 +402,8 @@ func (mc *mysqlConn) writeClearAuthPacket() error {
 	return mc.writePacket(data)
 }
 
-//  Native password authentication method
+//	Native password authentication method
+//
 // http://dev.mysql.com/doc/internals/en/connection-phase-packets.html#packet-Protocol::AuthSwitchResponse
 func (mc *mysqlConn) writeNativeAuthPacket(cipher []byte) error {
 	// https://dev.mysql.com/doc/internals/en/secure-password-authentication.html

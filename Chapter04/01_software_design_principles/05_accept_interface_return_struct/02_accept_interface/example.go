@@ -6,5 +6,5 @@ func SendEmail(recipient Recipient, subject, message string) error {
 }
 
 type Recipient interface {
-	EmailAddress() string
+	GetEmailAddress() string
 }

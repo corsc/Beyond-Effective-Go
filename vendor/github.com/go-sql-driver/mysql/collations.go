@@ -13,7 +13,8 @@ const binaryCollation = "binary"
 
 // A list of available collations mapped to the internal ID.
 // To update this map use the following MySQL query:
-//     SELECT COLLATION_NAME, ID FROM information_schema.COLLATIONS
+//
+//	SELECT COLLATION_NAME, ID FROM information_schema.COLLATIONS
 var collations = map[string]byte{
 	"big5_chinese_ci":          1,
 	"latin2_czech_cs":          2,

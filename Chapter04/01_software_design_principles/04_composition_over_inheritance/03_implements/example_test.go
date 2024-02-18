@@ -1,15 +1,9 @@
 package _3_implements
 
-// Use the compiler to ensure Duck is a talker
-var duckTalker talker = Duck{}
+import "fmt"
 
-type talker interface {
-	Talk() string
-}
+func Example() {
+	fmt.Println(duckTalker.Talk())
 
-type Duck struct {
-}
-
-func (d Duck) Talk() string {
-	return "Quack!"
+	// Output: Quack!
 }

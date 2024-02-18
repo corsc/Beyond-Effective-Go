@@ -342,11 +342,11 @@ func ConvertVariant(v map[string]interface{}, dst interface{}) bool {
 // For example, if your response has a "NextPageToken" and a slice of "Items" with "Id" fields,
 // you could request just those fields like this:
 //
-//     svc.Events.List().Fields("nextPageToken", "items/id").Do()
+//	svc.Events.List().Fields("nextPageToken", "items/id").Do()
 //
 // or if you were also interested in each Item's "Updated" field, you can combine them like this:
 //
-//     svc.Events.List().Fields("nextPageToken", "items(id,updated)").Do()
+//	svc.Events.List().Fields("nextPageToken", "items(id,updated)").Do()
 //
 // More information about field formatting can be found here:
 // https://developers.google.com/+/api/#fields-syntax

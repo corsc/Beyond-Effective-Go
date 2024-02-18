@@ -1,31 +1,24 @@
-package _1_before
+package _2_after
 
 import (
 	"net/http"
 	"strconv"
 )
 
-type CreateUserEndpoint struct {
-	validator *Validator
-	dao       *UserDAO
+type CreateUserHandler struct {
+	model *UserModel
 }
 
-func (s *CreateUserEndpoint) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
+func (s *CreateUserHandler) Handler(resp http.ResponseWriter, req *http.Request) {
 	user, err := s.extractUser(req)
 	if err != nil {
 		resp.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
-	err = s.validator.Validate(user)
+	id, err := s.model.Create(user)
 	if err != nil {
 		resp.WriteHeader(http.StatusBadRequest)
-		return
-	}
-
-	id, err := s.dao.Save(user)
-	if err != nil {
-		resp.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
@@ -34,7 +27,7 @@ func (s *CreateUserEndpoint) ServeHTTP(resp http.ResponseWriter, req *http.Reque
 }
 
 // extract user from HTTP request
-func (s *CreateUserEndpoint) extractUser(request *http.Request) (*User, error) {
+func (s *CreateUserHandler) extractUser(request *http.Request) (*User, error) {
 	// implementation removed
 	return &User{}, nil
 }

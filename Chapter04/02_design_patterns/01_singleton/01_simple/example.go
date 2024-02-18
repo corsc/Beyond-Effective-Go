@@ -2,6 +2,7 @@ package _1_simple
 
 import (
 	"sync"
+	"time"
 )
 
 var (
@@ -11,12 +12,17 @@ var (
 
 func GetCache() *Cache {
 	initConfig.Do(func() {
-		instance = &Cache{}
+		instance = &Cache{
+			// we need some internals to prove they are the same
+			items:     map[string]interface{}{},
+			createdAt: time.Now(),
+		}
 	})
 
 	return instance
 }
 
 type Cache struct {
-	// not implemented
+	items     map[string]interface{}
+	createdAt time.Time
 }

@@ -1,6 +1,8 @@
 package main
 
-func main() {
+import "fmt"
+
+func Example_noDelegation() {
 	userA := &User{
 		Name:  "Bob",
 		Age:   16,
@@ -15,10 +17,12 @@ func main() {
 	if userA.Name == userB.Name &&
 		userA.Age == userB.Age &&
 		userA.Email == userB.Email {
-		println("Users A and B are the same!")
+		fmt.Println("Users A and B are the same!")
 	} else {
-		println("Users are not the same")
+		fmt.Println("Users are not the same")
 	}
+
+	// Output: Users are not the same
 }
 
 type User struct {

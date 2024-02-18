@@ -12,7 +12,7 @@ func handler(resp http.ResponseWriter, req *http.Request) {
 		resp.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	createReq := &createUser{}
+	createReq := &createUserRequest{}
 	err = json.Unmarshal(payload, createReq)
 	if err != nil {
 		resp.WriteHeader(http.StatusBadRequest)
@@ -26,6 +26,6 @@ func handler(resp http.ResponseWriter, req *http.Request) {
 	_, _ = resp.Write([]byte("OK"))
 }
 
-type createUser struct {
+type createUserRequest struct {
 	// fields removed
 }

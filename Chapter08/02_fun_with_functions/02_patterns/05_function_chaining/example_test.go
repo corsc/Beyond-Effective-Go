@@ -1,8 +1,9 @@
 package _5_function_chaining
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFunctionChaining(t *testing.T) {

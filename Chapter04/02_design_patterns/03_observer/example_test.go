@@ -21,7 +21,7 @@ func TestObserverPattern(t *testing.T) {
 		corey.Watch()
 	}()
 
-	kentBeck.Post(Post{Content: "Hello World!"})
+	kentBeck.Upload(Post{Content: "Hello World!"})
 
 	// wait then unfollow
 	<-time.After(1 * time.Second)

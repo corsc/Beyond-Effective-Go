@@ -13,7 +13,7 @@ func handlerWhitespace(resp http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	createReq := &createUser{}
+	createReq := &createUserRequest{}
 	err = json.Unmarshal(payload, createReq)
 	if err != nil {
 		resp.WriteHeader(http.StatusBadRequest)

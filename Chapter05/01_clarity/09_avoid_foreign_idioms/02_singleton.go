@@ -1,4 +1,4 @@
-package _9_go_is_not_java
+package _9_avoid_foreign_idioms
 
 import (
 	"encoding/json"

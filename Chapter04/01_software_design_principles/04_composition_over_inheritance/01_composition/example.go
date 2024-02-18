@@ -1,13 +1,5 @@
 package _1_composition
 
-func Usage() {
-	duck := Duck{}
-	parrot := Parrot{}
-
-	duck.Fly()
-	parrot.Fly()
-}
-
 type bird struct{}
 
 func (b bird) Fly() {

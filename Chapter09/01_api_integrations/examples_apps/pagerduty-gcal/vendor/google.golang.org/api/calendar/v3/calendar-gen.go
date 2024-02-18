@@ -10,9 +10,9 @@
 //
 // Usage example:
 //
-//   import "google.golang.org/api/calendar/v3"
-//   ...
-//   calendarService, err := calendar.New(oauthHttpClient)
+//	import "google.golang.org/api/calendar/v3"
+//	...
+//	calendarService, err := calendar.New(oauthHttpClient)
 package calendar // import "google.golang.org/api/calendar/v3"
 
 import (
@@ -2785,7 +2785,8 @@ func (c *AclListCall) ShowDeleted(showDeleted bool) *AclListCall {
 // response code and the client should clear its storage and perform a
 // full synchronization without any syncToken.
 // Learn more about incremental synchronization.
-//  The default is to return all entries.
+//
+//	The default is to return all entries.
 func (c *AclListCall) SyncToken(syncToken string) *AclListCall {
 	c.urlParams_.Set("syncToken", syncToken)
 	return c
@@ -3334,7 +3335,8 @@ func (c *AclWatchCall) ShowDeleted(showDeleted bool) *AclWatchCall {
 // response code and the client should clear its storage and perform a
 // full synchronization without any syncToken.
 // Learn more about incremental synchronization.
-//  The default is to return all entries.
+//
+//	The default is to return all entries.
 func (c *AclWatchCall) SyncToken(syncToken string) *AclWatchCall {
 	c.urlParams_.Set("syncToken", syncToken)
 	return c
@@ -3890,11 +3892,14 @@ func (c *CalendarListListCall) MaxResults(maxResults int64) *CalendarListListCal
 // default is no restriction.
 //
 // Possible values:
-//   "freeBusyReader" - The user can read free/busy information.
-//   "owner" - The user can read and modify events and access control
+//
+//	"freeBusyReader" - The user can read free/busy information.
+//	"owner" - The user can read and modify events and access control
+//
 // lists.
-//   "reader" - The user can read events that are not private.
-//   "writer" - The user can read and modify events.
+//
+//	"reader" - The user can read events that are not private.
+//	"writer" - The user can read and modify events.
 func (c *CalendarListListCall) MinAccessRole(minAccessRole string) *CalendarListListCall {
 	c.urlParams_.Set("minAccessRole", minAccessRole)
 	return c
@@ -3936,7 +3941,8 @@ func (c *CalendarListListCall) ShowHidden(showHidden bool) *CalendarListListCall
 // response code and the client should clear its storage and perform a
 // full synchronization without any syncToken.
 // Learn more about incremental synchronization.
-//  The default is to return all entries.
+//
+//	The default is to return all entries.
 func (c *CalendarListListCall) SyncToken(syncToken string) *CalendarListListCall {
 	c.urlParams_.Set("syncToken", syncToken)
 	return c
@@ -4455,11 +4461,14 @@ func (c *CalendarListWatchCall) MaxResults(maxResults int64) *CalendarListWatchC
 // default is no restriction.
 //
 // Possible values:
-//   "freeBusyReader" - The user can read free/busy information.
-//   "owner" - The user can read and modify events and access control
+//
+//	"freeBusyReader" - The user can read free/busy information.
+//	"owner" - The user can read and modify events and access control
+//
 // lists.
-//   "reader" - The user can read events that are not private.
-//   "writer" - The user can read and modify events.
+//
+//	"reader" - The user can read events that are not private.
+//	"writer" - The user can read and modify events.
 func (c *CalendarListWatchCall) MinAccessRole(minAccessRole string) *CalendarListWatchCall {
 	c.urlParams_.Set("minAccessRole", minAccessRole)
 	return c
@@ -4501,7 +4510,8 @@ func (c *CalendarListWatchCall) ShowHidden(showHidden bool) *CalendarListWatchCa
 // response code and the client should clear its storage and perform a
 // full synchronization without any syncToken.
 // Learn more about incremental synchronization.
-//  The default is to return all entries.
+//
+//	The default is to return all entries.
 func (c *CalendarListWatchCall) SyncToken(syncToken string) *CalendarListWatchCall {
 	c.urlParams_.Set("syncToken", syncToken)
 	return c
@@ -5656,10 +5666,14 @@ func (c *EventsDeleteCall) SendNotifications(sendNotifications bool) *EventsDele
 // should receive notifications about the deletion of the event.
 //
 // Possible values:
-//   "all" - Notifications are sent to all guests.
-//   "externalOnly" - Notifications are sent to non-Google Calendar
+//
+//	"all" - Notifications are sent to all guests.
+//	"externalOnly" - Notifications are sent to non-Google Calendar
+//
 // guests only.
-//   "none" - No notifications are sent. This value should only be used
+//
+//	"none" - No notifications are sent. This value should only be used
+//
 // for migration use cases (note that in most migration cases the import
 // method should be used).
 func (c *EventsDeleteCall) SendUpdates(sendUpdates string) *EventsDeleteCall {
@@ -6205,10 +6219,14 @@ func (c *EventsInsertCall) SendNotifications(sendNotifications bool) *EventsInse
 // some emails might still be sent. The default is false.
 //
 // Possible values:
-//   "all" - Notifications are sent to all guests.
-//   "externalOnly" - Notifications are sent to non-Google Calendar
+//
+//	"all" - Notifications are sent to all guests.
+//	"externalOnly" - Notifications are sent to non-Google Calendar
+//
 // guests only.
-//   "none" - No notifications are sent. This value should only be used
+//
+//	"none" - No notifications are sent. This value should only be used
+//
 // for migration use cases (note that in most migration cases the import
 // method should be used).
 func (c *EventsInsertCall) SendUpdates(sendUpdates string) *EventsInsertCall {
@@ -6750,10 +6768,13 @@ func (c *EventsListCall) MaxResults(maxResults int64) *EventsListCall {
 // order.
 //
 // Possible values:
-//   "startTime" - Order by the start date/time (ascending). This is
+//
+//	"startTime" - Order by the start date/time (ascending). This is
+//
 // only available when querying single events (i.e. the parameter
 // singleEvents is True)
-//   "updated" - Order by last modification time (ascending).
+//
+//	"updated" - Order by last modification time (ascending).
 func (c *EventsListCall) OrderBy(orderBy string) *EventsListCall {
 	c.urlParams_.Set("orderBy", orderBy)
 	return c
@@ -6844,7 +6865,8 @@ func (c *EventsListCall) SingleEvents(singleEvents bool) *EventsListCall {
 // 410 GONE response code and the client should clear its storage and
 // perform a full synchronization without any syncToken.
 // Learn more about incremental synchronization.
-//  The default is to return all entries.
+//
+//	The default is to return all entries.
 func (c *EventsListCall) SyncToken(syncToken string) *EventsListCall {
 	c.urlParams_.Set("syncToken", syncToken)
 	return c
@@ -7177,10 +7199,14 @@ func (c *EventsMoveCall) SendNotifications(sendNotifications bool) *EventsMoveCa
 // organizer.
 //
 // Possible values:
-//   "all" - Notifications are sent to all guests.
-//   "externalOnly" - Notifications are sent to non-Google Calendar
+//
+//	"all" - Notifications are sent to all guests.
+//	"externalOnly" - Notifications are sent to non-Google Calendar
+//
 // guests only.
-//   "none" - No notifications are sent. This value should only be used
+//
+//	"none" - No notifications are sent. This value should only be used
+//
 // for migration use cases (note that in most migration cases the import
 // method should be used).
 func (c *EventsMoveCall) SendUpdates(sendUpdates string) *EventsMoveCall {
@@ -7404,10 +7430,14 @@ func (c *EventsPatchCall) SendNotifications(sendNotifications bool) *EventsPatch
 // title changes, etc.).
 //
 // Possible values:
-//   "all" - Notifications are sent to all guests.
-//   "externalOnly" - Notifications are sent to non-Google Calendar
+//
+//	"all" - Notifications are sent to all guests.
+//	"externalOnly" - Notifications are sent to non-Google Calendar
+//
 // guests only.
-//   "none" - No notifications are sent. This value should only be used
+//
+//	"none" - No notifications are sent. This value should only be used
+//
 // for migration use cases (note that in most migration cases the import
 // method should be used).
 func (c *EventsPatchCall) SendUpdates(sendUpdates string) *EventsPatchCall {
@@ -7628,10 +7658,14 @@ func (c *EventsQuickAddCall) SendNotifications(sendNotifications bool) *EventsQu
 // should receive notifications about the creation of the new event.
 //
 // Possible values:
-//   "all" - Notifications are sent to all guests.
-//   "externalOnly" - Notifications are sent to non-Google Calendar
+//
+//	"all" - Notifications are sent to all guests.
+//	"externalOnly" - Notifications are sent to non-Google Calendar
+//
 // guests only.
-//   "none" - No notifications are sent. This value should only be used
+//
+//	"none" - No notifications are sent. This value should only be used
+//
 // for migration use cases (note that in most migration cases the import
 // method should be used).
 func (c *EventsQuickAddCall) SendUpdates(sendUpdates string) *EventsQuickAddCall {
@@ -7847,10 +7881,14 @@ func (c *EventsUpdateCall) SendNotifications(sendNotifications bool) *EventsUpda
 // title changes, etc.).
 //
 // Possible values:
-//   "all" - Notifications are sent to all guests.
-//   "externalOnly" - Notifications are sent to non-Google Calendar
+//
+//	"all" - Notifications are sent to all guests.
+//	"externalOnly" - Notifications are sent to non-Google Calendar
+//
 // guests only.
-//   "none" - No notifications are sent. This value should only be used
+//
+//	"none" - No notifications are sent. This value should only be used
+//
 // for migration use cases (note that in most migration cases the import
 // method should be used).
 func (c *EventsUpdateCall) SendUpdates(sendUpdates string) *EventsUpdateCall {
@@ -8102,10 +8140,13 @@ func (c *EventsWatchCall) MaxResults(maxResults int64) *EventsWatchCall {
 // order.
 //
 // Possible values:
-//   "startTime" - Order by the start date/time (ascending). This is
+//
+//	"startTime" - Order by the start date/time (ascending). This is
+//
 // only available when querying single events (i.e. the parameter
 // singleEvents is True)
-//   "updated" - Order by last modification time (ascending).
+//
+//	"updated" - Order by last modification time (ascending).
 func (c *EventsWatchCall) OrderBy(orderBy string) *EventsWatchCall {
 	c.urlParams_.Set("orderBy", orderBy)
 	return c
@@ -8196,7 +8237,8 @@ func (c *EventsWatchCall) SingleEvents(singleEvents bool) *EventsWatchCall {
 // 410 GONE response code and the client should clear its storage and
 // perform a full synchronization without any syncToken.
 // Learn more about incremental synchronization.
-//  The default is to return all entries.
+//
+//	The default is to return all entries.
 func (c *EventsWatchCall) SyncToken(syncToken string) *EventsWatchCall {
 	c.urlParams_.Set("syncToken", syncToken)
 	return c
@@ -8771,7 +8813,8 @@ func (c *SettingsListCall) PageToken(pageToken string) *SettingsListCall {
 // response code and the client should clear its storage and perform a
 // full synchronization without any syncToken.
 // Learn more about incremental synchronization.
-//  The default is to return all entries.
+//
+//	The default is to return all entries.
 func (c *SettingsListCall) SyncToken(syncToken string) *SettingsListCall {
 	c.urlParams_.Set("syncToken", syncToken)
 	return c
@@ -8969,7 +9012,8 @@ func (c *SettingsWatchCall) PageToken(pageToken string) *SettingsWatchCall {
 // response code and the client should clear its storage and perform a
 // full synchronization without any syncToken.
 // Learn more about incremental synchronization.
-//  The default is to return all entries.
+//
+//	The default is to return all entries.
 func (c *SettingsWatchCall) SyncToken(syncToken string) *SettingsWatchCall {
 	c.urlParams_.Set("syncToken", syncToken)
 	return c

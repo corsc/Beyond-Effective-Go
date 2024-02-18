@@ -12,15 +12,14 @@
 // and
 // https://developers.google.com/accounts/docs/application-default-credentials.
 //
-// OAuth2 Configs
+// # OAuth2 Configs
 //
 // Two functions in this package return golang.org/x/oauth2.Config values from Google credential
 // data. Google supports two JSON formats for OAuth2 credentials: one is handled by ConfigFromJSON,
 // the other by JWTConfigFromJSON. The returned Config can be used to obtain a TokenSource or
 // create an http.Client.
 //
-//
-// Credentials
+// # Credentials
 //
 // The Credentials type represents Google credentials, including Application Default
 // Credentials.

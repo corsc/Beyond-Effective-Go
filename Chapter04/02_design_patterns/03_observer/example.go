@@ -15,41 +15,44 @@ type Celebrity struct {
 	mutex sync.RWMutex
 }
 
-// Subscribe/Add to list of Observers
-func (o *Celebrity) Follow(responseCh chan Post) {
-	o.mutex.Lock()
-	defer o.mutex.Unlock()
+// Subscribe/add to list of observers
+func (c *Celebrity) Follow(responseCh chan Post) {
+	c.mutex.Lock()
+	defer c.mutex.Unlock()
 
-	o.fans = append(o.fans, responseCh)
+	c.fans = append(c.fans, responseCh)
 }
 
-// Unsubscribe/Remove from the list of Observers
-func (o *Celebrity) Unfollow(in chan Post) {
-	o.mutex.Lock()
-	defer o.mutex.Unlock()
+// Unsubscribe/Remove from the list of observers
+func (c *Celebrity) Unfollow(responseCh chan Post) {
+	c.mutex.Lock()
+	defer c.mutex.Unlock()
 
-	for index, observer := range o.fans {
-		if observer == in {
-			o.fans = append(o.fans[:index], o.fans[index+1:]...)
+	for index, observer := range c.fans {
+		if observer == responseCh {
+			c.fans = append(c.fans[:index], c.fans[index+1:]...)
 
 			// close the channel and stop watch loop
-			close(in)
+			close(responseCh)
 
 			return
 		}
 	}
 }
 
-// Notify all Observers
-func (o *Celebrity) Post(post Post) {
-	o.mutex.RLock()
-	defer o.mutex.RUnlock()
+// Notify all observers
+func (c *Celebrity) Upload(post Post) {
+	c.mutex.RLock()
+	defer c.mutex.RUnlock()
 
-	for _, fan := range o.fans {
-		// optional write so that Observers cannot block this method
+	for _, fan := range c.fans {
+		// optional write so that observers cannot block this method
 		select {
 		case fan <- post:
+			// successfully notified observer
+
 		default:
+			// skip observer that isn't ready
 		}
 	}
 }

@@ -31,26 +31,25 @@ var (
 //
 // Note: The tls.Config provided to needs to be exclusively owned by the driver after registering.
 //
-//  rootCertPool := x509.NewCertPool()
-//  pem, err := ioutil.ReadFile("/path/ca-cert.pem")
-//  if err != nil {
-//      log.Fatal(err)
-//  }
-//  if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
-//      log.Fatal("Failed to append PEM.")
-//  }
-//  clientCert := make([]tls.Certificate, 0, 1)
-//  certs, err := tls.LoadX509KeyPair("/path/client-cert.pem", "/path/client-key.pem")
-//  if err != nil {
-//      log.Fatal(err)
-//  }
-//  clientCert = append(clientCert, certs)
-//  mysql.RegisterTLSConfig("custom", &tls.Config{
-//      RootCAs: rootCertPool,
-//      Certificates: clientCert,
-//  })
-//  db, err := sql.Open("mysql", "user@tcp(localhost:3306)/test?tls=custom")
-//
+//	rootCertPool := x509.NewCertPool()
+//	pem, err := ioutil.ReadFile("/path/ca-cert.pem")
+//	if err != nil {
+//	    log.Fatal(err)
+//	}
+//	if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
+//	    log.Fatal("Failed to append PEM.")
+//	}
+//	clientCert := make([]tls.Certificate, 0, 1)
+//	certs, err := tls.LoadX509KeyPair("/path/client-cert.pem", "/path/client-key.pem")
+//	if err != nil {
+//	    log.Fatal(err)
+//	}
+//	clientCert = append(clientCert, certs)
+//	mysql.RegisterTLSConfig("custom", &tls.Config{
+//	    RootCAs: rootCertPool,
+//	    Certificates: clientCert,
+//	})
+//	db, err := sql.Open("mysql", "user@tcp(localhost:3306)/test?tls=custom")
 func RegisterTLSConfig(key string, config *tls.Config) error {
 	if _, isBool := readBool(key); isBool || strings.ToLower(key) == "skip-verify" {
 		return fmt.Errorf("key '%s' is reserved", key)
@@ -219,14 +218,14 @@ func scrambleOldPassword(scramble, password []byte) []byte {
 // NullTime implements the Scanner interface so
 // it can be used as a scan destination:
 //
-//  var nt NullTime
-//  err := db.QueryRow("SELECT time FROM foo WHERE id=?", id).Scan(&nt)
-//  ...
-//  if nt.Valid {
-//     // use nt.Time
-//  } else {
-//     // NULL value
-//  }
+//	var nt NullTime
+//	err := db.QueryRow("SELECT time FROM foo WHERE id=?", id).Scan(&nt)
+//	...
+//	if nt.Valid {
+//	   // use nt.Time
+//	} else {
+//	   // NULL value
+//	}
 //
 // This NullTime implementation is not driver-specific
 type NullTime struct {

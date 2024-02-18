@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	ErrBadRequest    = errors.New("ID supplied is empty or the wrong format")
+	ErrBadID         = errors.New("ID supplied is empty or invalid")
 	ErrNotFound      = errors.New("user not found")
 	ErrNotAuthorized = errors.New("permission denied")
 )
@@ -23,7 +23,7 @@ func Handler(resp http.ResponseWriter, req *http.Request) {
 	user, err := loadUser(userID)
 	if err != nil {
 		switch err {
-		case ErrBadRequest:
+		case ErrBadID:
 			resp.WriteHeader(http.StatusUnprocessableEntity)
 
 		case ErrNotAuthorized:
