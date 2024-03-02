@@ -24,7 +24,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "Happy path",
 			in: Order{
 				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {
@@ -42,7 +42,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "Sad path - customer name is missing",
 			in: Order{
 				CustomerName:  "", // name missing
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {
@@ -60,7 +60,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "Sad path - charge failed",
 			in: Order{
 				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {
@@ -75,7 +75,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "Sad path - send receipt failed",
 			in: Order{
 				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {
@@ -93,7 +93,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "Sad path - ensure no receipt is sent without a successful charge",
 			in: Order{
 				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {

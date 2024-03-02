@@ -24,7 +24,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "Happy Path (long version)",
 			in: Order{
 				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {
@@ -42,7 +42,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "Happy Path (concise mocks)",
 			in: Order{
 				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank:   happyPathBankCharge,
@@ -62,7 +62,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "Sad path - customer name is missing",
 			in: Order{
 				CustomerName:  "", // name missing
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank:   happyPathBankCharge,
@@ -122,7 +122,7 @@ func TestOrderManager_Process(t *testing.T) {
 var (
 	validTestOrder = Order{
 		CustomerName:  "Oscar",
-		CustomerEmail: "me@home.com",
+		CustomerEmail: "me@example.com",
 		Amount:        123,
 	}
 

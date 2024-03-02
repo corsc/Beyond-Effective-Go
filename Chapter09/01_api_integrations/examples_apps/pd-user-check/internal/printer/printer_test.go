@@ -20,7 +20,7 @@ func TestPrinterAPI_Print(t *testing.T) {
 			inUser: &User{
 				ID:       "ABC123",
 				Name:     "Bob",
-				Email:    "bob@home.com",
+				Email: "bob@example.com",
 				Teams:    56,
 				EmailSet: true,
 				PhoneSet: false,
@@ -35,7 +35,7 @@ func TestPrinterAPI_Print(t *testing.T) {
 			inUser: &User{
 				ID:       "ABC123",
 				Name:     "Bob",
-				Email:    "bob@home.com",
+				Email: "bob@example.com",
 				Teams:    56,
 				EmailSet: true,
 				PhoneSet: true,
@@ -50,7 +50,7 @@ func TestPrinterAPI_Print(t *testing.T) {
 			inUser: &User{
 				ID:       "ABC123",
 				Name:     "Bob",
-				Email:    "bob@home.com",
+				Email: "bob@example.com",
 				Teams:    56,
 				EmailSet: false,
 				PhoneSet: false,

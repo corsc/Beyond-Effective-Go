@@ -6,7 +6,7 @@ func Example_delegation() {
 	userA := &User{
 		Name:  "Bob",
 		Age:   16,
-		Email: "bob@home.com",
+		Email: "bob@example.com",
 	}
 	userB := &User{
 		Name:  "Jane",

@@ -24,7 +24,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "simple usage example",
 			in: Order{
 				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {
@@ -42,7 +42,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "different responses based on inputs",
 			in: Order{
 				CustomerName:  "May",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {
@@ -63,7 +63,7 @@ func TestOrderManager_Process(t *testing.T) {
 			desc: "different responses based order",
 			in: Order{
 				CustomerName:  "Oscar",
-				CustomerEmail: "me@home.com",
+				CustomerEmail: "me@example.com",
 				Amount:        123,
 			},
 			configureMockBank: func(bank *MockBank) {

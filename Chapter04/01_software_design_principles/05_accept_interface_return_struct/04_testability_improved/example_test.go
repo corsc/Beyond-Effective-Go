@@ -14,7 +14,7 @@ func TestCreateUser_happyPath(t *testing.T) {
 	repository.On("Save", mock.Anything).Return(nil)
 
 	// build inputs
-	testUser := &user.User{ID: 1, Name: "Amy", Email: "amy@home.com"}
+	testUser := &user.User{ID: 1, Name: "Amy", Email: "amy@example.com"}
 
 	resultErr := repository.Save(testUser)
 	assert.NoError(t, resultErr)

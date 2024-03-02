@@ -13,5 +13,5 @@ func Example_recordUserLoginByID() {
 var fred = &User{
 	ID:    123,
 	Name:  "Fred",
-	Email: "fred@home.com",
+	Email: "fred@example.com",
 }
