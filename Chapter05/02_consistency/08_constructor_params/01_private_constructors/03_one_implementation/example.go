@@ -4,14 +4,14 @@ import (
 	"time"
 )
 
-func NewUserManager(minPwdLen, maxPwdLen int, storage Storage, risk RiskManager) *UserManager {
-	return newUserManager(minPwdLen, maxPwdLen, &myPasswordEncoder{}, storage, time.Now, risk)
+func NewUserManager(minNameLen, maxNameLen int, storage Storage, risk RiskManager) *UserManager {
+	return newUserManager(minNameLen, maxNameLen, &myPasswordEncoder{}, storage, time.Now, risk)
 }
 
-func newUserManager(minPwdLen, maxPwdLen int, pwdEncoder PasswordEncoder, storage Storage, now func() time.Time, risk RiskManager) *UserManager {
+func newUserManager(minNameLen, maxNameLen int, pwdEncoder PasswordEncoder, storage Storage, now func() time.Time, risk RiskManager) *UserManager {
 	return &UserManager{
-		minPwdLen:  minPwdLen,
-		maxPwdLen:  maxPwdLen,
+		minNameLen: minNameLen,
+		maxNameLen: maxNameLen,
 		pwdEncoder: pwdEncoder,
 		storage:    storage,
 		now:        now,
@@ -20,8 +20,8 @@ func newUserManager(minPwdLen, maxPwdLen int, pwdEncoder PasswordEncoder, storag
 }
 
 type UserManager struct {
-	minPwdLen  int
-	maxPwdLen  int
+	minNameLen int
+	maxNameLen int
 	pwdEncoder PasswordEncoder
 	storage    Storage
 	now        func() time.Time

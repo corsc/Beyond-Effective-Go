@@ -33,7 +33,7 @@ func TestManager_Get(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - no such service",
+			desc: "Sad path - no such service",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`{}`))
 			}),
@@ -90,7 +90,7 @@ func TestManager_GetByName(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - no such service",
+			desc: "Sad path - no such service",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`{}`))
 			}),
@@ -144,7 +144,7 @@ func TestManager_Add(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - system error",
+			desc: "Sad path - system error",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			}),

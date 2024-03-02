@@ -21,7 +21,7 @@ func TestOrderManager_Process(t *testing.T) {
 		expectErr           bool
 	}{
 		{
-			desc: "Happy Path",
+			desc: "Happy path",
 			in: Order{
 				CustomerName:  "Oscar",
 				CustomerEmail: "me@home.com",
@@ -39,7 +39,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - customer name is missing",
+			desc: "Sad path - customer name is missing",
 			in: Order{
 				CustomerName:  "", // name missing
 				CustomerEmail: "me@home.com",
@@ -57,7 +57,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr: true,
 		},
 		{
-			desc: "sad path - charge failed",
+			desc: "Sad path - charge failed",
 			in: Order{
 				CustomerName:  "Oscar",
 				CustomerEmail: "me@home.com",
@@ -72,7 +72,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr:           true,
 		},
 		{
-			desc: "sad path - send receipt failed",
+			desc: "Sad path - send receipt failed",
 			in: Order{
 				CustomerName:  "Oscar",
 				CustomerEmail: "me@home.com",
@@ -90,7 +90,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr: true,
 		},
 		{
-			desc: "sad path - ensure no receipt is sent without a successful charge",
+			desc: "Sad path - ensure no receipt is sent without a successful charge",
 			in: Order{
 				CustomerName:  "Oscar",
 				CustomerEmail: "me@home.com",

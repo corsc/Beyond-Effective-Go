@@ -12,7 +12,7 @@ func Example_structNames() {
 	}
 
 	// Best
-	type createUserRequest struct {
+	type userCreationRequest struct {
 		// fields removed
 	}
 }

@@ -10,7 +10,7 @@ type Sender struct {
 	Auth   smtp.Auth
 }
 
-func (s Sender) Send(from, to string, message Message) error {
+func (s Sender) Send(from, to string, email Email) error {
 	err := s.validateAddresses(to, from)
 	if err != nil {
 		return err
@@ -25,7 +25,7 @@ func (s Sender) validateAddresses(to, from string) error {
 	return nil
 }
 
-type Message struct {
+type Email struct {
 	Subject     string
 	Message     string
 	Attachments []os.File

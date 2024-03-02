@@ -30,16 +30,16 @@ func configInjectionExample(storage example.Storage, risk example.RiskManager) e
 	config := &AppConfig{}
 	err = json.Unmarshal(rawJSON, config)
 	if err != nil {
-		return fmt.Errorf("failed to load config with err: %w", err)
+		return fmt.Errorf("failed to parse config with err: %w", err)
 	}
 
-	// Call out constructor
-	example.NewUserManager(config.MinPwdLen, config.MaxPwdLen, storage, risk)
+	// Call our constructor
+	example.NewUserManager(config.MinNameLen, config.MaxNameLen, storage, risk)
 
 	return nil
 }
 
 type AppConfig struct {
-	MinPwdLen int `json:"minPwdLen"`
-	MaxPwdLen int `json:"maxPwdLen"`
+	MinNameLen int `json:"minNameLen"`
+	MaxNameLen int `json:"maxNameLen"`
 }

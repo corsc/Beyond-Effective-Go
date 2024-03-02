@@ -1,4 +1,4 @@
 {
-  "minPwdLen": 6,
-  "maxPwdLen": 50
+  "minNameLen": 6,
+  "maxNameLen": 50
 }

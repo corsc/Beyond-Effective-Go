@@ -9,14 +9,14 @@ import (
 )
 
 var (
-	ErrBadRequest = errors.New("ID supplied is empty or the wrong format")
-	ErrNotFound   = errors.New("user not found")
+	ErrBadID    = errors.New("ID supplied is empty or the wrong format")
+	ErrNotFound = errors.New("user not found")
 )
 
 func loadUser(ID string) (*User, error) {
 	userID, err := strconv.Atoi(ID)
 	if err != nil {
-		return nil, fmt.Errorf("%w - %s", ErrBadRequest, err)
+		return nil, fmt.Errorf("%w - %s", ErrBadID, err)
 	}
 
 	user, err := loadFromDB(userID)
@@ -33,7 +33,7 @@ func Handler(resp http.ResponseWriter, req *http.Request) {
 	user, err := loadUser(userID)
 	if err != nil {
 		switch {
-		case errors.Is(err, ErrBadRequest):
+		case errors.Is(err, ErrBadID):
 			resp.WriteHeader(http.StatusUnprocessableEntity)
 
 		case errors.Is(err, ErrNotFound):

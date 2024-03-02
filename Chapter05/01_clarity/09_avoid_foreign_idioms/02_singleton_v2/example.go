@@ -1,17 +1,28 @@
-package _9_avoid_foreign_idioms
+package _2_singleton_v2
 
 import (
 	"encoding/json"
 )
 
-var pool = &ObjectPoolSingleton{}
+type ObjectPool interface {
+	Get() *myObject
+	Put(object *myObject)
+}
 
-type Encoder struct{}
+func NewEncoder(pool ObjectPool) *Encoder {
+	return &Encoder{
+		pool: pool,
+	}
+}
+
+type Encoder struct {
+	pool ObjectPool
+}
 
 func (e *Encoder) Encode() ([]byte, error) {
-	object := pool.Get()
+	object := e.pool.Get()
 	result, resultErr := json.Marshal(object)
-	pool.Put(object)
+	e.pool.Put(object)
 
 	return result, resultErr
 }

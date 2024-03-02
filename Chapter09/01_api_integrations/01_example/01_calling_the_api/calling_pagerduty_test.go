@@ -101,7 +101,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "Sad Path - bad auth",
+			desc: "Sad path - bad auth",
 			mockHandler: func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusUnauthorized)
 			},
@@ -109,7 +109,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 			expectErr:      true,
 		},
 		{
-			desc: "Sad Path - 5xx response",
+			desc: "Sad path - 5xx response",
 			mockHandler: func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			},

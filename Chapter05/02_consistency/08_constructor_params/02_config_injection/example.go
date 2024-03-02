@@ -30,8 +30,8 @@ type UserManager struct {
 type Config interface {
 	GetDBPool() *sql.DB
 
-	GetMinPwdLen() int
-	GetMaxPwdLen() int
+	GetMinNameLen() int
+	GetMaxNameLen() int
 }
 
 type PasswordEncoder interface {

@@ -33,7 +33,7 @@ func TestManager_Get(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - no such team",
+			desc: "Sad path - no such team",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`{}`))
 			}),
@@ -90,7 +90,7 @@ func TestManager_GetByName(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - no such team",
+			desc: "Sad path - no such team",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`{}`))
 			}),
@@ -152,7 +152,7 @@ func TestManager_GetMembers(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - no members",
+			desc: "Sad path - no members",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`{}`))
 			}),
@@ -206,7 +206,7 @@ func TestManager_Add(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - system error",
+			desc: "Sad path - system error",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			}),
@@ -257,7 +257,7 @@ func TestManager_AddMember(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - system error",
+			desc: "Sad path - system error",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			}),

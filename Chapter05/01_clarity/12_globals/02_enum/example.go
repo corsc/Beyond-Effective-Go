@@ -12,28 +12,28 @@ const (
 	West  Direction = "west"
 )
 
-var all = map[Direction]struct{}{
+var allDirections = map[Direction]struct{}{
 	North: {}, East: {}, South: {}, West: {},
 }
 
 type Direction string
 
 func (d *Direction) UnmarshalJSON(bytes []byte) error {
-	var asString string
+	var directionString string
 
-	err := json.Unmarshal(bytes, &asString)
+	err := json.Unmarshal(bytes, &directionString)
 	if err != nil {
 		return err
 	}
 
-	val := Direction(asString)
+	direction := Direction(directionString)
 
-	_, found := all[val]
+	_, found := allDirections[direction]
 	if !found {
-		return fmt.Errorf("expected value '%s'", val)
+		return fmt.Errorf("invalid direction: '%s'", direction)
 	}
 
-	*d = val
+	*d = direction
 
 	return nil
 }

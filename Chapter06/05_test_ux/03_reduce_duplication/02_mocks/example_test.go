@@ -59,7 +59,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr:           false,
 		},
 		{
-			desc: "sad path - customer name is missing",
+			desc: "Sad path - customer name is missing",
 			in: Order{
 				CustomerName:  "", // name missing
 				CustomerEmail: "me@home.com",
@@ -71,7 +71,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr:           true,
 		},
 		{
-			desc: "sad path - charge failed",
+			desc: "Sad path - charge failed",
 			in:   validTestOrder,
 			configureMockBank: func(bank *MockBank) {
 				bank.On("Charge", mock.Anything, mock.Anything, mock.Anything).
@@ -82,7 +82,7 @@ func TestOrderManager_Process(t *testing.T) {
 			expectErr:           true,
 		},
 		{
-			desc:              "sad path - send receipt failed",
+			desc: "Sad path - send receipt failed",
 			in:                validTestOrder,
 			configureMockBank: happyPathBankCharge,
 			configureMockSender: func(sender *MockReceiptSender) {

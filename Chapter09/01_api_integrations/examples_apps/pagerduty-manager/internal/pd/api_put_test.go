@@ -25,7 +25,7 @@ func TestAPI_Put(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "sad path - bad response",
+			desc: "Sad path - bad response",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			}),

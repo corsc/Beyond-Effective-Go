@@ -6,6 +6,6 @@ import (
 
 type Account struct{}
 
-func (a *Account) Transfer(amount int, to string) error {
+func (a *Account) Transfer(amount int, recipient string) error {
 	return errors.New("not implemented")
 }

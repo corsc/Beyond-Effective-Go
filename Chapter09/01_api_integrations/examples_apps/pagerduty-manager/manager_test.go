@@ -22,12 +22,12 @@ func TestManager_Parse(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc:      "sad path - empty file",
+			desc: "Sad path - empty file",
 			in:        "./test_data/empty.json",
 			expectErr: true,
 		},
 		{
-			desc:      "sad path - invalid file",
+			desc: "Sad path - invalid file",
 			in:        "./test_data/invalid.json",
 			expectErr: true,
 		},

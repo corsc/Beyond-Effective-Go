@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// Option 1: Creating a compile time assertion
+// Option 1: Creating a compile-time assertion
 var _ File = &fileV1{}
 
 func TestFileV1_implementsFile(t *testing.T) {
