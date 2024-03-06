@@ -6,7 +6,7 @@ import (
 )
 
 type CreateUserHandler struct {
-	model *UserModel
+	model *UserManager
 }
 
 func (s *CreateUserHandler) Handler(resp http.ResponseWriter, req *http.Request) {

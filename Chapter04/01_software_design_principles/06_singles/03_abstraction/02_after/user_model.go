@@ -1,11 +1,11 @@
 package _2_after
 
-type UserModel struct {
+type UserManager struct {
 	dao *UserDAO
 }
 
 // Attempts to create the supplied user
-func (u *UserModel) Create(user *User) (int, error) {
+func (u *UserManager) Create(user *User) (int, error) {
 	err := u.validate(user)
 	if err != nil {
 		return 0, err
@@ -15,7 +15,7 @@ func (u *UserModel) Create(user *User) (int, error) {
 }
 
 // validate the supplied user is complete and correct
-func (u *UserModel) validate(user *User) error {
+func (u *UserManager) validate(user *User) error {
 	// implementation removed
 	return nil
 }
