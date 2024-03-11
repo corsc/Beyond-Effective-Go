@@ -23,7 +23,7 @@ func TestConsumer_Consume(t *testing.T) {
 
 	select {
 	case <-resultCh:
-		assert.True(t, true, "Happy Path")
+		assert.True(t, true, "Happy path")
 
 	case <-time.After(1 * time.Second):
 		assert.Fail(t, "test timed out")

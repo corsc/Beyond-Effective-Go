@@ -18,7 +18,7 @@ func TestAPI_Post(t *testing.T) {
 		expectErr             bool
 	}{
 		{
-			desc: "Happy Path",
+			desc: "Happy path",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusCreated)
 				_, _ = resp.Write([]byte(postHappyPathResponse))

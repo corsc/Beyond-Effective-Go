@@ -44,14 +44,14 @@ func TestOrderManager_Process_sadPath_nameValidationImproved(t *testing.T) {
 		CustomerName:    "",
 		ShippingAddress: "123 Sesame Street",
 	}
-	expectErr := true
+	expectAnErr := true
 
 	// call object under test
 	orderManager := &OrderManager{}
 	resultErr := orderManager.Process(order)
 
 	// validation
-	require.Equal(t, expectErr, resultErr != nil, "expect error: %s. err was: %s", resultErr)
+	require.Equal(t, expectAnErr, resultErr != nil, "expect error: %s. err was: %s", resultErr)
 }
 
 func TestOrderManager_Process_sadPath_shippingAddressValidation(t *testing.T) {

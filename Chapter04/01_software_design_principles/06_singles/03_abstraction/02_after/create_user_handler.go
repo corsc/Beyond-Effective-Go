@@ -9,7 +9,7 @@ type CreateUserHandler struct {
 	model *UserManager
 }
 
-func (s *CreateUserHandler) Handler(resp http.ResponseWriter, req *http.Request) {
+func (s *CreateUserHandler) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
 	user, err := s.extractUser(req)
 	if err != nil {
 		resp.WriteHeader(http.StatusBadRequest)

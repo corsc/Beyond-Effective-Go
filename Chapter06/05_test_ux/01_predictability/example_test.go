@@ -11,19 +11,19 @@ import (
 
 func TestOrderManager_Process(t *testing.T) {
 	scenarios := []struct {
-		desc                string
-		in                  Order
+		scenarioDesc        string
+		inputOrder          Order
 		configureMockBank   func(bank *MockBank)
 		configureMockSender func(sender *MockReceiptSender)
-		expected            string
-		expectErr           bool
+		expectedReceiptNo   string
+		expectAnErr         bool
 	}{
 		// scenarios removed
 	}
 
 	for _, s := range scenarios {
 		scenario := s
-		t.Run(scenario.desc, func(t *testing.T) {
+		t.Run(scenario.scenarioDesc, func(t *testing.T) {
 			// inputs
 			ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
 			defer cancel()
@@ -37,11 +37,11 @@ func TestOrderManager_Process(t *testing.T) {
 
 			// call object under test
 			orderManager := NewOrderManager(mockBank, mockReceiptSender)
-			result, resultErr := orderManager.Process(ctx, scenario.in)
+			result, resultErr := orderManager.Process(ctx, scenario.inputOrder)
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
-			assert.Equal(t, scenario.expected, result, "expected result")
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
+			assert.Equal(t, scenario.expectedReceiptNo, result, "expected result")
 		})
 	}
 }

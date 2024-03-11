@@ -19,7 +19,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 		expectErr      bool
 	}{
 		{
-			desc: "Happy Path - all set",
+			desc: "Happy path - all set",
 			mockHandler: func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`
 {
@@ -66,7 +66,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "Happy Path - 1 Set",
+			desc: "Happy path - 1 Set",
 			mockHandler: func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`
 {

@@ -17,17 +17,17 @@ func TestManager_Parse(t *testing.T) {
 		expectErr bool
 	}{
 		{
-			desc:      "Happy Path",
+			desc:      "Happy path",
 			in:        "./test_data/simple.json",
 			expectErr: false,
 		},
 		{
-			desc: "Sad path - empty file",
+			desc:      "Sad path - empty file",
 			in:        "./test_data/empty.json",
 			expectErr: true,
 		},
 		{
-			desc: "Sad path - invalid file",
+			desc:      "Sad path - invalid file",
 			in:        "./test_data/invalid.json",
 			expectErr: true,
 		},

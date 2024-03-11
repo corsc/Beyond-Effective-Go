@@ -37,13 +37,13 @@ func TestCoordinator_buildListOfChangedPackages(t *testing.T) {
 		expectErr      bool
 	}{
 		{
-			desc:           "Happy Path - No changes",
+			desc:           "Happy path - No changes",
 			in:             ``,
 			expectedResult: nil,
 			expectErr:      true,
 		},
 		{
-			desc: "Happy Path - 1 change",
+			desc: "Happy path - 1 change",
 			in: `
 Chapter09/01_api_integrations/01_example/01_calling_the_api/calling_pagerduty_test.go
 `,
@@ -53,7 +53,7 @@ Chapter09/01_api_integrations/01_example/01_calling_the_api/calling_pagerduty_te
 			expectErr: false,
 		},
 		{
-			desc: "Happy Path - multiple changes and duplicates",
+			desc: "Happy path - multiple changes and duplicates",
 			in: `
 Chapter09/01_api_integrations/01_example/01_calling_the_api/calling_pagerduty.go
 Chapter09/01_api_integrations/01_example/01_calling_the_api/calling_pagerduty_test.go
@@ -93,7 +93,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 		expectErr      bool
 	}{
 		{
-			desc: "Happy Path - No changes",
+			desc: "Happy path - No changes",
 			in: []string{
 				"A",
 				"B",
@@ -105,7 +105,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "Happy Path - With vendor",
+			desc: "Happy path - With vendor",
 			in: []string{
 				"A",
 				"A/vendor/C",
@@ -117,7 +117,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "Happy Path - With test data",
+			desc: "Happy path - With test data",
 			in: []string{
 				"A",
 				"A/testdata/C",
@@ -129,7 +129,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 			expectErr: false,
 		},
 		{
-			desc: "Happy Path - With nothing but vendor",
+			desc: "Happy path - With nothing but vendor",
 			in: []string{
 				"vendor/B",
 			},
