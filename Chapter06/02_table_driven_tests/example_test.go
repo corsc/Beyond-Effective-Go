@@ -130,8 +130,8 @@ func TestOrderManager_Process(t *testing.T) {
 			result, resultErr := orderManager.Process(ctx, scenario.inputOrder)
 
 			// validation
-			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
-			assert.Equal(t, scenario.expectedReceiptNo, result, "expected result")
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error: %t err was: %s", scenario.expectAnErr, resultErr)
+			assert.Equal(t, scenario.expectedReceiptNo, result, "expected receipt no")
 		})
 	}
 }

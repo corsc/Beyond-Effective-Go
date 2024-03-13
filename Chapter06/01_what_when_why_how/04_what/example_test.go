@@ -35,7 +35,7 @@ func TestOrderManager_Process_sadPath_nameValidation(t *testing.T) {
 	resultErr := orderManager.Process(order)
 
 	// validation
-	require.Equal(t, expectedErr, resultErr)
+	require.Equal(t, expectedErr, resultErr, "expected error: %s. was: %s", expectedErr, resultErr)
 }
 
 func TestOrderManager_Process_sadPath_nameValidationImproved(t *testing.T) {
@@ -51,7 +51,7 @@ func TestOrderManager_Process_sadPath_nameValidationImproved(t *testing.T) {
 	resultErr := orderManager.Process(order)
 
 	// validation
-	require.Equal(t, expectAnErr, resultErr != nil)
+	require.Equal(t, expectAnErr, resultErr != nil, "expect an error: %s. err was: %s", expectAnErr, resultErr)
 }
 
 func TestOrderManager_Process_sadPath_shippingAddressValidation(t *testing.T) {
@@ -67,5 +67,5 @@ func TestOrderManager_Process_sadPath_shippingAddressValidation(t *testing.T) {
 	resultErr := orderManager.Process(order)
 
 	// validation
-	require.Equal(t, expectedErr, resultErr)
+	require.Equal(t, expectedErr, resultErr, "expected error: %s. was: %s", expectedErr, resultErr)
 }

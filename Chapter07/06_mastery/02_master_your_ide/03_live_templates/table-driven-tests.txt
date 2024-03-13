@@ -1,17 +1,17 @@
 scenarios := []struct {
-    desc        string
-    in          $IN_TYPE$
-    configureMocks func(*$MOCK_TYPE$)
-    expected    $EXPECTED_TYPE$
-    expectErr   bool
+    desc            string
+    in              $IN_TYPE$
+    configureMocks  func(*$MOCK_TYPE$)
+    expected        $EXPECTED_TYPE$
+    expectAnErr     bool
 }{
     {
-        desc:       "Happy path",
-        in:         $IN$,
+        desc:           "Happy path",
+        in:             $IN$,
         configureMocks: func(*$MOCK_TYPE$) {
         },
-        expected:   $EXPECTED$,
-        expectErr:   false,
+        expected:       $EXPECTED$,
+        expectAnErr:    false,
     },
 }
 
@@ -28,7 +28,7 @@ for _, s := range scenarios {
         result, resultErr := $METHOD$()
         
         // validation
-        require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+        require.Equal(t, scenario.expectAnErr, resultErr != nil, "expect an error: %t err: %s", scenario.expectAnErr, resultErr)
         assert.Equal(t, scenario.expected, result, "expected result")
     })
 }

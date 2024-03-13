@@ -18,7 +18,7 @@ func TestManager_Get(t *testing.T) {
 		desc                  string
 		configureMockResponse http.HandlerFunc
 		expected              *Schedule
-		expectErr             bool
+		expectAnErr           bool
 	}{
 		{
 			desc: "Happy path",
@@ -41,15 +41,15 @@ func TestManager_Get(t *testing.T) {
 					},
 				},
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Sad path - no such service",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`{}`))
 			}),
-			expected:  nil,
-			expectErr: true,
+			expected:    nil,
+			expectAnErr: true,
 		},
 	}
 
@@ -75,7 +75,7 @@ func TestManager_Get(t *testing.T) {
 			result, resultErr := manager.Get(ctx, "A")
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
 			assert.Equal(t, scenario.expected, result, "expected result")
 		})
 	}
@@ -86,7 +86,7 @@ func TestManager_GetByName(t *testing.T) {
 		desc                  string
 		configureMockResponse http.HandlerFunc
 		expected              *Schedule
-		expectErr             bool
+		expectAnErr           bool
 	}{
 		{
 			desc: "Happy path",
@@ -100,15 +100,15 @@ func TestManager_GetByName(t *testing.T) {
 				TimeZone:    "D",
 				Teams:       []*team{{ID: "E"}},
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Sad path - no such escalation policy",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`{}`))
 			}),
-			expected:  nil,
-			expectErr: true,
+			expected:    nil,
+			expectAnErr: true,
 		},
 	}
 
@@ -134,7 +134,7 @@ func TestManager_GetByName(t *testing.T) {
 			result, resultErr := manager.GetByName(ctx, "BOOK")
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
 			assert.Equal(t, scenario.expected, result, "expected result")
 		})
 	}
@@ -145,7 +145,7 @@ func TestManager_Add(t *testing.T) {
 		desc                  string
 		configureMockResponse http.HandlerFunc
 		expected              string
-		expectErr             bool
+		expectAnErr           bool
 	}{
 		{
 			desc: "Happy path",
@@ -153,16 +153,16 @@ func TestManager_Add(t *testing.T) {
 				resp.WriteHeader(http.StatusCreated)
 				_, _ = resp.Write([]byte(addHappyPathResponse))
 			}),
-			expected:  "A",
-			expectErr: false,
+			expected:    "A",
+			expectAnErr: false,
 		},
 		{
 			desc: "Sad path - system error",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			}),
-			expected:  "",
-			expectErr: true,
+			expected:    "",
+			expectAnErr: true,
 		},
 	}
 
@@ -197,7 +197,7 @@ func TestManager_Add(t *testing.T) {
 			result, resultErr := manager.Add(ctx, newSchedule, "Australia/Melbourne")
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
 			assert.Equal(t, scenario.expected, result)
 		})
 	}
@@ -207,7 +207,7 @@ func TestManager_Update(t *testing.T) {
 	scenarios := []struct {
 		desc                  string
 		configureMockResponse http.HandlerFunc
-		expectErr             bool
+		expectAnErr           bool
 	}{
 		{
 			desc: "Happy path",
@@ -222,14 +222,14 @@ func TestManager_Update(t *testing.T) {
 					_, _ = resp.Write([]byte(updateHappyPathResponse))
 				}
 			}),
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Sad path - system error",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			}),
-			expectErr: true,
+			expectAnErr: true,
 		},
 	}
 
@@ -264,7 +264,7 @@ func TestManager_Update(t *testing.T) {
 			resultErr := manager.Update(ctx, "FU", newSchedule, "Australia/Melbourne")
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
 		})
 	}
 }

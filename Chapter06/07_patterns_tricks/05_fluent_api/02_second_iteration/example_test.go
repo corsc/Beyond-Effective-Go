@@ -22,7 +22,7 @@ func TestSearch_Do(t *testing.T) {
 		desc              string
 		historySearchStub historySearchFunc
 		expected          []*Order
-		expectErr         bool
+		expectAnErr       bool
 	}{
 		{
 			desc: "Happy path",
@@ -55,7 +55,7 @@ func TestSearch_Do(t *testing.T) {
 					Customer: "Tricia",
 				},
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 	}
 
@@ -70,7 +70,7 @@ func TestSearch_Do(t *testing.T) {
 			result, resultErr := search.Do(ctx, customerName)
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
 			assert.Equal(t, scenario.expected, result, "expected result")
 		})
 	}

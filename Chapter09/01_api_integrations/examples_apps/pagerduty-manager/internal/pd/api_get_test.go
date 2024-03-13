@@ -18,8 +18,8 @@ func TestAPI_Get(t *testing.T) {
 	scenarios := []struct {
 		desc                  string
 		configureMockResponse http.HandlerFunc
-		expected              *getResponse
-		expectErr             bool
+		expected    *getResponse
+		expectAnErr bool
 	}{
 		{
 			desc: "Happy path",
@@ -40,15 +40,15 @@ func TestAPI_Get(t *testing.T) {
 					},
 				},
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Sad path - bad response",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				_, _ = resp.Write([]byte(`not JSON`))
 			}),
-			expected:  &getResponse{},
-			expectErr: true,
+			expected:    &getResponse{},
+			expectAnErr: true,
 		},
 	}
 
@@ -84,7 +84,7 @@ func TestAPI_Get(t *testing.T) {
 			resultErr := manager.Get(ctx, uri, params, result)
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
 			assert.Equal(t, scenario.expected, result, "expected result")
 		})
 	}

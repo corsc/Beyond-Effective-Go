@@ -16,7 +16,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 		desc           string
 		mockHandler    func(resp http.ResponseWriter, req *http.Request)
 		expectedResult []*User
-		expectErr      bool
+		expectAnErr    bool
 	}{
 		{
 			desc: "Happy path - all set",
@@ -63,7 +63,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 					PushIsSet:  true,
 				},
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Happy path - 1 Set",
@@ -98,7 +98,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 					PushIsSet:  false,
 				},
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Sad path - bad auth",
@@ -106,7 +106,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 				resp.WriteHeader(http.StatusUnauthorized)
 			},
 			expectedResult: nil,
-			expectErr:      true,
+			expectAnErr:    true,
 		},
 		{
 			desc: "Sad path - 5xx response",
@@ -114,7 +114,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			},
 			expectedResult: nil,
-			expectErr:      true,
+			expectAnErr:    true,
 		},
 	}
 
@@ -134,7 +134,7 @@ func TestUsersAPI_GetUsers(t *testing.T) {
 			result, resultErr := objectUnderTest.GetUsers(ctx)
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectErr, resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectAnErr, resultErr)
 			assert.Equal(t, result, scenario.expectedResult)
 		})
 	}

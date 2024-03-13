@@ -12,24 +12,24 @@ import (
 
 func TestManager_Parse(t *testing.T) {
 	scenarios := []struct {
-		desc      string
-		in        string
-		expectErr bool
+		desc        string
+		in          string
+		expectAnErr bool
 	}{
 		{
-			desc:      "Happy path",
-			in:        "./test_data/simple.json",
-			expectErr: false,
+			desc:        "Happy path",
+			in:          "./test_data/simple.json",
+			expectAnErr: false,
 		},
 		{
-			desc:      "Sad path - empty file",
-			in:        "./test_data/empty.json",
-			expectErr: true,
+			desc:        "Sad path - empty file",
+			in:          "./test_data/empty.json",
+			expectAnErr: true,
 		},
 		{
-			desc:      "Sad path - invalid file",
-			in:        "./test_data/invalid.json",
-			expectErr: true,
+			desc:        "Sad path - invalid file",
+			in:          "./test_data/invalid.json",
+			expectAnErr: true,
 		},
 	}
 
@@ -51,7 +51,7 @@ func TestManager_Parse(t *testing.T) {
 			resultErr := manager.Parse(ctx)
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
 		})
 	}
 }

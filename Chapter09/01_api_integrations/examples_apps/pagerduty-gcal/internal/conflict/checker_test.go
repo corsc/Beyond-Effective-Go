@@ -21,14 +21,14 @@ func TestCheckerAPI_Check(t *testing.T) {
 		inCalendars       map[string]*gcal.Calendar
 		inMinimumDays     int64
 		expectedConflicts int
-		expectErr         bool
+		expectAnErr       bool
 	}{
 		{
 			desc:              "Happy path - no inputs",
 			inSchedule:        &pduty.Schedule{},
 			inCalendars:       map[string]*gcal.Calendar{},
 			expectedConflicts: 0,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 		{
 			desc: "no conflict - ooo start and end before",
@@ -54,7 +54,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 				},
 			},
 			expectedConflicts: 0,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 		{
 			desc: "no conflict - ooo start and end after",
@@ -80,7 +80,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 				},
 			},
 			expectedConflicts: 0,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 		{
 			desc: "conflict - ooo start and end equal",
@@ -106,7 +106,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 				},
 			},
 			expectedConflicts: 1,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 		{
 			desc: "conflict - ooo start before and end after",
@@ -132,7 +132,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 				},
 			},
 			expectedConflicts: 1,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 		{
 			desc: "conflict - ooo start after and end before",
@@ -158,7 +158,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 				},
 			},
 			expectedConflicts: 1,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 		{
 			desc: "conflict - minimum days between violation",
@@ -185,7 +185,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 			},
 			inMinimumDays:     7,
 			expectedConflicts: 1,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 		{
 			desc: "no conflict - minimum days between violation",
@@ -212,7 +212,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 			},
 			inMinimumDays:     7,
 			expectedConflicts: 0,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 		{
 			desc: "no conflict - minimum days between violation (different user)",
@@ -239,7 +239,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 			},
 			inMinimumDays:     7,
 			expectedConflicts: 0,
-			expectErr:         false,
+			expectAnErr:       false,
 		},
 	}
 
@@ -252,7 +252,7 @@ func TestCheckerAPI_Check(t *testing.T) {
 
 			// validate
 			assert.Equal(t, scenario.expectedConflicts, len(result), scenario.desc)
-			assert.Equal(t, scenario.expectErr, resultErr != nil, scenario.desc)
+			assert.Equal(t, scenario.expectAnErr, resultErr != nil, scenario.desc)
 		})
 	}
 }

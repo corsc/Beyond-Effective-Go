@@ -113,7 +113,7 @@ func TestDecorate(t *testing.T) {
 		in              *Receipt
 		configDecorator func(decorator *MockReceiptDecorator)
 		expectedResult  *Receipt
-		expectErr       bool
+		expectAnErr     bool
 	}{
 		{
 			desc: "RunFunc example",
@@ -131,7 +131,7 @@ func TestDecorate(t *testing.T) {
 			expectedResult: &Receipt{
 				ID: "ABC-123",
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 	}
 
@@ -147,7 +147,7 @@ func TestDecorate(t *testing.T) {
 			resultErr := thisMock.Decorate(scenario.in)
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectErr, resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectAnErr, resultErr)
 			assert.Equal(t, scenario.expectedResult, scenario.in)
 		})
 	}

@@ -34,13 +34,13 @@ func TestCoordinator_buildListOfChangedPackages(t *testing.T) {
 		desc           string
 		in             string
 		expectedResult []string
-		expectErr      bool
+		expectAnErr    bool
 	}{
 		{
 			desc:           "Happy path - No changes",
 			in:             ``,
 			expectedResult: nil,
-			expectErr:      true,
+			expectAnErr:    true,
 		},
 		{
 			desc: "Happy path - 1 change",
@@ -50,7 +50,7 @@ Chapter09/01_api_integrations/01_example/01_calling_the_api/calling_pagerduty_te
 			expectedResult: []string{
 				"Chapter09/01_api_integrations/01_example/01_calling_the_api",
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Happy path - multiple changes and duplicates",
@@ -63,7 +63,7 @@ Chapter09/01_api_integrations/01_example/02_something_else/example.go
 				"Chapter09/01_api_integrations/01_example/01_calling_the_api",
 				"Chapter09/01_api_integrations/01_example/02_something_else",
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 	}
 
@@ -79,7 +79,7 @@ Chapter09/01_api_integrations/01_example/02_something_else/example.go
 			result, resultErr := objectUnderTest.buildListOfChangedPackages([]byte(scenario.in))
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectErr, resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectAnErr, resultErr)
 			assert.Equal(t, scenario.expectedResult, result)
 		})
 	}
@@ -90,7 +90,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 		desc           string
 		in             []string
 		expectedResult []string
-		expectErr      bool
+		expectAnErr    bool
 	}{
 		{
 			desc: "Happy path - No changes",
@@ -102,7 +102,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 				"A",
 				"B",
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Happy path - With vendor",
@@ -114,7 +114,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 			expectedResult: []string{
 				"A",
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Happy path - With test data",
@@ -126,7 +126,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 			expectedResult: []string{
 				"A",
 			},
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Happy path - With nothing but vendor",
@@ -134,7 +134,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 				"vendor/B",
 			},
 			expectedResult: nil,
-			expectErr:      true,
+			expectAnErr:    true,
 		},
 	}
 
@@ -150,7 +150,7 @@ func TestCoordinator_filterUnwantedPackages(t *testing.T) {
 			result, resultErr := objectUnderTest.filterUnwantedPackages(scenario.in)
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectErr, resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error: %t, err: '%s'", scenario.expectAnErr, resultErr)
 			assert.Equal(t, scenario.expectedResult, result)
 		})
 	}

@@ -15,7 +15,7 @@ func TestAPI_Post(t *testing.T) {
 	scenarios := []struct {
 		desc                  string
 		configureMockResponse http.HandlerFunc
-		expectErr             bool
+		expectAnErr           bool
 	}{
 		{
 			desc: "Happy path",
@@ -23,14 +23,14 @@ func TestAPI_Post(t *testing.T) {
 				resp.WriteHeader(http.StatusCreated)
 				_, _ = resp.Write([]byte(postHappyPathResponse))
 			}),
-			expectErr: false,
+			expectAnErr: false,
 		},
 		{
 			desc: "Sad path - bad response",
 			configureMockResponse: http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 				resp.WriteHeader(http.StatusInternalServerError)
 			}),
-			expectErr: true,
+			expectAnErr: true,
 		},
 	}
 
@@ -63,7 +63,7 @@ func TestAPI_Post(t *testing.T) {
 			resultErr := manager.Post(ctx, uri, reqDTO, respDTO)
 
 			// validation
-			require.Equal(t, scenario.expectErr, resultErr != nil, "expected error. err: %s", resultErr)
+			require.Equal(t, scenario.expectAnErr, resultErr != nil, "expected error. err: %s", resultErr)
 		})
 	}
 }
