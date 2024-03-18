@@ -26,7 +26,7 @@ func TestGenerateJSON(t *testing.T) {
 	resultErr := generateReceiptFile(destination)
 	require.NoError(t, resultErr)
 
-	// clean up the created file
+	// clean up the created file after the test completes
 	defer os.Remove(destination)
 
 	// compare the generated file with the expected file
@@ -52,7 +52,7 @@ func TestGenerateJSONWithGenerator(t *testing.T) {
 	resultErr := generateReceiptFile(destination)
 	require.NoError(t, resultErr)
 
-	// clean up the created file
+	// clean up the created file after the test completes
 	defer os.Remove(destination)
 
 	// compare the generated file with the expected file

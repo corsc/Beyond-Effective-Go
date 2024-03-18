@@ -24,5 +24,7 @@ func TestAssertion(t *testing.T) {
 	resultErr := errors.New("sample")
 	var expectedErr error
 
-	require.Equal(t, expectedErr, resultErr, "resultErr did not match expectedErr")
+	require.Equal(t, expectedErr, resultErr, "resultErr '%v' did not match expectedErr '%v'", expectedErr, resultErr)
+
+	require.Equal(t, expectedErr, resultErr)
 }
