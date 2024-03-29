@@ -14,3 +14,9 @@
 *.out
 
 trace.out
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/encodings.xml
+/.idea/GitLink.xml
+/.idea/vcs.xml
