@@ -18,13 +18,13 @@ func TestToUpper(t *testing.T) {
 	assert.Equal(t, expected, result)
 }
 
-func TestReverse(t *testing.T) {
+func TestAddPeriod(t *testing.T) {
 	// variables
 	in := []string{"Hello", "World"}
-	expected := []string{"olleH", "dlroW"}
+	expected := []string{"Hello.", "World."}
 
 	// call
-	result := forEach(in, reverse)
+	result := forEach(in, addPeriod)
 
 	// validate
 	assert.Equal(t, expected, result)

@@ -2,6 +2,7 @@
 
 set +x
 
+# Enable verbose debugging output by setting DBG_SCRIPTS to any value.
 if [ -n "${DBG_SCRIPTS}" ]; then
   set -x
 fi
@@ -9,60 +10,72 @@ fi
 clear
 
 # Define some standard exclusions to linting and code coverage checks
+# and assign them to LINTER_EXCLUDE.
 source ~/Applications/go-exclusions
 
-# Build list of modified directories
+# Build list of modified directories.
 dirsToCheck=$(for f in $(git diff --name-only --diff-filter=d --merge-base HEAD); do dirname $f; done | sort | uniq)
 
-# Run standard checks and cleaning
+# Run standard checks and cleaning.
 for d in $dirsToCheck; do
-  # Ignore directories marked as excluded
-  if [ $(echo "/$d/" | grep -E "$LINTER_EXCLUDE" | wc -l) -eq 1 ]; then
+  # Ignore directories marked as excluded.
+  skipLint=$(echo "/$d/" | grep -E "$LINTER_EXCLUDE")
+  if [ $? -eq 0 ]; then
     echo "$d skipped due to LINTER_EXCLUDE"
     echo
     continue
   fi
 
-  # Header to keep track
+  # Header to keep track.
   echo -e "\033[1;34mChecking: $d\033[0m"
 
-  # Format code and fix imports
+  # Format code and fix imports.
   echo -e "\033[1;34mClean:\033[0m"
   if [ "$d" != "." ]; then
     goclean ./$d
 
-    if [[ $? != 0 ]]; then
+    if [ $? -ne 0 ]; then
       exit -1
     fi
   fi
 
-  # Run tests and race check
+  # Run tests and race check.
   echo -e "\033[1;34mRace Tests:\033[0m"
-  testResult=$(gotestr ./$d)
-  if [[ $? != 0 ]]; then
-    if [ $(echo "/$testResult/" | grep "no Go files" | wc -l) -eq 1 ]; then
+  testResult=$(gotestr ./$d  2>&1)
+  if [ $? -ne 0 ]; then
+    testFailed=$(echo "$testResult" | grep "no Go files")
+    if [ $? -ne 0 ]; then
       echo -e "$testResult"
       exit -1
     fi
   fi
 
-  # Skip further checks when no changes were made
-  if [ $(echo "/$testResult/" | grep "(cached)" | wc -l) -eq 0 ]; then
+  # Skip further checks when no changes were made.
+  testsWereCached=$(echo "$testResult" | grep "(cached)")
+  if [ $? -ne 0 ]; then
     # Perform lint checks
     echo -e "\033[1;34mLint:\033[0m"
-    lintResult=$(golint ./$d)
-    lintResultInt=$?
-
-    if [ $(echo "/$lintResult/" | grep "no go files to analyze" | wc -l) -eq 0 ]; then
-      if [[ $lintResultInt != 0 ]]; then
+    lintResult=$(golint ./$d 2>&1)
+    if [ $? -ne 0 ]; then
+      lintFailed=$(echo "$lintResult" | grep "no go files to analyze")
+      if [ $? -ne 0 ]; then
 	      echo -e "$lintResult"
         exit -1
       fi
     fi
 
-    # Enforce minimum coverage
+    # Enforce minimum coverage.
     echo -e "\033[1;34mCode Coverage Check:\033[0m"
-    pcov ./$d -s
+    coverageResult=$(pcov $d -s 2>&1)
+    if [ $? -ne 0 ]; then
+      testFailed=$(echo "$testResult" | grep "no Go files")
+      if [ $? -ne 0 ]; then
+        echo -e "$coverageResult"
+        exit -1
+      else
+        echo -e "$coverageResult"
+      fi
+    fi
   else
     echo "skipped further checks as code was not changed since last run"
   fi

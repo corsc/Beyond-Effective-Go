@@ -3,16 +3,24 @@
 set -o errexit
 set -o pipefail
 
-# Ensure the formatting of the source directory is consistent
+# Ensure the formatting of the source directory is consistent.
 DIR=${1%...}
 PKG_DIR=${DIR%/}/
 
-# Import a regex with files to ignore
+# Import a regex with files to ignore and assign it to COVERAGE_EXCLUDE.
 source ~/Applications/go-exclusions
 
-# Calculate the go import path of the base package
+# Calculate the go import path of the base package.
 BASE_PKG=$(go list)
 BASE_PKG=${BASE_PKG%/}/
 
-# Calculate unit test coverage and highlight any packages under 70%
-package-coverage -a -i $COVERAGE_EXCLUDE -m 70 -prefix $BASE_PKG $PKG_DIR ${@:2}
+# Calculate unit test coverage and highlight any packages under 70%.
+#
+# The settings we are using here are:
+# -a = requests the tool to calculate the coverage, output it to the terminal, and clean up afterwards.
+# -i $COVERAGE_EXCLUDE = excludes some paths from coverage given the supplied regular expression.
+# -m 70 = sets the minimum coverage value to 70%. Any packages under this number will be highlighted in red.
+# -prefix $BASE_PKG = trims the BASE_PKG value from the start of all package names. This makes the output easier to read.
+# $PKG_DIR = specifies the base directory from which coverage will be calculated.
+# ${@:2} = passes any additional flags used to call to this script to the call to the tool.
+package-coverage -a -i $COVERAGE_EXCLUDE -m 70 -prefix $BASE_PKG ${@:2} $PKG_DIR

@@ -15,6 +15,7 @@ func ExampleMultiply_notFP() {
 	inputs := []int{1, 2, 3, 4, 5}
 
 	var result int
+
 	for index, thisValue := range inputs {
 		if index == 0 {
 			result = thisValue

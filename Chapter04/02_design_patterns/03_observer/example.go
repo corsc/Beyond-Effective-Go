@@ -32,7 +32,7 @@ func (c *Celebrity) Unfollow(responseCh chan Post) {
 		if observer == responseCh {
 			c.fans = append(c.fans[:index], c.fans[index+1:]...)
 
-			// close the channel and stop watch loop
+			// close the channel and stop the watch loop
 			close(responseCh)
 
 			return

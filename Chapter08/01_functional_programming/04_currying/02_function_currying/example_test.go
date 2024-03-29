@@ -5,7 +5,7 @@ import (
 )
 
 func ExampleMultiply_ShortForm() {
-	result := Multiply(3)(5)
+	result := Multiply(5)(3)
 
 	// Output: 15
 	fmt.Println(result)

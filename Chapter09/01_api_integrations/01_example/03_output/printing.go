@@ -11,7 +11,7 @@ type Printer struct {
 
 func (p *Printer) outputHeader() {
 	_, _ = fmt.Fprintf(p.logger, "%-40s %-60s %-8s %-8s %-8s %-8s\n",
-		"Name", "Email", "Email", "Phone", "SMS", "Push")
+		"Name", "Email Address", "Email", "Phone", "SMS", "Push")
 	_, _ = fmt.Fprint(p.logger,
 		"-----------------------------------------------------------------------------------------------------------------------------------------------------\n")
 }

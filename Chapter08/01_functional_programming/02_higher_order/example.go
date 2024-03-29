@@ -21,10 +21,6 @@ func toUpper(in string) string {
 	return strings.ToUpper(in)
 }
 
-func reverse(in string) string {
-	out := ""
-	for x := len(in) - 1; x >= 0; x-- {
-		out += in[x : x+1]
-	}
-	return out
+func addPeriod(in string) string {
+	return in + "."
 }

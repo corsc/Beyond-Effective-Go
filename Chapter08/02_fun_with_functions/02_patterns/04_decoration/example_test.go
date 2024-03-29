@@ -3,6 +3,7 @@ package _4_decoration
 import (
 	"io"
 	"net/http"
+	"runtime"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -11,6 +12,9 @@ import (
 
 func TestExample(t *testing.T) {
 	go StartServer()
+
+	// give the server a chance to start
+	runtime.Gosched()
 
 	resp, err := http.DefaultClient.Get("http://0.0.0.0:8080")
 	require.NoError(t, err)

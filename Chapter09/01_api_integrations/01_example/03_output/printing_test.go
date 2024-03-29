@@ -8,7 +8,7 @@ import (
 )
 
 func TestPrinter_outputHeader(t *testing.T) {
-	expected := `Name                                     Email                                                        Email    Phone    SMS      Push    
+	expected := `Name                                     Email Address                                                Email    Phone    SMS      Push    
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 `
 	result := &bytes.Buffer{}

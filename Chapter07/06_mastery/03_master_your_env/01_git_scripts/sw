@@ -9,8 +9,8 @@ if [ -z "$1" ]; then
 fi
 
 # Check if we need to stash and in-progress changes
-IS_CLEAN=$(git status | grep "working tree clean" | wc -l)
-if [ $IS_CLEAN -eq 0 ]; then
+IS_CLEAN=$(git status --short | wc -l)
+if [ ${IS_CLEAN} -ne 0 ]; then
 	git stash
 fi
 
@@ -23,6 +23,6 @@ git checkout $1
 git rebase master
 
 # Merge any stashed changes
-if [ $IS_CLEAN -eq 0 ]; then
+if [ ${IS_CLEAN} -ne 0 ]; then
 	git stash pop
 fi

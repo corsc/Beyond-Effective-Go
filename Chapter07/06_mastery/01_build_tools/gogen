@@ -5,25 +5,30 @@ set -o pipefail
 
 clear
 
+# Enable verbose debugging output by setting DBG_SCRIPTS to any value.
+if [ -n "${DBG_SCRIPTS}" ]; then
+  set -x
+fi
+
 if [ -z "$1" ]; then
-  # Specific directory not supplied, use all changed directories
+  # A specific directory was not supplied; use all changed directories.
 
   # Check changed dirs
   dirsToCheck=$(for f in $(git diff --name-only --diff-filter=d); do dirname $f; done | sort | uniq)
 
   for d in $dirsToCheck; do
-    # Regenerate the directory
+    # Regenerate the directory.
     go generate ./$d
 
-    # Format generated code (call the formatting script)
+    # Format generated code (call the formatting script).
     goclean ./$d
   done
 
   exit
 fi
 
-# Regenerate the supplied directory
+# Regenerate only the supplied directory.
 go generate $1
 
-# Format generated code (call the formatting script)
+# Format generated code (call the formatting script).
 goclean $1

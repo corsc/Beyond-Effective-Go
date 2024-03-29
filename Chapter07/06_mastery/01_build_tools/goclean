@@ -2,6 +2,7 @@
 
 set +x
 
+# Enable verbose debugging output by setting DBG_SCRIPTS to any value.
 if [ -n "${DBG_SCRIPTS}" ]; then
   set -x
 fi
@@ -9,19 +10,20 @@ fi
 set -o errexit
 set -o pipefail
 
-# Ensure we specify a directory
+# Ensure we specify a directory.
 if [ -z "$1" ]; then
     echo "Please supply a destination directory"
 	exit 1
 fi
 
-# Ensure the formatting of the source directory is consistent
+# Ensure the formatting of the source directory is consistent.
 DIR=${1%...}
 PKG_DIR=${DIR%/}/
 
 # Build a list of all Go files
 DIRS=$(find $PKG_DIR -type f -name '*.go')
 
+# Shortcut when no directories with Go files are found.
 if [ -z "$DIRS" ]; then
     exit 0
 fi

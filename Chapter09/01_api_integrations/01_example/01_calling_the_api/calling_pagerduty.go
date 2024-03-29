@@ -10,7 +10,7 @@ import (
 
 // User is the DTO for the user and forms part of the API for this package
 type User struct {
-	// User Details
+	// User details
 	ID    string
 	Name  string
 	Email string

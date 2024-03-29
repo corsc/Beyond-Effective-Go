@@ -13,9 +13,9 @@ func TestSkipWithEnvVar(t *testing.T) {
 	// rest of the test
 }
 
-func TestExampleUATTest(t *testing.T) {
-	if os.Getenv("UAT") == "" {
-		t.Skip("UAT test skipped")
+func TestExampleUAT(t *testing.T) {
+	if os.Getenv("RUN_UAT") == "" {
+		t.Skip("UAT skipped")
 	}
 
 	// rest of the test
