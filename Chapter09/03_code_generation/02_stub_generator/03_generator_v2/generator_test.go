@@ -14,6 +14,7 @@ func TestStubGenerator_Generate(t *testing.T) {
 	result, err := generator.Generate(filename, "UserLoader")
 	require.NoError(t, err)
 
+	// check we’ve generated what we expected to
 	assert.Equal(t, expectedStubResult, result)
 }
 

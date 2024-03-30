@@ -6,16 +6,16 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-type Filter struct {
+type StringCollection struct {
 	data  []string
 	index map[string]struct{}
 }
 
-func (f *Filter) Match(in []string) []string {
+func (s *StringCollection) Match(in []string) []string {
 	var out []string
 
 	for _, thisIn := range in {
-		_, found := f.index[thisIn]
+		_, found := s.index[thisIn]
 		if found {
 			out = append(out, thisIn)
 		}
@@ -24,19 +24,19 @@ func (f *Filter) Match(in []string) []string {
 	return out
 }
 
-func (f *Filter) Add(in []string) {
+func (s *StringCollection) Add(in []string) {
 	for _, thisIn := range in {
-		f.data = append(f.data, thisIn)
-		f.index[thisIn] = struct{}{}
+		s.data = append(s.data, thisIn)
+		s.index[thisIn] = struct{}{}
 	}
 }
 
-func TestFilter(t *testing.T) {
-	filter := &Filter{
+func TestStringCollection(t *testing.T) {
+	collection := &StringCollection{
 		index: map[string]struct{}{},
 	}
-	filter.Add([]string{"A", "B", "C", "D"})
+	collection.Add([]string{"A", "B", "C", "D"})
 
-	result := filter.Match([]string{"C", "A"})
+	result := collection.Match([]string{"C", "A"})
 	assert.Equal(t, 2, len(result))
 }

@@ -23,8 +23,8 @@ func (s *StubGenerator) parseSource(filename string) ([]*Interface, error) {
 	for _, decl := range parsedFile.Decls {
 		generalDecl, ok := decl.(*ast.GenDecl)
 		if !ok {
-			// Skip anything that isn't a General Declaration.
-			// General Declaration's include imports, constants, types or variable declarations.
+			// Skip anything that isn't a generic declaration.
+			// Generic declarations include imports, constants, types or variable declarations.
 			continue
 		}
 
