@@ -79,6 +79,7 @@ func (s *StubGenerator) parseSource(filename string) ([]*Interface, error) {
 func parseFieldList(fieldList *ast.FieldList) []*Param {
 	var out []*Param
 
+	// iterate over input and output params
 	for _, param := range fieldList.List {
 		paramType := extractParamType(param.Type)
 
