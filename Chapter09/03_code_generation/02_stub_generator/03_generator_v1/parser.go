@@ -106,8 +106,7 @@ func parseFieldList(fieldList *ast.FieldList) []*Param {
 func extractParamType(param ast.Expr) string {
 	switch concreteType := param.(type) {
 	case *ast.SelectorExpr:
-		return getNameFromIdent(concreteType.X.(*ast.Ident)) + "." +
-			getNameFromIdent(concreteType.Sel)
+		return getNameFromIdent(concreteType.X.(*ast.Ident)) + "." + getNameFromIdent(concreteType.Sel)
 
 	case *ast.StarExpr:
 		return "*" + extractParamType(concreteType.X)

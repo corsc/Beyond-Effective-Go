@@ -79,7 +79,9 @@ func (u *UsersAPI) buildRequest(ctx context.Context) (*http.Request, error) {
 	params := &url.Values{}
 	params.Set("include[]", "contact_methods")
 
-	req, err := http.NewRequestWithContext(ctx, "GET", u.apiBaseURL+"/users?"+params.Encode(), http.NoBody)
+	uri := u.apiBaseURL + "/users?" + params.Encode()
+
+	req, err := http.NewRequestWithContext(ctx, "GET", uri, http.NoBody)
 	if err != nil {
 		return nil, err
 	}
